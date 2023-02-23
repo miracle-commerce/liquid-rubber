@@ -1,0 +1,123 @@
+{% if product.metafields.custom_fields["product"] != blank %}
+    {% for item in product.metafields.custom_fields["product"] %}
+        {% assign item = item %}
+    {% endfor %}
+{% endif %}
+
+<section class="c-product-tabs c-tabs" aria-label="Product Tabs">
+    {% render 'product-tab-paintbrush-stroke' %}
+    <div class="container">
+        <div class="row d-none d-lg-flex">
+            <div class="col-12">
+                <div class="tabs">
+                    <button class="tab-selector active" data-tabnumber="1" type="button" data-tabname="{{ section.settings.product_details_tab }}">
+                        <div class="tab-title">{{ section.settings.product_details_tab }}</div>
+                    </button>
+                    <button class="tab-selector" data-tabnumber="2" type="button" data-tabname="{{ section.settings.steps_tab }}">
+                        <div class="tab-title">{{ section.settings.steps_tab }}</div>
+                    </button>
+                    <button class="tab-selector" data-tabnumber="3" type="button" data-tabname="{{ section.settings.reviews_tab }}">
+                        <div class="tab-title">{{ section.settings.reviews_tab }}</div>
+                    </button>
+                    {% if item["misc_tab"] != blank and section.settings.misc_tab != blank %}
+                        <button class="tab-selector" data-tabnumber="4" type="button" data-tabname="{{ section.settings.misc_tab }}">
+                            <div class="tab-title">{{ section.settings.misc_tab }}</div>
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="tabbed-content col-12 col-lg-10">
+                <button class="mobile-tab-selector tab-1 d-lg-none active" type="button" data-tabnumber="1" data-tabname="{{ section.settings.product_details_tab }}">
+                    <div class="tab-title">{{ section.settings.product_details_tab }}</div>
+                </button>
+                <div class="tab-container active" data-tabnumber="1">
+                    {% render 'product-details', title: section.settings.product_details_tab, content: item %}
+                </div>
+                <button class="mobile-tab-selector tab-2 d-lg-none" type="button" data-tabnumber="2" data-tabname="{{ section.settings.steps_tab }}">
+                    <div class="tab-title">{{ section.settings.steps_tab }}</div>
+                </button>
+                <div class="tab-container" data-tabnumber="2">
+                    {% render 'product-steps', steps: item["product_steps"], item: item %}
+                </div>
+                <button class="mobile-tab-selector tab-3 d-lg-none" type="button" data-tabnumber="3" data-tabname="{{ section.settings.reviews_tab }}">
+                    <div class="tab-title">{{ section.settings.reviews_tab }}</div>
+                </button>
+                <div class="tab-container" data-tabnumber="3">
+                    {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', jm_style: '', concierge_install: false, product: product %}
+                </div>
+                {% if item["misc_tab"] != blank and section.settings.misc_tab != blank %}
+                    <button class="mobile-tab-selector tab-4 d-lg-none" type="button" data-tabnumber="4" data-tabname="{{ section.settings.misc_tab }}">
+                        <div class="tab-title">{{ section.settings.misc_tab }}</div>
+                    </button>
+                    <div class="tab-container" data-tabnumber="4">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    {{ item["misc_tab"] }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product tabs",
+  "tag": "section",
+  "class": "section",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_details_tab",
+      "label": "Product Detail Tab Name",
+      "default": "Product Details"
+    },
+    {
+      "type": "paragraph",
+      "content": "To add product details, please navigate to product page and edit Custom Fields."
+    },
+    {
+      "type": "text",
+      "id": "steps_tab",
+      "label": "Product Steps Tab Name",
+      "default": "Step-By-Step"
+    },
+    {
+      "type": "paragraph",
+      "content": "To add default product steps, please navigate to product page and edit Custom Fields. To add additional projects, please navigate to Globals under Custom Fields app."
+    },
+    {
+      "type": "text",
+      "id": "reviews_tab",
+      "label": "Reviews Tab Name",
+      "default": "Reviews"
+    },
+    {
+      "type": "paragraph",
+      "content": "Reviews will be dynamically populated on the product page."
+    },
+    {
+      "type": "text",
+      "id": "misc_tab",
+      "label": "Miscellaneous Tab Name"
+    },
+    {
+      "type": "paragraph",
+      "content": "This additional tab is optional. To add content, please navigate to the product page and edit Custom Fields."
+    }
+  ],
+  "blocks": [
+
+  ],
+  "templates": [
+    "product"
+  ]
+}
+{% endschema %}

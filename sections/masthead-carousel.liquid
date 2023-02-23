@@ -1,0 +1,253 @@
+   <section class="c-lr-hero">
+
+      <div class="box-wrapper">
+        <div class="box-container">
+          <div id="box-1" class="box boz" data-speed="0.45">&nbsp;</div>
+          <div id="box-2" class="box boz" data-speed="0.8">&nbsp;</div>
+
+          <div class="brush" data-speed="1" class="lazyload" data-bg="{{ 'Brush-longHandle-paint.png' | asset_url }}" style="background-image: url('{{ 'Brush-longHandle-paint.png' | asset_url }}')">&nbsp;</div>
+
+          <div id="box-4" class="box boz" data-speed="0.75">&nbsp;</div>
+          <div id="box-5" class="box boz" data-speed="0.70">&nbsp;</div>
+        </div>
+      </div>
+
+      <div class="hero" data-arrows="true" data-autoplay="true">
+        {% for block in section.blocks %}
+          {% if block.settings.image != blank %}
+            <div class="masthead-slide">
+
+               <div class="scroll-img img-responsive cover"><img class="lazyload" srcset="
+                  {%- if block.settings.image.width >= 375 -%}{{ block.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+                  {%- if block.settings.image.width >= 750 -%}{{ block.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                  {%- if block.settings.image.width >= 1100 -%}{{ block.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                  {%- if block.settings.image.width >= 1500 -%}{{ block.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                  {%- if block.settings.image.width >= 1780 -%}{{ block.settings.image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                  {%- if block.settings.image.width >= 2000 -%}{{ block.settings.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                  {%- if block.settings.image.width >= 3000 -%}{{ block.settings.image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                  {%- if block.settings.image.width >= 3840 -%}{{ block.settings.image | image_url: width: 3840 }} 3840w,{%- endif -%}
+                  {{ block.settings.image | image_url }} {{ block.settings.image.width }}w" data-src="{{ block.settings.image | image_url: width: 1920 }}" sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}" alt="{{ block.settings.image.alt }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}"></div>
+
+              <div class="container mc-group-c">
+                <div class="row mc-group-r">
+
+                  <div class="masthead-content slide-content col-lg-6 col-md-6 col-sm-12">
+                    {% for value in block.settings.mast-color %}
+                      <h1 class="mt-4 mb-4" style="--cx-mast-color: var(--b-{% if value == 'dark' %}orange{% elsif value == 'light' %}black{% else value == 'white' %}white{% endif %});">Cross That<br><span class="cross-off" style="--cx-mast-cross-off: var(--b-{% if value == 'dark' %}white{% elsif value == 'light' %}green{% else value == 'white' %}orange{% endif %});">{{ block.settings.word_text }}<br></span>Project Off<br>Your List.</h1>
+                    {% endfor %}
+
+                  </div>
+
+                  <div class="ms-bc-content col-lg-6 col-md-6 col-sm-12">
+                    <div class="ms-bc-inner">
+                      <h5 class="ms-bc-title mb-3">{{ section.settings.benefits_title }}</h5>
+                      {% if section.settings.override_benefit_cta %}
+                        <div class="benefits-ctas small">
+                          {% for block in section.blocks %}
+                            {% if block.type == 'benefit_cta' %}
+                              {% assign icon = block.settings.icon | downcase %}
+
+                              <div class="benefit-cta">
+                                {%- liquid
+                                  if icon != blank
+                                    case icon
+                                      when 'shield'
+                                        render 'icon-shield'
+                                      when 'chain'
+                                        render 'icon-chain'
+                                      else
+                                        render 'icon-paint'
+                                    endcase
+                                  endif
+                                -%}
+                                {% if block.settings.content != blank %}
+                                  <span>{{ block.settings.content }}</span>
+                                {% endif %}
+                              </div>
+                            {% endif %}
+                          {% endfor %}
+                        </div>
+
+                        {%- liquid
+                          for block in section.blocks
+                            if block.type == 'benefit_cta'
+                              for operation in menuItems
+                                assign icon = block.settings.icon | split: '_' | first | split: ''
+                                assign cta = cta | concat: icon
+                              endfor
+                            endif
+                          endfor
+                        -%}
+                        {% else %}
+                        {% liquid
+                           assign benefit_ctas = shop.metafields.custom_fields["benefit_callouts"]
+                           if benefit_ctas != blank
+                             render 'benefit-ctas', callouts: benefit_ctas, class: 'small'
+                           endif
+                        %}
+                      {% endif %}
+
+                      {%- if section.settings.button_benefit_url != blank -%}
+                        <div class="button white ms-bc-btn mt-3">
+                          <a {% if section.settings.button_benefit_url == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_benefit_url }}"{% endif %}>{{ section.settings.button_benefit_cta | escape }}<span class="arrow"></span></a>
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+      </div>
+  </section>
+
+
+{% schema %}
+{
+  "name": "Masthead Carousel",
+  "class": "section",
+  "tag": "section",
+  "limit": 1,
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Right Side Callout Box"
+    },
+    {
+      "type": "paragraph",
+      "content": "This is the box located on the far right. Please enter your details below."
+    },
+    {
+      "type": "text",
+      "id": "benefits_title",
+      "default": "Products That Prove Themselves",
+      "label": "Enter Right Side Box Title",
+      "info": "This is the title entry for the box that appears right of the paintbrush."
+    },
+    {
+      "type": "text",
+      "id": "button_benefit_cta",
+      "default": "Shop All Products",
+      "label": "Right Side Button CTA",
+      "info": "Enter CTA for Button"
+    },
+    {
+      "type": "url",
+      "id": "button_benefit_url",
+      "label": "Button URL",
+      "info": "Paste link or search & select Liquid Rubber page."
+    },
+    {
+      "type": "header",
+      "content": "Miscellaneous Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "override_benefit_cta",
+      "default": false,
+      "label": "Override Benefit Callouts",
+      "info": "If selected, please add blocks to customize the benefit callouts. Otherwise it will inherit the global benefit callouts."
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Masthead Slide",
+      "type": "slide",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide Background",
+          "info": "Select Slide Background Image"
+        },
+        {
+          "type": "text",
+          "id": "word_text",
+          "default": "One-Word",
+          "label": "Slide Word",
+          "info": "Add Main Word Here"
+        },
+        {
+          "type": "select",
+          "id": "mast-color",
+          "label": "Dark Theme | Light Theme",
+          "default": "dark",
+          "options": [
+            {
+              "value": "dark",
+              "label": "Dark Slide Theme"
+            },
+            {
+              "value": "light",
+              "label": "Light Slide Theme"
+            },
+            {
+              "value": "white",
+              "label": "White / Orange Slide Theme"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Benefit Callout",
+      "type": "benefit_cta",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "chain",
+              "label": "Chain"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "paint",
+              "label": "Paint"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Masthead Carousel",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "benefit_cta"
+        },
+        {
+          "type": "benefit_cta"
+        },
+        {
+          "type": "benefit_cta"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

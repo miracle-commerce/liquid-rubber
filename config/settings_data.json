@@ -1,0 +1,157 @@
+{
+  "current": {
+    "colors_background_1": "#FFFFFF",
+    "social_twitter_link": "https:\/\/twitter.com\/LiquidRubber_ca",
+    "social_facebook_link": "https:\/\/www.facebook.com\/LiquidRubberCa",
+    "social_pinterest_link": "https:\/\/www.pinterest.com\/liquidrubber\/_created\/",
+    "social_instagram_link": "https:\/\/www.instagram.com\/liquidrubberca\/?hl=en",
+    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UCBAxJVYP-4c6agQgDBfdFGQ",
+    "favicon": "shopify:\/\/shop_images\/LR_Favicon.png",
+    "currency_code_enabled": false,
+    "checkout_customization": true,
+    "checkout_title": "Checkout",
+    "checkout_content": "<p><strong>HAVE QUESTIONS<\/strong><\/p><p><br\/>T: <a href=\"tel:18555921049\" title=\"tel:18555921049\">1-855-592-1049<\/a><\/p><p><br\/>E: <a href=\"mailto:info@liquidrubber.com\" title=\"mailto:support@shopliquidrubber.com\">support@shopliquidrubber.com<\/a><\/p>",
+    "checkout_logo_image": "shopify:\/\/shop_images\/liquid-rubber-logo-01.png",
+    "checkout_sidebar_background_color": "#F3F3F3",
+    "checkout_accent_color": "#c05630",
+    "checkout_button_color": "#c05630",
+    "checkout_error_color": "#9d0000",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "6844cfe8-4255-4be9-b18c-f3ab2fb73529": {
+            "type": "announcement",
+            "settings": {
+              "announcement": "<p>Free Shipping On US Orders $49.95+<\/p>",
+              "link": ""
+            }
+          },
+          "60a98adc-83c1-4cce-b05e-b35c0c9f227c": {
+            "type": "announcement",
+            "settings": {
+              "announcement": "<p>Free Shipping On CA Orders $74.95+<\/p>",
+              "link": ""
+            }
+          },
+          "announcement-bar-0": {
+            "type": "announcement",
+            "settings": {
+              "announcement": "<p>Free Shipping On UK Orders £49.95+<\/p>",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "6844cfe8-4255-4be9-b18c-f3ab2fb73529",
+          "60a98adc-83c1-4cce-b05e-b35c0c9f227c",
+          "announcement-bar-0"
+        ],
+        "settings": {
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu",
+          "secondary_menu": "secondary-menu",
+          "secondary_menu_banner": "<p>Need Project Help? Speak with an expert: <a href=\"tel:18555921049\" title=\"tel:18555921049\">1-855-592-1049 <\/a> or <a href=\"mailto:support@shopliquidrubber.com\" title=\"mailto:support@shopliquidrubber.com\">support@shopliquidrubber.com<\/a><\/p>"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "newsletter_enable": true,
+          "newsletter_heading": "Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.",
+          "show_social": true,
+          "footer_menu_1": "footer-menu-1",
+          "footer_menu_2": "footer-menu-2",
+          "email": "Support@shopliquidrubber.com",
+          "disclaimer_menu": "disclaimer-menu"
+        }
+      },
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+        }
+      },
+      "sezzle-widget": {
+        "type": "sezzle-widget",
+        "settings": {
+          "show-sezzle-widget": true,
+          "color": "inherit",
+          "font-size": 14,
+          "font-family": "inherit",
+          "product-page-alignment": "auto",
+          "cart-page-alignment": "auto"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "8962992520437913685": {
+        "type": "shopify:\/\/apps\/yotpo-loyalty-rewards\/blocks\/loader-app-embed-block\/2f9660df-5018-4e02-9868-ee1fb88d6ccd",
+        "disabled": true,
+        "settings": {
+          "inject_modules_loader": true,
+          "inject_sdk_loader": true
+        }
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0"
+          ],
+          "settings": {
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "show_social": true
+          }
+        },
+        "main-password-header": {
+          "type": "main-password-header",
+          "settings": {
+          }
+        },
+        "main-password-footer": {
+          "type": "main-password-footer",
+          "settings": {
+          }
+        }
+      }
+    }
+  }
+}

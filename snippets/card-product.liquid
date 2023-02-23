@@ -1,0 +1,139 @@
+{% comment %}
+    Renders a product card
+
+    Accepts:
+    - card_product: {Object} Product Liquid object (optional)
+    - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
+    - index: svg id
+    - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+
+    Usage:
+    {% render 'card-product' %}
+{% endcomment %}
+
+{% liquid
+     assign hasColor = false
+
+     unless card_product.has_only_default_variant
+         for option in card_product.options_with_values
+             if option.name == 'Color'
+                 assign hasColor = true
+             endif
+         endfor
+     endunless
+%}
+
+<div class="card-product-container {% if hasColor %}has-color-variant{% endif %} {% if card_product.available == false %}disabled{% endif %}">
+    {% liquid
+     if card_product.featured_media
+         unless card_product.has_only_default_variant
+             for option in card_product.options_with_values
+                 if option.name == 'Color'
+                    render 'collection-paintbrush-stroke', id: index
+                 endif
+             endfor
+         endunless
+     endif
+    %}
+
+    <a rel="js-dl-cp-trigger" href="{{ card_product.url | default: '#' }}" data-product-name="{{ card_product.title }}" data-product-id="{{ card_product.id }}" data-unit-price="{{ card_product.selected_or_first_available_variant.price | divided_by: 100.00 }}" data-item-category='{{ card_product.metafields.product.product_type }}' data-item-category2='{{ card_product.metafields.product.project }}' data-product-variant="{{ card_product.selected_or_first_available_variant.title }}" data-index-count="{{ indexCount }}">
+        {%- if card_product.featured_media -%}
+            <img loading="lazy"
+                 {% if lazy_load %}
+                     data-srcset="{%- if card_product.featured_media.width >= 160 -%}{{ card_product.featured_media | image_url: width: 160 }} 160w,{%- endif -%}
+                      {%- if card_product.featured_media.width >= 185 -%}{{ card_product.featured_media | image_url: width: 185 }} 185w,{%- endif -%}
+                      {%- if card_product.featured_media.width >= 215 -%}{{ card_product.featured_media | image_url: width: 215 }} 215w,{%- endif -%}
+                      {%- if card_product.featured_media.width >= 265 -%}{{ card_product.featured_media | image_url: width: 265 }} 265w,{%- endif -%}
+                      {{ card_product.featured_media | image_url: width: 300 }} 300w"
+                     data-sizes="(min-width: 320px) 160w, (min-width: 768px) 185w, (min-width: 992px) 215w, (min-width: 1200px) 265w, 300w"
+                     data-src="{{ card_product.featured_media | image_url: width: 300 }}"
+                     class="lazy"
+                 {% else %}
+                     src="{{ card_product.featured_media | image_url: width: 300 }}"
+                 {% endif %}
+                 alt="{{ card_product.featured_media.alt | escape }}"
+                 width="{{ card_product.featured_media.width }}"
+                 height="{{ card_product.featured_media.height }}"
+            >
+        {%- endif -%}
+
+        {% if card_product.compare_at_price > card_product.price and card_product.available %}
+            <div class="product-on-sale">On Sale</div>
+        {% endif %}
+
+        <div class="product-name">{{ card_product.title | escape }}</div>
+    </a>
+
+    <div class="product-price-range">
+        {% if card_product.price_min == card_product.price_max %}
+            {{ card_product.price_min | money }}
+        {% else %}
+            {{ card_product.price_min | money }} - {{ card_product.price_max | money }}
+        {% endif %}
+    </div>
+
+    {% if card_product.available == false %}
+        <div class="out-of-stock">{{ 'products.product.out_of_stock' | t }}</div>
+    {% endif %}
+
+    {% if hasColor %}
+        {%- for option in card_product.options_with_values -%}
+            {% if option.name == 'Color' %}
+                <fieldset class="js product-form__input" id="{{ option.name | downcase }}-{{ index }}">
+                    <div class="product-form__input-container">
+                        <legend class="form__label col-form-label visually-hidden">{{ option.name }}:</legend>
+
+                        <div class="options-container">
+                            {% liquid
+                                assign optionsLength = option.values | size
+                                assign mobileOptions = option.values | slice: 1, 3
+                            %}
+
+                            {% if optionsLength > 3 %}
+                                <div class="mobile-container d-inline-flex d-md-none">
+                                    {%- for value in mobileOptions -%}
+                                        {% assign input_value = value | replace: ' ', '-' | downcase %}
+
+                                        <input type="radio" id="mobile-{{ card_product.title | downcase | replace: ' ', '_' }}-{{ option.position }}-{{ index }}-{{ forloop.index0 }}"
+                                               name="{{ option.name }}-{{ index }}"
+                                               value="{{ value | escape }}">
+                                        <label for="mobile-{{ card_product.title | downcase | replace: ' ', '_' }}-{{ option.position }}-{{ index }}-{{ forloop.index0 }}"
+                                               class="{{ input_value | downcase }}">
+                                            <span class="visually-hidden">{{ value }}</span>
+                                        </label>
+                                    {% endfor %}
+                                </div>
+                                <a href="{{ card_product.url | default: '#' }}" class="d-block d-md-none">+</a>
+                            {% endif %}
+
+                            <div class="desktop-container {% if optionsLength > 3 %}d-none d-md-block{% endif %}">
+                                {%- for value in option.values -%}
+                                    {% assign input_value = value | replace: ' ', '-' | downcase %}
+
+                                    <input type="radio" id="desktop-{{ card_product.title | downcase | replace: ' ', '_' }}-{{ option.position }}-{{ index }}-{{ forloop.index0 }}"
+                                           name="{{ option.name }}-{{ index }}"
+                                           value="{{ value | escape }}">
+                                    <label for="desktop-{{ card_product.title | downcase | replace: ' ', '_' }}-{{ option.position }}-{{ index }}-{{ forloop.index0 }}"
+                                           class="{{ input_value | downcase }}">
+                                        <span class="visually-hidden">{{ value }}</span>
+                                    </label>
+                                {%- endfor -%}
+                            </div>
+                        </div>
+                        <div class="color-name"></div>
+                    </div>
+                </fieldset>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+
+<script type="text/javascript">
+var _learnq = _learnq || [];
+  var classname = document.getElementsByClassName("addtocart product-form__submit button orange button--full-width button--primary");
+var addToCart = function() {
+_learnq.push(['track', 'Added to Cart', item]);
+}; for (var i = 0; i < classname.length; i++) {
+classname[i].addEventListener('click', addToCart, false);
+}
+</script>

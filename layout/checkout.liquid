@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <script async defer src="https://tools.luckyorange.com/core/lo.js?site-id=e0ad1d94"></script>
+  <head>
+	{% include "pandectes-rules" %}
+	
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+    {% comment %} Added by Alex from Zion & Zion on June 20 2022 {% endcomment %}
+    <meta name="google-site-verification" content="LpcMF-paLqdmOEv7JVLaebBH3VrRzfhfPI-X757B3LU" />
+
+    <title>{{ page_title }}</title>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
+    {%- endif -%}
+
+    {{ content_for_header }}
+
+    {{ 'checkout.css' | asset_url | stylesheet_tag }}
+    {{ checkout_stylesheets }}
+    {{ checkout_scripts }}
+
+    <!-- Hotjar Tracking Code for Shop Liquid Rubber -->
+<script>
+(function(h,o,t,j,a,r){
+h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+h._hjSettings={hjid:3379647,hjsv:6};
+a=o.getElementsByTagName('head')[0];
+r=o.createElement('script');r.async=1;
+r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+  </head>
+  <body class="{{ template | replace: '.', '-' | downcase }}">
+    {{ skip_to_content_link }}
+
+    {% if settings.checkout_customization == false %}
+      <header class="banner" data-header role="banner">
+        <div class="wrap">
+          {{ content_for_logo }}
+        </div>
+      </header>
+    {% endif %}
+
+    {% comment %} Added by Alex from Zion & Zion on May 24 2022 {% endcomment %}
+    {% if settings.checkout_customization %}
+      {% render 'checkout-banner' %}
+    {% endif %}
+
+    {{ order_summary_toggle }}
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="main">
+          <header class="main__header" role="banner">
+            {% if settings.checkout_customization == false %}
+              {{ content_for_logo }}
+            {% endif %}
+            {{ breadcrumb }}
+            {{ alternative_payment_methods }}
+          </header>
+          <main class="main__content" role="main">
+            {{ content_for_layout }}
+          </main>
+          <footer class="main__footer" role="contentinfo">
+            {{ content_for_footer }}
+          </footer>
+        </div>
+        <aside class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            {{ content_for_order_summary }}
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    {{ tracking_code }}
+  </body>
+</html>

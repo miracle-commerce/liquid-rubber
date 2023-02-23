@@ -1,0 +1,58 @@
+<section class="c-contact-page-hours" aria-label="Hours">
+    <div class="container">
+        <div class="row justify-content-center py-md-4 py-lg-5">
+            <div class="col-12 col-lg-11">          
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="px-xl-4 mx-0 mx-lg-1 mb-3 mb-md-0">
+                            <h3>{{ section.settings.block_hours_heading }}</h3>
+                            {{ section.settings.block_hours_details }}
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="ml-md-3 ml-lg-5 mt-4 mt-md-0 mb-sm-3 mb-md-0">
+                            <div class="">  
+                            <h3>{{ section.settings.block_office_heading }}</h3>
+                            {{ section.settings.block_office_address }}
+                         </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hours",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "block_hours_heading",
+      "default": "Hours Heading",
+      "label": "Hours"
+    },
+    {
+      "type": "richtext",
+      "id": "block_hours_details",
+      "label": "Hours Details",
+      "default": "<p>Monday- Friday<br/>9:00am - 4:30PM EST</p>"
+    },
+    {
+      "type": "text",
+      "id": "block_office_heading",
+      "default": "North American plant and head office",
+      "label": "Office Name"
+    },
+    {
+      "type": "richtext",
+      "id": "block_office_address",
+      "label": "Address",
+      "default": "<p>1150 Eight Line Unit 16<br/>Oakville, ON<br>L6H 2R4</p>"
+    }
+  ]
+}
+{% endschema %}

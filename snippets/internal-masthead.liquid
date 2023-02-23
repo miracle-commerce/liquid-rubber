@@ -1,0 +1,13 @@
+{% if component["internal_masthead"] != blank %}
+    {% for item in component["internal_masthead"] %}
+        <section class="c-internal-masthead {{ className }}{% if item['background_option'] != blank %}{{ item['background_option'] }}{% else %}option-1{% endif %}">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>{{ item["title"] }}</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endfor %}
+{% endif %}

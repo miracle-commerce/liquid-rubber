@@ -1,0 +1,335 @@
+{
+  "sections": {
+    "masthead_carousel": {
+      "type": "masthead-carousel",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_Homepage_Header_Foundation.jpg",
+            "word_text": "Foundation",
+            "mast-color": "light"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_Homepage_Header_Metal-Roof.jpg",
+            "word_text": "Metal Roof",
+            "mast-color": "dark"
+          }
+        },
+        "76404e12-1b55-48c0-8038-27d97a7bc1eb": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_Homepage_Header_Deck-4.jpg",
+            "word_text": "Deck",
+            "mast-color": "light"
+          }
+        },
+        "5773aa33-03e6-4187-85ad-012e475c92b7": {
+          "type": "benefit_cta",
+          "settings": {
+            "icon": "chain",
+            "content": "Durable"
+          }
+        },
+        "0cd1ef4b-85c0-4aa4-bc1b-5daaf86d71bb": {
+          "type": "benefit_cta",
+          "settings": {
+            "icon": "shield",
+            "content": "Safe"
+          }
+        },
+        "c2ab60a7-4fea-4dc2-b0e9-cce584a3c7db": {
+          "type": "benefit_cta",
+          "settings": {
+            "icon": "paint",
+            "content": "Easy to Use"
+          }
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "slide_2",
+        "76404e12-1b55-48c0-8038-27d97a7bc1eb",
+        "5773aa33-03e6-4187-85ad-012e475c92b7",
+        "0cd1ef4b-85c0-4aa4-bc1b-5daaf86d71bb",
+        "c2ab60a7-4fea-4dc2-b0e9-cce584a3c7db"
+      ],
+      "settings": {
+        "benefits_title": "Products That Prove Themselves",
+        "button_benefit_cta": "Shop All Products",
+        "button_benefit_url": "shopify:\/\/collections\/products",
+        "override_benefit_cta": false
+      }
+    },
+    "featured_projects": {
+      "type": "featured-projects",
+      "blocks": {
+        "b2acfcad-46d1-4778-a624-c1b270a17062": {
+          "type": "card",
+          "settings": {
+            "project": "decks-and-balconies-sealing"
+          }
+        },
+        "bbd687a9-b8e5-4c18-b3f1-24cd9c43e430": {
+          "type": "card",
+          "settings": {
+            "project": "rv-roof-sealing"
+          }
+        },
+        "ff120090-a80c-44b0-94a4-b2cccf234f26": {
+          "type": "card",
+          "settings": {
+            "project": "metal-roof-sealing"
+          }
+        },
+        "8da2f77a-ac9d-49fc-9f28-c39f89fa7e45": {
+          "type": "card",
+          "settings": {
+            "project": "pond-sealing"
+          }
+        },
+        "af854f83-d650-4710-b780-6d4175cee6c3": {
+          "type": "card",
+          "settings": {
+            "project": "asphalt-driveway-sealing"
+          }
+        },
+        "29bc44e0-5319-4baf-946b-6e65c83017fb": {
+          "type": "card",
+          "settings": {
+            "project": "basement-interior-wall-sealing"
+          }
+        },
+        "1e6e9a73-bed8-4442-a17f-62aec5d870cb": {
+          "type": "button",
+          "settings": {
+            "button_text": "all projects",
+            "button_link": "https:\/\/shopliquidrubber.com\/collections\/projects",
+            "button_target": false
+          }
+        }
+      },
+      "block_order": [
+        "b2acfcad-46d1-4778-a624-c1b270a17062",
+        "bbd687a9-b8e5-4c18-b3f1-24cd9c43e430",
+        "ff120090-a80c-44b0-94a4-b2cccf234f26",
+        "8da2f77a-ac9d-49fc-9f28-c39f89fa7e45",
+        "af854f83-d650-4710-b780-6d4175cee6c3",
+        "29bc44e0-5319-4baf-946b-6e65c83017fb",
+        "1e6e9a73-bed8-4442-a17f-62aec5d870cb"
+      ],
+      "settings": {
+        "top_stroke": true,
+        "section_title": "FEATURED PROJECTS",
+        "bottom_stroke": true
+      }
+    },
+    "featured_two_col": {
+      "type": "featured-two-col",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2022_10-LiquidRubber_Homepage_Featured_Sealant-Coatings.png",
+            "title": "Sealants & Coatings",
+            "text": "<p>Looking to waterproof and restore your space? Our sealants and coatings are ready to protect your space from the toughest elements.<\/p>",
+            "link_cta": "Shop Sealants & Coatings",
+            "link_url": "https:\/\/shopliquidrubber.com\/collections\/products?filter.p.m.product.product_type=Sealant+%26+Coatings"
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2022_10-LiquidRubber_Homepage_Featured_Pre-Prime.png",
+            "title": "Prep & Prime",
+            "text": "<p>Get your space ready for all your projects with tapes, cleaners, and primers. Our products make prepping your space easy with everything you need to get the project done right.<\/p>",
+            "link_cta": "Shop Prep & Prime",
+            "link_url": "https:\/\/shopliquidrubber.com\/collections\/products?filter.p.m.product.product_type=Prep+%26+Primers"
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2"
+      ],
+      "settings": {
+        "title": "We Have What You Need",
+        "button_cta": "Shop All Products",
+        "button_url": "https:\/\/shopliquidrubber.com\/collections\/products"
+      }
+    },
+    "featured_testimonial": {
+      "type": "featured-testimonial",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "card_title": "Finally Something That Works!",
+            "card_rating": 5,
+            "card_text": "<p>Finally something that works! Had a leaking porch that I have tried everything but replacing the roof. Gave this a try and presto! Works like a champ! I will recommend this for everyone who has a leak they just can't stop.<\/p>",
+            "card_name": "Thomas Carrier",
+            "card_product_purchased": "waterproof-sealant"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "card_title": "Excellent Customer service",
+            "card_rating": 5,
+            "card_text": "<p>Excellent customer service. Fast shipping, excellent customer service and great products.<\/p>",
+            "card_name": "Cindy Cyr",
+            "card_product_purchased": "rv-roof-coating"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "card_title": "Great Stuff",
+            "card_rating": 4.5,
+            "card_text": "<p>Really good stuff! Sealed a 2 story plywood deck. Did mud bed on it, then 2 more layers of the Liquid Rubber. I will recommend it.<\/p>",
+            "card_name": "Mark Haynes",
+            "card_product_purchased": "polyurethane-deck-coating"
+          }
+        },
+        "debaf472-dae6-40f0-8d44-1202aa9b09a2": {
+          "type": "card",
+          "settings": {
+            "card_title": "Couldn't be happier",
+            "card_rating": 5,
+            "card_text": "<p>Used Liquid Rubber products to resurface the top of my RV slide-outs. Couldn’t be happier with the results. Two weeks later and after a few rainstorms, no leaks. I will definitely be using this from now on!<\/p>",
+            "card_name": "Benny Kumpe",
+            "card_product_purchased": "rv-roof-and-epdm-rubber-primer"
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "card_title": "Easy Application",
+            "card_rating": 5,
+            "card_text": "<p>Excellent product for my koi pond. Easy application, impressive final coating that accomplished my purpose: stopping a persistent leak in the pond. Looks very natural with the water in the pond.<\/p>",
+            "card_name": "Mike Festa",
+            "card_product_purchased": "neoprene-pond-sealant"
+          }
+        },
+        "80a5d799-d3f6-417a-a69b-b4874d81c667": {
+          "type": "card",
+          "settings": {
+            "card_title": "Transformed My Project",
+            "card_rating": 5,
+            "card_text": "<p>I used this paint under the kitchen sink cabinet in my rental property. Very useful and looks great!!<\/p>",
+            "card_name": "Pardeep Gogna",
+            "card_product_purchased": "color-waterproof-sealant-coating"
+          }
+        },
+        "ba98621d-39e9-40f7-b4a6-86978fdafd76": {
+          "type": "card",
+          "settings": {
+            "card_title": "Easy to DIY",
+            "card_rating": 5,
+            "card_text": "<p>I had questions and they were excellent! They have videos showing the whole process and how to do it right! Very easy to follow and job looks great!<\/p>",
+            "card_name": "John Duncan",
+            "card_product_purchased": "driveway-restore-sealer"
+          }
+        },
+        "9ecbdfe8-540c-43d9-bfba-c5cb16397a07": {
+          "type": "card",
+          "settings": {
+            "card_title": "Great coverage!",
+            "card_rating": 5,
+            "card_text": "<p>Very happy with the consistency of the product and the way it covered the surface. Both coats dried well. Very satisfied.<\/p>",
+            "card_name": "Arlene Hull",
+            "card_product_purchased": "foundation-sealant"
+          }
+        },
+        "cd49d7a6-cbe7-48e8-85fd-af139993784d": {
+          "type": "card",
+          "settings": {
+            "card_title": "Went on Smooth",
+            "card_rating": 5,
+            "card_text": "<p>The coating really went on smooth and stuck to the deck well. I like the anti-slip surface. I would highly recommend the product.<\/p>",
+            "card_name": "Sandy E.",
+            "card_product_purchased": "polyurethane-deck-coating"
+          }
+        },
+        "d7759458-cf97-4328-876f-2811d6651b50": {
+          "type": "card",
+          "settings": {
+            "card_title": "Easy clean up",
+            "card_rating": 4.5,
+            "card_text": "<p>New concrete pond - Material went down easy and easy clean up. Coverage better than planned.<\/p>",
+            "card_name": "Greg Anderson",
+            "card_product_purchased": "neoprene-pond-sealant"
+          }
+        },
+        "30a6db0a-d4f1-4cdd-b972-a7a1cd04f596": {
+          "type": "card",
+          "settings": {
+            "card_title": "Love the Primer",
+            "card_rating": 5,
+            "card_text": "<p>Used the primer before I used the liquid rubber. I love this primer. It really does a fantastic job of making the surface waterproof and sticks down any paint that wouldn’t scrape off. A great product.<\/p>",
+            "card_name": "Robin Ramsay",
+            "card_product_purchased": "multi-purpose-primer"
+          }
+        },
+        "8aaecd42-b6d9-47c4-9d3b-747551f8d1a5": {
+          "type": "card",
+          "settings": {
+            "card_title": "The perfect solution",
+            "card_rating": 5,
+            "card_text": "<p>I used it to paint my basement wall. Every time it rained; water came through. The wall is now dry.<\/p>",
+            "card_name": "Arthur Gabriele",
+            "card_product_purchased": "foundation-sealant"
+          }
+        },
+        "89d9fe4e-809b-4cf5-bb51-22f970e9ba54": {
+          "type": "card",
+          "settings": {
+            "card_title": "Fantastic job",
+            "card_rating": 5,
+            "card_text": "<p>Fantastic - I have used the product to seal the inside of several flower boxes. It does a great job.<\/p>",
+            "card_name": "Michael William",
+            "card_product_purchased": "neoprene-pond-sealant"
+          }
+        },
+        "3ce54cfe-57ac-40aa-a846-386b4b2c7e46": {
+          "type": "card",
+          "settings": {
+            "card_title": "Great for all Home Projects",
+            "card_rating": 5,
+            "card_text": "<p>Liquid Rubber Foundation Sealant has worked great on several of our home projects that require a rubber based sealant to keep water out. We have found it to work the best for us.<\/p>",
+            "card_name": "Deborah Geddes",
+            "card_product_purchased": "foundation-sealant"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "debaf472-dae6-40f0-8d44-1202aa9b09a2",
+        "card_4",
+        "80a5d799-d3f6-417a-a69b-b4874d81c667",
+        "ba98621d-39e9-40f7-b4a6-86978fdafd76",
+        "9ecbdfe8-540c-43d9-bfba-c5cb16397a07",
+        "cd49d7a6-cbe7-48e8-85fd-af139993784d",
+        "d7759458-cf97-4328-876f-2811d6651b50",
+        "30a6db0a-d4f1-4cdd-b972-a7a1cd04f596",
+        "8aaecd42-b6d9-47c4-9d3b-747551f8d1a5",
+        "89d9fe4e-809b-4cf5-bb51-22f970e9ba54",
+        "3ce54cfe-57ac-40aa-a846-386b4b2c7e46"
+      ],
+      "settings": {
+        "testimonial_title": "WHAT OTHER DIYERS LIKE YOU ARE SAYING"
+      }
+    }
+  },
+  "order": [
+    "masthead_carousel",
+    "featured_projects",
+    "featured_two_col",
+    "featured_testimonial"
+  ]
+}

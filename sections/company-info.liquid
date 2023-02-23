@@ -1,0 +1,180 @@
+{% if section.settings.top_stroke == true %}
+    {% assign top_stroke = 'top-section-stroke.svg' | asset_url %}
+    <img class="section-stroke top lazy" data-src="{{ top_stroke }}" aria-hidden="true" alt="" />
+{% endif %}
+<div class="container">
+    <div class="row">
+        {% for block in section.blocks %}
+            {% if block.type == 'content' %}
+                <div class="col-12">
+                    <h2>{{ section.settings.section_title }}</h2>
+                    <p>{{ block.settings.content }}</p>
+                </div>
+                <div class="col-12 callout">
+                    <h3>{{ block.settings.callout_title }}</h3>
+                    <div class="benefits-ctas large">
+                        <div class="benefit-cta">
+                            {% case block.settings.callout_icon_1 %}
+                                {% when 'shield' %}
+                                    {% render 'icon-shield' %}
+                                {% when 'chain' %}
+                                    {% render 'icon-chain' %}
+                                {% else %}
+                                    {% render 'icon-paint' %}
+                            {% endcase %}
+                            <span>{{ block.settings.callout_text_1 }}</span>
+                        </div>
+                         <div class="benefit-cta">
+                            {% case block.settings.callout_icon_2 %}
+                                {% when 'shield' %}
+                                    {% render 'icon-shield' %}
+                                {% when 'chain' %}
+                                    {% render 'icon-chain' %}
+                                {% else %}
+                                    {% render 'icon-paint' %}
+                            {% endcase %}
+                            <span>{{ block.settings.callout_text_2 }}</span>
+                        </div>
+                         <div class="benefit-cta">
+                            {% case block.settings.callout_icon_3 %}
+                                {% when 'shield' %}
+                                    {% render 'icon-shield' %}
+                                {% when 'chain' %}
+                                    {% render 'icon-chain' %}
+                                {% else %}
+                                    {% render 'icon-paint' %}
+                            {% endcase %}
+                            <span>{{ block.settings.callout_text_3 }}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% if section.settings.bottom_stroke == true %}
+    {% assign bottom_stroke = 'bottom-section-stroke.svg' | asset_url %}
+    <img class="section-stroke bottom lazy" data-src="{{ bottom_stroke }}" aria-hidden="true" alt="" />
+{% endif %}
+
+{% schema %}
+{
+  "name": "Company Info",
+  "class": "company-info bg-black",
+  "tag": "section",
+  "limit": 1,
+  "max_blocks": 1,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "top_stroke",
+      "label": "Top Stroke"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "default": "Section Title",
+      "label": "Section Title",
+      "info": "Add Section Title Here"
+    },
+    {
+      "type": "checkbox",
+      "id": "bottom_stroke",
+      "label": "Bottom Stroke"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Content",
+      "type": "content",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "callout_title",
+          "label": "Callout Title"
+        },
+        {
+          "type": "select",
+          "id": "callout_icon_1",
+          "label": "Callout Icon",
+          "options": [
+            {
+              "value": "chain",
+              "label": "Chain"
+            },
+            {
+              "value": "shield",
+              "label": "shield"
+            },
+            {
+              "value": "paint",
+              "label": "Paint"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "callout_text_1",
+          "default": "Text",
+          "label": "Callout Text"
+        },
+        {
+          "type": "select",
+          "id": "callout_icon_2",
+          "label": "Callout Icon",
+          "options": [
+            {
+              "value": "chain",
+              "label": "Chain"
+            },
+            {
+              "value": "shield",
+              "label": "shield"
+            },
+            {
+              "value": "paint",
+              "label": "Paint"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "callout_text_2",
+          "default": "Text",
+          "label": "Callout Text"
+        },
+        {
+          "type": "select",
+          "id": "callout_icon_3",
+          "label": "Callout Icon",
+          "options": [
+            {
+              "value": "chain",
+              "label": "Chain"
+            },
+            {
+              "value": "shield",
+              "label": "shield"
+            },
+            {
+              "value": "paint",
+              "label": "Paint"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "callout_text_3",
+          "default": "Text",
+          "label": "Callout Text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

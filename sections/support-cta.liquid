@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        {% for block in section.blocks %}
+            {% if block.type == 'content' %}
+                <div class="col-12 col-md-8 content">
+                    <h2>{{ block.settings.cta_title }}</h2>
+                    <p>{{ block.settings.content }}</p>
+                </div>
+            {% elsif block.type == 'button' %}
+                <div class="col-12 col-md-4 button-container">
+                    <a class="button white" href="{{ block.settings.button_link }}" aria-label="{{ block.settings.button_text }}" target="{% if block.settings.button_target == true %}_blank{% else %}_self{% endif %}">{{ block.settings.button_text }}<span class="arrow"></span></a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Support CTA",
+  "class": "support-cta bg-black",
+  "tag": "section",
+  "limit": 1,
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "name": "Content",
+      "type": "content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cta_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "default": "Button Text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_target",
+          "label": "Open In New tab?"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

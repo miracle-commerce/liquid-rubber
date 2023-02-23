@@ -1,0 +1,160 @@
+{
+  "wrapper": "div#about-us.about-us",
+  "sections": {
+    "main": {
+      "type": "about-page",
+      "blocks": {
+        "732ef0a8-7826-4efa-b73a-06e29cb6d220": {
+          "type": "content",
+          "settings": {
+            "content": "We believe everyone should have a choice to buy high quality, environmentally friendly products. We believe you should have a choice to do your own projects (most of the time you can do it better yourself than hiring someone) and save money. We believe in offering 5-Star Customer Support to help complete your project. We believe in Free Shipping direct to your door, no running all over the place."
+          }
+        },
+        "cf7e5675-2c06-4a0e-9149-b2250db683c2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2022_10-LiquidRubber_About_DIY-Done-Differently_Green.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "732ef0a8-7826-4efa-b73a-06e29cb6d220",
+        "cf7e5675-2c06-4a0e-9149-b2250db683c2"
+      ],
+      "settings": {
+        "section_title": "This is DIY Done DIfferently"
+      }
+    },
+    "company-info": {
+      "type": "company-info",
+      "blocks": {
+        "bb7c60a2-dc4f-4e62-a938-58c25d90dfa1": {
+          "type": "content",
+          "settings": {
+            "content": "We were established in the early 2000's and provide a wide range of water based, VOC and solvent free products. These products cure to provide a seamless, fully adhered flexible membrane which prevents water ingress and resists damage from water, UV, salt, thermal cycling and harmful chemicals. Available for Commercial, Industrial and Residential markets.",
+            "callout_title": "The Proof is In the Product",
+            "callout_icon_1": "chain",
+            "callout_text_1": "Durable",
+            "callout_icon_2": "shield",
+            "callout_text_2": "Safe",
+            "callout_icon_3": "paint",
+            "callout_text_3": "Easy to Use"
+          }
+        }
+      },
+      "block_order": [
+        "bb7c60a2-dc4f-4e62-a938-58c25d90dfa1"
+      ],
+      "settings": {
+        "top_stroke": true,
+        "section_title": "We talk the talk because we've walked the walk",
+        "bottom_stroke": true
+      }
+    },
+    "product-cta": {
+      "type": "product-cta",
+      "blocks": {
+        "8ffd97b6-2050-4928-b384-8733e0356e82": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_About_Map.png"
+          }
+        },
+        "d6b7af85-4187-4ebd-bf97-bdd2a2402706": {
+          "type": "button",
+          "settings": {
+            "content": "Manufactured in North America, Distributed Globally",
+            "button_text": "View Our Products",
+            "button_link": "shopify:\/\/collections\/products",
+            "button_target": false
+          }
+        }
+      },
+      "block_order": [
+        "8ffd97b6-2050-4928-b384-8733e0356e82",
+        "d6b7af85-4187-4ebd-bf97-bdd2a2402706"
+      ],
+      "settings": {
+      }
+    },
+    "project-gallery": {
+      "type": "project-gallery",
+      "blocks": {
+        "181eb5df-b80f-4ba3-812e-fe67bcdc9c90": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_About-Us_Gallery-01.jpg"
+          }
+        },
+        "14b80f5c-ca74-4bdb-9019-6b216c2c5ca4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_About-Us_Gallery-02.jpg"
+          }
+        },
+        "d4ece30b-7836-45e0-9e24-d8cd5221fa29": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_About-Us_Gallery-03.jpg"
+          }
+        },
+        "7dcb9dd2-981c-40ff-913a-e6356d64ebea": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_Project_Decks-and-Docs_Gallery-03.jpg"
+          }
+        },
+        "69d55941-20b9-41e6-99ef-a4f9ae2efdd5": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_Project_Basement-Interior-Wall_Gallery-03.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "181eb5df-b80f-4ba3-812e-fe67bcdc9c90",
+        "14b80f5c-ca74-4bdb-9019-6b216c2c5ca4",
+        "d4ece30b-7836-45e0-9e24-d8cd5221fa29",
+        "7dcb9dd2-981c-40ff-913a-e6356d64ebea",
+        "69d55941-20b9-41e6-99ef-a4f9ae2efdd5"
+      ],
+      "settings": {
+        "section_title": "The Possibilities Are Endless",
+        "bg_color": "green"
+      }
+    },
+    "support-cta": {
+      "type": "support-cta",
+      "blocks": {
+        "b1f39785-e53c-49a5-b450-a38c35775278": {
+          "type": "content",
+          "settings": {
+            "cta_title": "Need help making your project a success?",
+            "content": "Our team of experts are here to help walk you through your project and help make sure it is a success."
+          }
+        },
+        "cb0efe3a-c75c-44b1-9272-f4bd65f17b63": {
+          "type": "button",
+          "settings": {
+            "button_text": "Customer Support",
+            "button_link": "shopify:\/\/pages\/customer-support",
+            "button_target": false
+          }
+        }
+      },
+      "block_order": [
+        "b1f39785-e53c-49a5-b450-a38c35775278",
+        "cb0efe3a-c75c-44b1-9272-f4bd65f17b63"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "company-info",
+    "product-cta",
+    "project-gallery",
+    "support-cta"
+  ]
+}

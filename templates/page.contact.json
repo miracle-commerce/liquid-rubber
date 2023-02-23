@@ -1,0 +1,80 @@
+{
+  "sections": {
+    "main": {
+      "type": "contact-page",
+      "settings": {
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "blocks": {
+        "52ca0cd7-29d3-412b-8f27-c5a760c7daea": {
+          "type": "info",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/icon-call_100eb203-0dae-4a5a-97f2-77b81275bed9.png",
+            "block_heading": "Call",
+            "block_link": "<p><a href=\"tel:1-855-592-1049\" title=\"tel:1-855-592-1049\">1-855-592-1049<\/a><\/p>",
+            "block_is_chat": false,
+            "block_chat_link": ""
+          }
+        },
+        "71ceda91-2cb7-4c85-a005-075c28d10832": {
+          "type": "info",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/icon-chat_d65369a6-bd38-424e-8425-24bfe75e3d4b.png",
+            "block_heading": "Chat",
+            "block_link": "",
+            "block_is_chat": true,
+            "block_chat_link": "Live Chat"
+          }
+        },
+        "b3340102-e231-41ff-be23-6d0540d4919a": {
+          "type": "info",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/icon-email_427c8267-8bb6-4ba0-a65d-a809e53dd2a6.png",
+            "block_heading": "Email",
+            "block_link": "<p><a href=\"mailto:Support@shopliquidrubber.com\" target=\"_blank\" title=\"mailto:Support@shopliquidrubber.com\">Support@shopliquidrubber.com<\/a><\/p>",
+            "block_is_chat": false,
+            "block_chat_link": ""
+          }
+        },
+        "00cfd34c-e595-427e-a241-0b96e6cd6dce": {
+          "type": "info",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/return-svgrepo-com.png",
+            "block_heading": "Return",
+            "block_link": "<p><a href=\"https:\/\/shopliquidrubber.com\/a\/return\" target=\"_blank\" title=\"https:\/\/shopliquidrubber.com\/a\/return\">Start a Return<\/a><\/p>",
+            "block_is_chat": false,
+            "block_chat_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "52ca0cd7-29d3-412b-8f27-c5a760c7daea",
+        "71ceda91-2cb7-4c85-a005-075c28d10832",
+        "b3340102-e231-41ff-be23-6d0540d4919a",
+        "00cfd34c-e595-427e-a241-0b96e6cd6dce"
+      ],
+      "settings": {
+        "heading": "Fill out a contact form",
+        "form_success_image": "shopify:\/\/shop_images\/icon-success.png",
+        "form_success_title": "Thank you!",
+        "form_success_message": "A member of the Liquid Rubber team will follow up with you shortly."
+      }
+    },
+    "hours": {
+      "type": "contact-hours",
+      "settings": {
+        "block_hours_heading": "Hours",
+        "block_hours_details": "<p>Monday- Friday<br\/>8:30AM - 5:00PM EST<\/p>",
+        "block_office_heading": "North American plant and head office",
+        "block_office_address": "<p>1150 Eighth Line Unit 16<br\/>Oakville, ON<br\/>L6H 2R4<\/p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "form",
+    "hours"
+  ]
+}

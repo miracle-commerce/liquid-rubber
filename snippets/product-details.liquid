@@ -1,0 +1,104 @@
+{% liquid
+     assign product_coverage =  content["product_coverage"]
+     assign product_details = content["product_detail"]
+     assign product_detail_icons =  content["product_detail_icons"]
+     assign product_documents =  content["product_documents"]
+     assign product_popular_uses =  content["popular_uses"]
+     assign has_coverage_calc = false
+
+     if shop.metafields.custom_fields["coverage_rates"] != blank
+         for item in shop.metafields.custom_fields["coverage_rates"]
+             if item["product"] != blank and item["product"] == product.handle
+                 assign has_coverage_calc = true
+             endif
+         endfor
+     endif
+%}
+
+{% if product_details != blank or product_detail_icons != blank or product_popular_uses != blank or product_coverage != blank or product_documents != blank %}
+    <section class="c-product-details c-html bg-gray">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    {% if product_details != blank %}
+                        <h2 class="text-center">{{ title }}</h2>
+                        {% for item in product_details %}
+                            {% if item["content"] != blank %}
+                                {{ item["content"] }}
+                            {% endif %}
+                            {% if item["product_detail_headline"] != blank %}
+                                <h3 class="product-detail-headline">{{ item["product_detail_headline"] }}</h3>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                    {% liquid
+                         if product_detail_icons != blank
+                            assign icons =  product_detail_icons
+                         else
+                             assign icons = shop.metafields.custom_fields["benefit_callouts"]
+                         endif
+                    %}
+
+                    {% if icons %}
+                        {% render 'benefit-ctas', callouts: icons, class: 'large' %}
+                        <hr>
+                    {% endif %}
+
+                    {% if product_popular_uses != blank %}
+                        <h3 class="orange">Popular Uses</h3>
+                        {% for item in product_popular_uses %}
+                            {% if item["content"] != blank %}
+                                {{ item["content"] }}
+                            {% endif %}
+                            {% if item["uses_list"] != blank %}
+                                {% assign list_total = item["uses_list"] | size %}
+                                <ul class="{% if list_total >= 6 %}column-4{% endif %}">
+                                    {% for list_item in item["uses_list"] %}
+                                        <li>{{ list_item["uses_list"] }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {% endfor %}
+                        <hr>
+                    {% endif %}
+
+                    {% if product_coverage != blank %}
+                        <h3 class="orange">Coverage</h3>
+                        {% for item in product_coverage %}
+                            {% if item["content"] != blank %}
+                                {{ item["content"] }}
+                            {% endif %}
+
+                            {% liquid
+                             if has_coverage_calc
+                                 if item["include_calc_cta"] != blank
+                                     render 'coverage-calculator-cta', headline: item["calc_headline"], icon: item["calc_icon"], button_text: item['calc_button']
+                                 endif
+                             endif
+                            %}
+                        {% endfor %}
+                        <hr>
+                    {% endif %}
+
+                    {% if product_documents != blank %}
+                        <h3 class="orange">Documents</h3>
+                        {% for item in product_documents %}
+                            {% if item["content"] != blank %}
+                                {{ item["content"] }}
+                            {% endif %}
+                            {% if item["documents"] != blank %}
+                                <ul class="column-2 documents-list">
+                                    {% for document in item["documents"] %}
+                                        <li>{{ document["documents"] }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

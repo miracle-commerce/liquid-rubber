@@ -1,0 +1,68 @@
+{% render 'project-gallery', component: section %}
+
+{% schema %}
+{
+  "name": "Project Gallery",
+  "class": "project-gallery",
+  "tag": "section",
+  "limit": 1,
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "default": "Section Title",
+      "label": "Section Title",
+      "info": "Add Section Title Here"
+    },
+    {
+      "type": "select",
+      "id": "bg_color",
+      "default": "green",
+      "label": "Background Color",
+      "options": [
+        {
+          "value": "green",
+          "label": "Green"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Project Gallery",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

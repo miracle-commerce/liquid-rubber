@@ -1,0 +1,59 @@
+{% assign steps = steps %}
+<section class="product-steps bg-gray">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-8">
+                {% if shop.metafields.custom_fields["project_steps"] != blank %}
+                    <script>
+                        const {{ product.title | camelcase }}Steps = {{ steps | json -}};
+                        {%- for item in shop.metafields.custom_fields["project_steps"] -%}
+                        {%- assign projects_products = item['project_products'] | split: '|' -%}
+                            {%- for project_product in projects_products -%}
+                                {%- if project_product == product.handle -%}
+                                    const {{ item['project'] | camelcase }}Steps = {{ item['steps'] | json -}};
+                                    {%- if item['button_link'] -%}
+                                        const {{ item['project'] | camelcase }}Button = {
+                                            "button_aria_label": "{{ item['button_aria_label'] -}}",
+                                            "button_link": "{{ item['button_link'] -}}",
+                                            "button_text": "{{ item['button_text'] -}}"
+                                        };
+                                    {%- endif -%}
+                                {%- endif -%}
+                            {%- endfor -%}
+                        {%- endfor -%}
+                    </script>
+                {% endif %}
+
+                <h3 class="product-steps-headline">For Step-By-Step Guides Specific to Your Project</h3>
+
+                {% if shop.metafields.custom_fields["project_steps"] != blank %}
+                    <div class="input-group">
+                        <label class="sr-only visually-hidden" for="project-steps">Select Your Project</label>
+                        <select id="project-steps" name="project-steps" aria-controls="steps-container">
+                            <option value="{{ product.title | camelcase }}Steps">Select your project</option>
+                            {% for item in shop.metafields.custom_fields["project_steps"] %}
+                                {% assign projects_products = item['project_products'] | split: '|' %}
+                                {% for project_product in projects_products %}
+                                    {% if project_product == product.handle %}
+                                        {% assign words = item['project'] | replace: '-', ' ' | split: ' ' %}
+
+                                        {% capture titlecase %}
+                                            {% for word in words %}
+                                                {{ word | capitalize }}
+                                            {% endfor %}
+                                        {% endcapture %}
+
+                                        <option value="{{ item['project'] | camelcase }}Steps">{{ titlecase }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-12">
+                {% render 'steps', steps: steps %}
+            </div>
+        </div>
+    </div>
+</section>

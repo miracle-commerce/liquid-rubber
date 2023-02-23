@@ -1,0 +1,23 @@
+<div class="checkout-banner">
+    <div class="wrap">
+        <div class="checkout-banner-container">
+            {% if settings.checkout_title %}
+                <div class="section__header">
+                    <div class="section__title">
+                        <h1>{{ settings.checkout_title }}</h1>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="contact-info-container">
+                {{ content_for_logo }}
+
+                {% if settings.checkout_content %}
+                    <div class="contact-info">
+                        {{ settings.checkout_content }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

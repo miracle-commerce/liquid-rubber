@@ -1,0 +1,44 @@
+{% if component != blank %}
+    <section class="c-project-gallery {{ component.settings.bg_color }}" aria-label="Project Gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-3">
+                    {% if component["slider_title"] != blank %}
+                        <div class="content">
+                            <h2>{{ component["slider_title"] }}</h2>
+                        </div>
+                    {% elsif component.settings.section_title != blank %}
+                        <div class="content">
+                            <h2>{{ section.settings.section_title }}</h2>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-12 col-lg-9">
+                    {% if component["slider_images"] != blank or component.blocks != blank %}
+                        <div class="slider">
+                            {% for slider_images_item in component["slider_images"] %}
+                                <div class="slide">
+                                    {% if slider_images_item["image"] != blank %}
+                                        <img loading="lazy" data-lazy="{{ slider_images_item['image'] }}" 
+                                            alt="{{ slider_images_item['image_alt'] }}"
+                                            />
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+
+                            {% for block in component.blocks %}
+                                <div class="slide">
+                                    <img loading="lazy" src="{{ block.settings.image.src | image_url: width: 500, height: 500 }}"
+                                        alt="{{ block.settings.image.src.alt | escape }}" 
+                                        height="{{ block.settings.image.height }}"
+                                        width="{{ block.settings.image.width }}">
+                                 </div>
+                            {% endfor %}
+                        </div>
+                        <div class="arrows"></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

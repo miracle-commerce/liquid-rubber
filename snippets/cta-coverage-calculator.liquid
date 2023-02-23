@@ -1,0 +1,22 @@
+{% if component["coverage_calculator_cta"] != blank %}
+    {% for item in component["coverage_calculator_cta"] %}
+        <section class="c-coverage-calculator-cta {{ className }}{% if item['background_color'] != blank %} bg-{{ item['background_color'] | downcase }} {% else %}bg-green{% endif %}" aria-label="Coverage Calculator">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        {% liquid
+                             case item['background_color']
+                                 when item['background_color']
+                                     assign button_color = item['background_color'] | downcase | append: ' hollow'
+                                 else
+                                     assign button_color = 'green hollow'
+                             endcase
+                        %}
+
+                        {% render 'coverage-calculator-cta', headline: item["content"], icon: item["icon"], button_text: item['button_text'], button_class: button_color %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endfor %}
+{% endif %}

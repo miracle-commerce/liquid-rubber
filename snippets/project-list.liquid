@@ -1,0 +1,12 @@
+<section class="c-project-list {{ className }}">
+    <div class="container">
+        <div class="row">
+            {%- for product in collection.products -%}
+                <div class="col-lg-4 col-sm-6 col-12 project-spacing-bottom">
+                    {% render 'card-project', project: product, class: ".project-favorite" %}
+                </div>
+            {%- endfor -%}
+            {% render 'login-modal' %}
+        </div>
+    </div>
+</section>

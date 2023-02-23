@@ -1,0 +1,116 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+
+<link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+
+<section class="c-main-collection-product-grid">
+  {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+    {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+
+    <div id="main-collection-filters" data-id="{{ section.id }}">
+      {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
+    </div>
+  {%- endif -%}
+
+  <div id="ProductGridContainer">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <input type="hidden" id="customer_id" name="customer_id" value="{% if customer %}{{ customer.id }}{% endif %}">
+          <input type="hidden" id="customer_email" name="customer_email" value="{% if customer %}{{ customer.email }}{% endif %}">
+          <input type="hidden" id="customer_first_name" name="customer_first_name" value="{% if customer %}{{ customer.first_name }}{% endif %}">
+          <input type="hidden" id="customer_last_name" name="customer_last_name" value="{% if customer %}{{ customer.last_name }}{% endif %}">
+          <input type="hidden" id="customer_city" name="customer_city" value="{% if customer %}{{ customer.default_address.city }}{% endif %}">
+          <input type="hidden" id="customer_state" name="customer_state" value="{% if customer %}{{ customer.default_address.province }}{% endif %}">
+          <input type="hidden" id="customer_zip" name="customer_zip" value="{% if customer %}{{ customer.default_address.zip }}{% endif %}">
+          <input type="hidden" id="customer_mobile_phone" name="customer_mobile_phone" value="{% if customer %}{{ customer.default_address.phone }}{% endif %}">
+          <input type="hidden" id="user_is_logged_in" name="user_is_logged_in" value="{% if customer %}true{% else %}false{% endif %}">
+          <input type="hidden" id="list_id" name="list_id" value="search">
+          <input type="hidden" id="list_name" name="list_name" value="Search Results">
+          <input type="hidden" id="country_code" name="country_code" value="{{ localization.country.iso_code }}">
+
+
+
+          {%- paginate collection.products by section.settings.products_per_page -%}
+            {%- if collection.products.size == 0 -%}
+              <div class="collection collection--empty" id="product-grid" data-id="{{ section.id }}">
+                <div class="loading-overlay gradient">
+                    <div class="loader">
+                        <div class="loader-bubble bubble-1"></div>
+                        <div class="loader-bubble bubble-2"></div>
+                        <div class="loader-bubble bubble-3"></div>
+                    </div>
+                </div>
+                <div class="title-wrapper center">
+                  <h2 class="title title--primary">
+                    {{ 'sections.collection_template.empty' | t }}<br>
+                    {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: "underlined-link link" }}
+                  </h2>
+                </div>
+              </div>
+            {%- else -%}
+              <div class="collection">
+                <div class="loading-overlay gradient">
+                    <div class="loader">
+                        <div class="loader-bubble bubble-1"></div>
+                        <div class="loader-bubble bubble-2"></div>
+                        <div class="loader-bubble bubble-3"></div>
+                    </div>
+                </div>
+
+                <div id="product-grid" data-id="{{ section.id }}" class="row">
+                    {% assign indexCount = 1 %}
+
+                  {%- for product in collection.products -%}
+                      {% liquid
+                        assign lazy_load = false
+                        if forloop.index > 3
+                            assign lazy_load = true
+                        endif
+                      %}
+
+                    <div class="c-product-card col-6 col-md-4">
+                      {% render 'card-product',
+                        card_product: product,
+                        index: forloop.index,
+                        lazy_load: lazy_load,
+                        indexCount: indexCount
+                      %}
+                    </div>
+                    {% assign indexCount = indexCount | plus: 1 %}
+                  {%- endfor -%}
+                </div>
+
+                {%- if paginate.pages > 1 -%}
+                  {% render 'pagination', paginate: paginate, anchor: '' %}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endpaginate -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-product-grid.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+    }
+  ]
+}
+{% endschema %}

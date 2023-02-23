@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>{{ section.settings.section_title }}</h1>
+        </div>
+        {% for block in section.blocks %}
+            {% if block.type == 'content' %}
+                <div class="col-12 content">
+                    <p>{{ block.settings.content }}</p>
+                </div>
+            {% elsif block.type == 'image' %}
+                <div class="col-12 image">
+                    <img loading="lazy" srcset="{% if block.settings.image.width >= 330 %}{{ block.settings.image | image_url: width: 330 }} 330w,{% endif %}
+                    {% if block.settings.image.width >= 450 %}{{ block.settings.image | image_url: width: 970 }} 970w,{% endif %}
+                    {% if block.settings.image.width >= 510 %}{{ block.settings.image | image_url: width: 1034 }} 1034w,{% endif %}
+                    {% if block.settings.image.width >= 540 %}{{ block.settings.image | image_url: width: 1100 }} 1100w,{% endif %}"
+                       src="{{ block.settings.image.src | image_url: width: 1000 }}"
+                       sizes="(min-width: 1400px) 1100px, (min-width: 1200px) 1034px, (min-width: 992px) 970px"
+                       alt="{{ block.settings.image.src.alt | escape }}"
+                       height="{{ block.settings.image.height }}"
+                       width="{{ block.settings.image.width }}">
+                       
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Us",
+  "class": "about-info",
+  "tag": "section",
+  "limit": 1,
+  "max_blocks": 2,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "default": "Section Title",
+      "label": "Section Title",
+      "info": "Add Section Title Here"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Content",
+      "type": "content",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Recommended image size: 1130 x 430"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

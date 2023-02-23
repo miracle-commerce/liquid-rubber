@@ -1,0 +1,13 @@
+{
+  "wrapper": "div#projects.projects",
+  "sections": {
+    "projects": {
+      "type": "projects",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "projects"
+  ]
+}

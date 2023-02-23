@@ -1,0 +1,195 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<div class="account-page">
+
+  <section class="c-customer-info">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 col-lg-4 personal-info">
+          <div class="row">
+            <div class="col-12">
+              <div class="name">
+                <h1>{{ customer.name }}</h1> 
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-12">                
+              <div class="email">
+                <h2>Email</h2>
+                <p>{{ customer.email }}</p>
+              </div>
+              <div class="mb-4">           
+                {{ 'Log out' | customer_logout_link | replace: '<a', '<a class="button orange m-0"' | replace: '</a>', '</a>' }}
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-12">
+              <div class="address">     
+              <h2>Primary Address</h2>
+              {% if customer.default_address %}                    
+                {% if customer.default_address.city %}     
+                 
+                  <p>{{ customer.default_address.address1 }}</p>
+                
+                  {% if customer.default_address.address2 != blank %}
+                    <p>{{ customer.default_address.address2 }}</p>
+                  {% endif %}
+                
+                  <p>{{ customer.default_address.city }}, {% if customer.default_address.province_code %}{{ customer.default_address.province_code }}{% endif %}, {{ customer.default_address.country_code }}
+                  <p>{{ customer.default_address.zip_code }}</p>
+                  <p>{{ customer.default_address.phone }}</p>
+                {% else %}   
+                <p>No address found.</p>
+                {% endif %} 
+              {% endif %}  
+              <a class="d-inline-block button orange" href="{{ routes.account_addresses_url }}">Manage Addresses</a>
+            </div>
+            </div>
+          </div>         
+        </div>
+        <div class="order-history  col-12 col-lg-8">
+          <h2>{{ 'customer.orders.title' | t }}</h2>
+          {% paginate customer.orders by 20 %}
+
+          {%- if customer.orders.size > 0 -%}
+            <div class="custom-scroller">
+              <table class="table">
+                <thead class="orders-title">
+                  <tr>
+                    <th scope="col"><span>Order</span></th>
+                    <th scope="col"><span>Date</span></th>
+                    <th scope="col"><span>Payment</span></th>
+                    <th scope="col"><span>Fulfillment</span></th>
+                    <th scope="col"><span>Total</span></th>
+                  </tr>
+                </thead>
+                <tbody class="orders">
+                  {%- for order in customer.orders -%}
+                  <tr>
+                    <th scope="row"  style="width:15%" class="col bg-gray" data-label="{{ 'customer.orders.order_number' | t }}"><a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">
+                      {{ order.name }}
+                    </a></th>
+                    <td class="col" style="width:25%" data-label="{{ 'customer.orders.date' | t }}"> <span>{{ order.created_at | time_tag: format: 'date' }}</span></td>
+                    <td class="col bg-gray"  style="width:20%" data-label="{{ 'customer.orders.payment_status' | t }}"> <span>{{ order.financial_status_label | upcase }}</span></td>
+                    <td class="col" style="width:20%" data-label="{{ 'customer.orders.fulfillment_status' | t }}"><span>{{ order.fulfillment_status_label }}</span></td>
+                    <td class="col bg-gray" style="width:20%" data-label="{{ 'customer.orders.total' | t }}"> <span>{{ order.total_price | money_with_currency }}</span></td>
+                  </tr>
+                {%- endfor -%}
+                </tbody>
+              </table>
+            </div>
+          {%- else -%}
+            <p class="order-none">{{ 'customer.orders.none' | t }}</p>
+          {%- endif -%}
+
+            {%- if paginate.pages > 1 -%}
+              {%- if paginate.parts.size > 0 -%}
+                  <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+                    <ul role="list">
+                    {%- if paginate.previous -%}
+                      <li>
+                        <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                          </svg>
+                        </a>
+                      </li>
+                    {%- endif -%}
+
+                    {%- for part in paginate.parts -%}
+                      <li>
+                        {%- if part.is_link -%}
+                          <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</a>
+                        {%- else -%}
+                          {%- if part.title == paginate.current_page -%}
+                            <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</span>
+                          {%- else -%}
+                            <span>{{ part.title }}</span>
+                          {%- endif -%}
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+
+                    {%- if paginate.next -%}
+                      <li>
+                        <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}" >
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                          </svg>
+                        </a>
+                      </li>
+                    {%- endif -%}
+                    </ul>
+                  </nav>
+              {%- endif -%}
+            {%- endif -%}
+          {% endpaginate %}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="c-customer-rewards bg-gray">
+    <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/BbIIRdS-qYqqoAH-f-Q4Rg" async></script>
+    <div class="yotpo-widget-instance" data-yotpo-instance-id="161193"></div>
+  </section>
+</div>
+
+<script>
+
+  
+  $(document).ready(function() {
+    
+    function GetParameterValues(param) {  
+      let url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');  
+      for (let i = 0; i < url.length; i++) {  
+          let urlparam = url[i].split('=');  
+          if (urlparam[0] == param) {  
+              return urlparam[1];  
+          }  
+      }  
+    }
+
+    let login = GetParameterValues('login');  
+    
+    if(login){
+      utag.link({
+        event_type: "login",
+        method: "email",
+        tealium_event: "user_login",
+        user_logged_in: "true"
+      });
+    }
+
+    
+
+  });
+
+
+
+
+  let totalPoints = 0;
+  amountRedeemed = 0;
+  
+  function updatePoints(){
+    totalPoints =  parseInt($(".yotpo-points-balance-text-part").text());
+  }
+  
+
+  let observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {    
+      $component = document.getElementsByClassName("yotpo-redemption-options-list");
+      console.log("****************")
+      console.log($component);
+      Array.from($component).forEach(function (element) {
+        console.log(element)
+      });
+      
+      
+      console.log("****************")
+      
+    })
+  }),
+  config = { childList: true }
+
+  observer.observe(document.querySelector('.c-customer-rewards'), config)
+
+
+</script>

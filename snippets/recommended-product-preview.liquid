@@ -1,0 +1,83 @@
+{% if products != blank %}
+    <div class="recommended-products-preview">
+        <div class="title-content">
+            {% if headline != blank %}
+                <h2>{{ headline }}</h2>
+            {% endif %}
+            {% if description != blank %}
+                <p class="description">{{ description }}</p>
+            {% endif %}        
+            {% liquid  
+             
+                if list_id == blank
+                    assign list_id = "related_products"
+                endif
+
+                if list_name == blank
+                    assign list_name = "Related Products"
+                endif
+            %}    
+            <input type="hidden" id="customer_id" name="customer_id" value="{% if customer %}{{ customer.id }}{% endif %}">
+            <input type="hidden" id="customer_email" name="customer_email" value="{% if customer %}{{ customer.id }}{% endif %}">
+            <input type="hidden" id="customer_first_name" name="customer_first_name" value="{% if customer %}{{ customer.first_name }}{% endif %}">
+            <input type="hidden" id="customer_last_name" name="customer_last_name" value="{% if customer %}{{ customer.last_name }}{% endif %}">
+            <input type="hidden" id="customer_city" name="customer_city" value="{% if customer %}{{ customer.default_address.city }}{% endif %}">
+            <input type="hidden" id="customer_state" name="customer_state" value="{% if customer %}{{ customer.default_address.province }}{% endif %}">
+            <input type="hidden" id="customer_zip" name="customer_zip" value="{% if customer %}{{ customer.default_address.zip }}{% endif %}">
+            <input type="hidden" id="customer_mobile_phone" name="customer_mobile_phone" value="{% if customer %}{{ customer.default_address.phone }}{% endif %}">
+            <input type="hidden" id="user_is_logged_in" name="user_is_logged_in" value="{% if customer %}true{% else %}false{% endif %}">
+            <input type="hidden" id="list_id" name="list_id" value="{{ list_id }}">
+            <input type="hidden" id="list_name" name="list_name" value="{{ list_name }}">
+            <input type="hidden" id="country_code" name="country_code" value="{{ localization.country.iso_code }}">
+            
+        </div>
+        <div class="row recommended-products">
+           
+            {% assign indexCount = 1 %}
+            {% for item in products %}
+                {% liquid
+                     assign product = item
+                     
+
+                     if item.id == blank
+                         assign product = all_products[item["product"]]
+                     endif
+                %}
+
+                {% if product.published_at != blank %}
+                    <div class="col-12 col-md-3 product" data-id="{{ product.id }}">
+                        <a rel="js-dl-rp-trigger" class="product-info" href="{{ product.url }}" data-product-name="{{ product.title }}" data-product-id="{{ product.id }}" data-unit-price="{{ product.selected_or_first_available_variant.price | divided_by: 100.00 }}" data-item-category='{{ product.metafields.product.product_type }}' data-item-category2='{{ product.metafields.product.project }}' data-product-variant="{{ product.selected_or_first_available_variant.title }}" data-index-count="{{ indexCount }}">
+                            <div class="product-image">
+                                {% if lazy %}
+                                    <img loading="lazy" data-src="{{ product | image_url: width: 180, height: 180, crop: 'center' }}" alt="{{ product.title }}" class="cf-product-image lazy" height="180" width="180">
+                                {% else %}
+                                    <img loading="lazy" src="{{ product | image_url: width: 180, height: 180, crop: 'center' }}" alt="{{ product.title }}" class="cf-product-image lazy" height="180" width="180">
+                                {% endif %}
+                            </div>
+                            <h3>{{ product.title | truncate: 40 }}</h3>
+                            <div class="product-price-range">
+                              {% if product.price_min != product.price_max %}
+                                    {{ product.price_min | money }} - {{ product.price_max | money }}
+                              {% else %}
+                                {{ product.price | money }}
+                              {% endif %}
+                            </div>
+                        </a>
+
+                        {% liquid
+                             if color and color == 'green'
+                                 assign button_color = 'white orange-text'
+                             else
+                                 assign button_color = 'orange'
+                             endif
+                        %}
+
+                        <a rel="js-dl-rp-trigger" class="button {{ button_color }} small add-to-cart-modal" href="{{ product.url }}" aria-label="{{ add_to_cart_cta_item['button_aria_label'] }}"  data-product-name="{{ product.title }}" data-product-id="{{ product.id }}" data-unit-price="{{ product.selected_or_first_available_variant.price | divided_by: 100.00 }}" data-item-category='{{ product.metafields.product.product_type }}' data-item-category2='{{ product.metafields.product.project }}' data-product-variant="{{ product.selected_or_first_available_variant.title }}" data-index-count="{{ indexCount }}">Add to Cart</a>
+                    </div>
+                {% endif %}
+                {% assign indexCount = indexCount | plus: 1 %}
+            {% endfor %}
+        </div>
+        <div class="arrows"></div>
+    </div>
+{% endif %}

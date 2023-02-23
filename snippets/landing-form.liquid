@@ -1,0 +1,11 @@
+<div class="form-container {{ class }}">
+    {% if section.settings.landing_page_form_headline %}
+        <h3>{{ section.settings.landing_page_form_headline }}</h3>
+    {% endif %}
+
+    {% if section.settings.landing_page_countdown %}
+        <div class="countdown"></div>
+    {% endif %}
+
+    {{ section.settings.landing_page_form }}
+</div>

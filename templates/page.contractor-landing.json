@@ -1,0 +1,400 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "bottom_stroke": true
+      }
+    },
+    "5f78baca-8e92-4c4c-95eb-f9639276f800": {
+      "type": "rich-text",
+      "custom_css": [
+        "p {font-family: \"Roboto\"; font-style: normal; font-weight: 400; font-size: 23px; line-height: 40px; text-align: center; max-width: 680px; margin: 0 auto;}",
+        ".rich-text__heading--medium {font-family: \"Khand\"; font-style: normal; font-weight: 700; font-size: 40px; line-height: 44px; \/* identical to box height, or 110% *\/ text-align: center; text-transform: uppercase;}"
+      ],
+      "settings": {
+        "heading": "Earn more money using Liquid Rubber",
+        "richtext": "<p>Liquid Rubber coatings give you more <strong>options<\/strong> for your customers. More <strong>OPTIONS<\/strong> means more jobs and more <strong>REVENUE<\/strong>.<\/p>",
+        "cta_text": "Learn More",
+        "cta_url": "#shopify-section-template--16656693625086__f9252600-3dc9-4651-bddb-ef9939ba8a2e"
+      }
+    },
+    "7fa1c83a-2223-4a3c-8f14-fb17a43e2460": {
+      "type": "featured-two-col",
+      "blocks": {
+        "template--16608372785406__7fa1c83a-2223-4a3c-8f14-fb17a43e2460-16698597664418e24a-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2022_11_Contractors_What_are_the_options.png",
+            "title": "",
+            "text": "<p><\/p>",
+            "link_cta": "",
+            "link_url": ""
+          }
+        },
+        "template--16608372785406__7fa1c83a-2223-4a3c-8f14-fb17a43e2460-16698597664418e24a-1": {
+          "type": "column",
+          "settings": {
+            "title": "What are the OPTIONS?",
+            "text": "<p><strong>You can offer solutions for:<\/strong><br\/>1.  Roofs (Mod-Bit, Metal, Wood, Concrete, EPDM. Flat, Sloped, RV’s)<br\/>2.  Foundations (Interior & Exterior)<br\/>3.  Decks (Wood, Concrete, Balconies, Pools)<br\/>4.  Asphalt Driveways, Planter Boxes<br\/>5.  Ponds, Shower Liners and more<\/p>",
+            "link_cta": "View Our Projects",
+            "link_url": "shopify:\/\/collections\/projects"
+          }
+        }
+      },
+      "block_order": [
+        "template--16608372785406__7fa1c83a-2223-4a3c-8f14-fb17a43e2460-16698597664418e24a-0",
+        "template--16608372785406__7fa1c83a-2223-4a3c-8f14-fb17a43e2460-16698597664418e24a-1"
+      ],
+      "settings": {
+        "title": "",
+        "button_cta": "",
+        "button_url": ""
+      }
+    },
+    "f9252600-3dc9-4651-bddb-ef9939ba8a2e": {
+      "type": "featured-two-col",
+      "blocks": {
+        "template--16608372785406__f9252600-3dc9-4651-bddb-ef9939ba8a2e-166986199237fe18b9-0": {
+          "type": "column",
+          "settings": {
+            "title": "What does your customer get?",
+            "text": "<p>1.  Tested and PROVEN products<br\/>2.  Peace of mind the job is done well, works and lasts<\/p>",
+            "link_cta": "",
+            "link_url": ""
+          }
+        },
+        "template--16608372785406__f9252600-3dc9-4651-bddb-ef9939ba8a2e-166986199237fe18b9-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2022_11_Contractors_What_does_your_customer_get.png",
+            "title": "",
+            "text": "<p><\/p>",
+            "link_cta": "",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16608372785406__f9252600-3dc9-4651-bddb-ef9939ba8a2e-166986199237fe18b9-0",
+        "template--16608372785406__f9252600-3dc9-4651-bddb-ef9939ba8a2e-166986199237fe18b9-1"
+      ],
+      "settings": {
+        "title": "",
+        "button_cta": "",
+        "button_url": ""
+      }
+    },
+    "8818181d-ba06-4ee1-aba4-d2da4cfbc51e": {
+      "type": "three-benefit",
+      "blocks": {
+        "a3bc10fc-f748-42bc-b750-8e6011ec96d1": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_9082_2x_82762cf1-cc84-4bf5-b485-bc8fae955ac1.png",
+            "text": "<p>Happy customers make referrals - more money<\/p>"
+          }
+        },
+        "10250763-7002-485f-a971-a0fe90efe385": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_9083_2x_e23d5387-9903-4a8c-90a0-ce551b66fae2.png",
+            "text": "<p>Preferred pricing, terms and loyalty rewards<\/p>"
+          }
+        },
+        "8a48f778-17d5-41ec-8f21-e22874cd0eeb": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_9084_2x_03f96932-0de4-44db-8fc1-6b0cff70db09.png",
+            "text": "<p>Technical Support - Call to walk through your project anytime<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "a3bc10fc-f748-42bc-b750-8e6011ec96d1",
+        "10250763-7002-485f-a971-a0fe90efe385",
+        "8a48f778-17d5-41ec-8f21-e22874cd0eeb"
+      ],
+      "settings": {
+        "header": ""
+      }
+    },
+    "41901d77-a5b8-4580-873b-c12dba1f40b5": {
+      "type": "contact-form-contractors",
+      "settings": {
+        "heading": "What to do NOW?",
+        "title_section": "<p>Fill out the form below to <strong>start earning More Money<\/strong><\/p>",
+        "form_success_title": "Thank you!",
+        "form_success_message": "A member of the Liquid Rubber team will follow up with you shortly."
+      }
+    },
+    "4d8ada3c-0a81-4265-8dda-37ca901f4a64": {
+      "type": "project-gallery",
+      "blocks": {
+        "template--16608372785406__4d8ada3c-0a81-4265-8dda-37ca901f4a64-16698597665196a14a-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2022_11_Contractors_Before-and-after_1.jpg"
+          }
+        },
+        "template--16608372785406__4d8ada3c-0a81-4265-8dda-37ca901f4a64-16698597665196a14a-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2022_11_Contractors_Before-and-after_2.jpg"
+          }
+        },
+        "template--16608372785406__4d8ada3c-0a81-4265-8dda-37ca901f4a64-16698597665196a14a-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2022_11_Contractors_Before-and-after_3.jpg"
+          }
+        },
+        "template--16608372785406__4d8ada3c-0a81-4265-8dda-37ca901f4a64-16698597665196a14a-3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2022_11_Contractors_Before-and-after_4.jpg"
+          }
+        },
+        "ea951397-258d-449a-8159-de18d062e1c9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2022_11_Contractors_Before-and-after_5.jpg"
+          }
+        },
+        "95458451-8c82-45e2-bd83-fea9a46e2c0b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2022_11_Contractors_Before-and-after_6.jpg"
+          }
+        },
+        "8a2955a9-1c70-437e-9794-c9916ae629e5": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Pond_Before-modified.png"
+          }
+        },
+        "5d4b245f-c38d-49ac-a145-640dc64a1138": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Pond_After-modified.png"
+          }
+        },
+        "e16dbc0d-9926-44a3-b2ef-9b0083fa49c3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Before_Pacific_Blue_Sealant-modified.png"
+          }
+        },
+        "ad28a39e-ad98-470b-b54f-8c91331a7075": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/After_Pacific_Blue_Sealant-modified.png"
+          }
+        }
+      },
+      "block_order": [
+        "template--16608372785406__4d8ada3c-0a81-4265-8dda-37ca901f4a64-16698597665196a14a-0",
+        "template--16608372785406__4d8ada3c-0a81-4265-8dda-37ca901f4a64-16698597665196a14a-1",
+        "template--16608372785406__4d8ada3c-0a81-4265-8dda-37ca901f4a64-16698597665196a14a-2",
+        "template--16608372785406__4d8ada3c-0a81-4265-8dda-37ca901f4a64-16698597665196a14a-3",
+        "ea951397-258d-449a-8159-de18d062e1c9",
+        "95458451-8c82-45e2-bd83-fea9a46e2c0b",
+        "8a2955a9-1c70-437e-9794-c9916ae629e5",
+        "5d4b245f-c38d-49ac-a145-640dc64a1138",
+        "e16dbc0d-9926-44a3-b2ef-9b0083fa49c3",
+        "ad28a39e-ad98-470b-b54f-8c91331a7075"
+      ],
+      "settings": {
+        "section_title": "The Before and After",
+        "bg_color": "green"
+      }
+    },
+    "6ad036f0-2bf2-4310-bd9c-731d0b4a3a63": {
+      "type": "featured-testimonial",
+      "blocks": {
+        "fc10d1bf-70d2-4cf1-b99b-7fb89d352a9a": {
+          "type": "card",
+          "settings": {
+            "card_title": "As always, great product and service",
+            "card_rating": 5,
+            "card_text": "<p>We have been using this product for three years now as part of our business is membrane application services. We have nothing but good things to say about it and Liquid Rubber. We are extremely satisfied with the product, and it's uses and totally recommend it over any other membrane product on the market! We wish we could own the company!! Our company lists we are \"Eastern Ontario's Membrane Specialists\". So glad we found it when we did. 😎<\/p>",
+            "card_name": "Lisa Northrup",
+            "card_product_purchased": "color-waterproof-sealant-coating"
+          }
+        },
+        "template--16608372785406__6ad036f0-2bf2-4310-bd9c-731d0b4a3a63-16698597665afa34dd-0": {
+          "type": "card",
+          "settings": {
+            "card_title": "Finally Something That Works!",
+            "card_rating": 5,
+            "card_text": "<p>Finally something that works! Had a leaking porch that I have tried everything but replacing the roof. Gave this a try and presto! Works like a champ! I will recommend this for everyone who has a leak they just can't stop.<\/p>",
+            "card_name": "Thomas Carrier",
+            "card_product_purchased": "waterproof-sealant"
+          }
+        },
+        "template--16608372785406__6ad036f0-2bf2-4310-bd9c-731d0b4a3a63-16698597665afa34dd-1": {
+          "type": "card",
+          "settings": {
+            "card_title": "Excellent Customer service",
+            "card_rating": 5,
+            "card_text": "<p>Excellent customer service. Fast shipping, excellent customer service and great products.<\/p>",
+            "card_name": "Cindy Cyr",
+            "card_product_purchased": "rv-roof-coating"
+          }
+        },
+        "template--16608372785406__6ad036f0-2bf2-4310-bd9c-731d0b4a3a63-16698597665afa34dd-2": {
+          "type": "card",
+          "settings": {
+            "card_title": "Great Stuff",
+            "card_rating": 5,
+            "card_text": "<p>Really good stuff! Sealed a 2 story plywood deck. Did mud bed on it, then 2 more layers of the Liquid Rubber. I will recommend it.<\/p>",
+            "card_name": "Mark Haynes",
+            "card_product_purchased": "polyurethane-deck-coating"
+          }
+        },
+        "template--16608372785406__6ad036f0-2bf2-4310-bd9c-731d0b4a3a63-16698597665afa34dd-3": {
+          "type": "card",
+          "settings": {
+            "card_title": "Couldn't be happier",
+            "card_rating": 5,
+            "card_text": "<p>Used Liquid Rubber products to resurface the top of my RV slide-outs. Couldn’t be happier with the results. Two weeks later and after a few rainstorms, no leaks. I will definitely be using this from now on!<\/p>",
+            "card_name": "Benny Kumpe",
+            "card_product_purchased": "rv-roof-and-epdm-rubber-primer"
+          }
+        },
+        "b31b560b-8fa5-4349-9d82-31d291b6f03b": {
+          "type": "card",
+          "settings": {
+            "card_title": "Easy Application",
+            "card_rating": 5,
+            "card_text": "<p>Excellent product for my koi pond. Easy application, impressive final coating that accomplished my purpose: stopping a persistent leak in the pond. Looks very natural with the water in the pond.<\/p>",
+            "card_name": "Mike Festa",
+            "card_product_purchased": "neoprene-pond-sealant"
+          }
+        },
+        "24ec1316-8568-4a94-a1fa-b7acf59dce91": {
+          "type": "card",
+          "settings": {
+            "card_title": "Transformed My Project",
+            "card_rating": 5,
+            "card_text": "<p>I used this paint under the kitchen sink cabinet in my rental property. Very useful and looks great!!<\/p>",
+            "card_name": "Pardeep Gogna",
+            "card_product_purchased": "color-waterproof-sealant-coating"
+          }
+        },
+        "1f739325-e227-4308-b170-e2c56083e0c3": {
+          "type": "card",
+          "settings": {
+            "card_title": "Easy to DIY",
+            "card_rating": 5,
+            "card_text": "<p>I had questions and they were excellent! They have videos showing the whole process and how to do it right! Very easy to follow and job looks great!<\/p>",
+            "card_name": "John Duncan",
+            "card_product_purchased": "driveway-restore-sealer"
+          }
+        },
+        "e19f70ef-65d2-4603-9af2-d0dd8d1cc9ad": {
+          "type": "card",
+          "settings": {
+            "card_title": "Great coverage!",
+            "card_rating": 5,
+            "card_text": "<p>Very happy with the consistency of the product and the way it covered the surface. Both coats dried well. Very satisfied.<\/p>",
+            "card_name": "Arlene Hull",
+            "card_product_purchased": "foundation-sealant"
+          }
+        },
+        "c18f01b8-a239-40fd-9f4c-748d6864a16b": {
+          "type": "card",
+          "settings": {
+            "card_title": "Went on Smooth",
+            "card_rating": 5,
+            "card_text": "<p>The coating really went on smooth and stuck to the deck well. I like the anti-slip surface. I would highly recommend the product.<\/p>",
+            "card_name": "Sandy E.",
+            "card_product_purchased": "polyurethane-deck-coating"
+          }
+        },
+        "50d1601e-34ff-4eee-96f0-41799cc806ed": {
+          "type": "card",
+          "settings": {
+            "card_title": "Easy clean up",
+            "card_rating": 5,
+            "card_text": "<p>New concrete pond - Material went down easy and easy clean up. Coverage better than planned.<\/p>",
+            "card_name": "Greg Anderson",
+            "card_product_purchased": "neoprene-pond-sealant"
+          }
+        },
+        "37c0a98e-f920-4183-a2c9-6dbecd33780e": {
+          "type": "card",
+          "settings": {
+            "card_title": "Love the Primer",
+            "card_rating": 5,
+            "card_text": "<p>Used the primer before I used the liquid rubber. I love this primer. It really does a fantastic job of making the surface waterproof and sticks down any paint that wouldn’t scrape off. A great product.<\/p>",
+            "card_name": "Robin Ramsay",
+            "card_product_purchased": "multi-purpose-primer"
+          }
+        },
+        "af13505b-59dd-4d69-94d3-0ad9e53f936c": {
+          "type": "card",
+          "settings": {
+            "card_title": "The perfect solution",
+            "card_rating": 5,
+            "card_text": "<p>I used it to paint my basement wall. Every time it rained; water came through. The wall is now dry.<\/p>",
+            "card_name": "Arthur Gabriele",
+            "card_product_purchased": "foundation-sealant"
+          }
+        },
+        "f0ce6324-61eb-43f4-9ada-a2e7fc0db9cb": {
+          "type": "card",
+          "settings": {
+            "card_title": "Fantastic job",
+            "card_rating": 5,
+            "card_text": "<p>Fantastic - I have used the product to seal the inside of several flower boxes. It does a great job.<\/p>",
+            "card_name": "Michael William",
+            "card_product_purchased": "neoprene-pond-sealant"
+          }
+        },
+        "e6b4b39f-2516-41d0-867a-494e020976ec": {
+          "type": "card",
+          "settings": {
+            "card_title": "Great for all Home Projects",
+            "card_rating": 5,
+            "card_text": "<p>Liquid Rubber Foundation Sealant has worked great on several of our home projects that require a rubber based sealant to keep water out. We have found it to work the best for us.<\/p>",
+            "card_name": "Deborah Geddes",
+            "card_product_purchased": "foundation-sealant"
+          }
+        }
+      },
+      "block_order": [
+        "fc10d1bf-70d2-4cf1-b99b-7fb89d352a9a",
+        "template--16608372785406__6ad036f0-2bf2-4310-bd9c-731d0b4a3a63-16698597665afa34dd-0",
+        "template--16608372785406__6ad036f0-2bf2-4310-bd9c-731d0b4a3a63-16698597665afa34dd-1",
+        "template--16608372785406__6ad036f0-2bf2-4310-bd9c-731d0b4a3a63-16698597665afa34dd-2",
+        "template--16608372785406__6ad036f0-2bf2-4310-bd9c-731d0b4a3a63-16698597665afa34dd-3",
+        "b31b560b-8fa5-4349-9d82-31d291b6f03b",
+        "24ec1316-8568-4a94-a1fa-b7acf59dce91",
+        "1f739325-e227-4308-b170-e2c56083e0c3",
+        "e19f70ef-65d2-4603-9af2-d0dd8d1cc9ad",
+        "c18f01b8-a239-40fd-9f4c-748d6864a16b",
+        "50d1601e-34ff-4eee-96f0-41799cc806ed",
+        "37c0a98e-f920-4183-a2c9-6dbecd33780e",
+        "af13505b-59dd-4d69-94d3-0ad9e53f936c",
+        "f0ce6324-61eb-43f4-9ada-a2e7fc0db9cb",
+        "e6b4b39f-2516-41d0-867a-494e020976ec"
+      ],
+      "settings": {
+        "testimonial_title": "What other diYers like you are saying"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "5f78baca-8e92-4c4c-95eb-f9639276f800",
+    "7fa1c83a-2223-4a3c-8f14-fb17a43e2460",
+    "f9252600-3dc9-4651-bddb-ef9939ba8a2e",
+    "8818181d-ba06-4ee1-aba4-d2da4cfbc51e",
+    "41901d77-a5b8-4580-873b-c12dba1f40b5",
+    "4d8ada3c-0a81-4265-8dda-37ca901f4a64",
+    "6ad036f0-2bf2-4310-bd9c-731d0b4a3a63"
+  ]
+}

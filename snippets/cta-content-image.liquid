@@ -1,0 +1,43 @@
+<section class="c-cta-content-image {{ className }}" aria-label="{{ component['title'] }}">
+    {% if component["top_stroke"] == 1 %}
+        {% assign top_stroke = 'top-section-stroke.svg' | asset_url %}
+        <img class="section-stroke top lazy" data-src="{{ top_stroke }}" aria-hidden="true" alt="" />
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-12">
+                <div class="content">
+                    <h2>{{ component["title"] }}</h2>
+                    <p>{{ component["content"] }}</p>
+                    <a class="button orange" href="{{ component['link_url'] }}" aria-label="{{ component['link_aria_label'] }}" target="{% if component['open_in_new_tab'] != 'true' %}_self{% else %}_blank{% endif %}">{{ component['link_text'] }} <span class="arrow"></span></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12">
+                {% assign image = component['image'] %}
+
+                <div class="image">
+                        {% liquid
+                             if is_section
+                                 assign image = image | image_url: width: 540
+                             endif
+
+                            assign alt = component["alt_text"]
+                        %}
+
+                    <img {% if is_section %}
+                            data-srcset="{%- if image.width >= 305 -%}{{ image | image_url: '305x' }} 305w, {%- endif -%}
+                                {%- if image.width >= 450 -%}{{ image | image_url: '450x' }} 450w, {%- endif -%}
+                                {%- if image.width >= 540 -%}{{ image | image_url: '540x' }} 540w {%- endif -%}
+                                {{ image }}"
+                            data-sizes="(min-width: 1px) 305w, (min-width: 992px) 540w, (min-width: 1200px) 450w, 540w"
+                         {% endif %}
+                         data-src="{{ image }}" class="lazy" alt="{{ alt }}" />
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if component["bottom_stroke"] == 1 %}
+        {% assign bottom_stroke = 'bottom-section-stroke.svg' | asset_url %}
+        <img class="section-stroke bottom lazy" data-src="{{ bottom_stroke }}" aria-hidden="true" alt="" />
+    {% endif %}
+</section>

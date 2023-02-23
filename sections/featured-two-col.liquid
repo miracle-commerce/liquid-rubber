@@ -1,0 +1,147 @@
+<section class="c-f2col-wrapper ">
+  <div class="container">
+    <div class="row">
+        <div class="f2col-head">
+          <h1 class="f2col-title">{{ section.settings.title | escape }}</h1>
+        </div>
+    </div>
+    <div class="row">
+      {% for block in section.blocks %}
+      <div class="f2col-col col-lg-6 col-md-12 col-sm-12">
+        {%- if block.settings.image != blank -%}
+        <div class="f2col-img-wrap">
+          <div class="f2col-img lazy-bg" data-bg="{{ 'half-circle.svg' | asset_url }}">
+            <img class="lazy" loading="lazy" srcset="
+            {{ block.settings.image | image_url: width: 350 }} 550w,
+            {{ block.settings.image | image_url: width: 450 }} 720w,
+            " data-src="{{ block.settings.image | image_url: width: 450 }}" alt="{{ block.settings.image.alt | escape }}">
+          </div>
+        </div>
+        {%- endif -%}
+
+        <div class="f2col-bc">
+            {%- if block.settings.title != blank -%}
+          <div class="f2col-title">
+            <h3>{{ block.settings.title }}</h3>
+          </div>
+          {%- endif -%}
+
+          {%- if block.settings.text != blank -%}
+          <div class="f2col-text">
+            {{ block.settings.text }}
+          </div>
+          {%- endif -%}
+        </div>
+
+        <div class="f2col-col-btn">
+          {%- if block.settings.link_url != blank -%}
+            <a class="button white"{% if block.settings.link_url == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.link_url }}"{% endif %}>{{ block.settings.link_cta | escape }}<span class ="arrow"></span></a>
+          {%- endif -%}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="row">
+      <div class="f2col-btn-wrapper">
+        {%- if section.settings.button_cta != blank -%}
+          <a class="button orange"{% if section.settings.button_url == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_url }}"{% endif %}>{{ section.settings.button_cta | escape }}<span class ="arrow"></span></a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Two Column",
+  "class": "section custom-contractors",
+  "tag": "section",
+  "limit": 2,
+  "max_blocks": 2,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Section Title Here",
+      "label": "Section Title",
+      "info": "Enter Section Title."
+    },
+    {
+      "type": "header",
+      "content": "Section Bottom Button"
+    },
+    {
+      "type": "paragraph",
+      "content": "Button is located at the bottom of section."
+    },
+    {
+      "type": "text",
+      "id": "button_cta",
+      "default": "Lorem",
+      "label": "Main Section Button CTA",
+      "info": "Enter CTA for button."
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Main Section Button URL",
+      "info": "Paste link or search & select Liquid Rubber page."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Select or upload image."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Enter Column Title",
+          "label": "Column Title",
+          "info": "Enter Column Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+          "label": "Body Text",
+          "info": "Enter the body text for column block."
+        },
+        {
+          "type": "text",
+          "id": "link_cta",
+          "default": "Enter Button CTA",
+          "label": "Column Button CTA",
+          "info": "Enter CTA for column button."
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Column Button URL",
+          "info": "Paste link or search & select Liquid Rubber page."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Two Column",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

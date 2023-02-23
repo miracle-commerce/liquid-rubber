@@ -1,0 +1,23 @@
+{% liquid
+ if product.metafields.custom_fields["product"] != blank
+     for item in product.metafields.custom_fields["product"]
+         assign item = item
+     endfor
+ endif
+
+ if item["slides"] != blank
+     render 'tips-and-tricks', component: item
+ endif
+%}
+
+{% schema %}
+{
+  "name": "Tips & Tricks Gallery",
+  "tag": "section",
+  "class": "section",
+  "limit": 1,
+  "templates": [
+    "product"
+  ]
+}
+{% endschema %}

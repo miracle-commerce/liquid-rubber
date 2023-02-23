@@ -1,0 +1,26 @@
+{% comment %} This is to show project cards in the project-list.liquid {% endcomment %}
+
+<a class="project" href="{{ project.url }}">
+  <div class="project-image">
+    <img loading="lazy"
+      srcset="{% if project.featured_media.width >= 330 %}{{ project.featured_media | image_url: width: 300 }} 300w,{% endif %}
+              {% if project.featured_media.width >= 450 %}{{ project.featured_media | image_url: width: 350 }} 350w,{% endif %}"
+      src="{{ project.featured_media.src | image_url: width: 350 }}"
+      sizes="(min-width: 1400px) 350px, (min-width: 1200px) 350px, (min-width: 992px) 350px"
+      alt="{{ project.title }}" 
+      height="{{ project.featured_media.height }}" 
+      width="{{ project.featured_media.width }}"
+    >
+  </div>
+  <div class="project-content">
+    <span>{{ project.title }}</span>
+    <!-- Swym Wishlist Plus EPI Button-->
+    <!-- currently not working
+    {% render 'swym-product-view', product: project %}
+    <div class="project-favorite">
+      <button data-with-epi="true" id="custom-swym" class="swym-button swym-heart swym-add-to-wishlist swym-add-to-wishlist-view-product product_{{ project.id }}" data-swaction="addToWishlist" data-product-id="{{ project.id | json }}" data-variant-id="{{ project.variants[0].id }}" data-product-url="{{ shop.url }}{{ project.url }}"></button>
+    </div>
+    -->
+    <!-- Swym Wishlist Plus EPI Button-->
+  </div>
+</a>

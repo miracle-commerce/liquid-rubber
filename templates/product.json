@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+      }
+    },
+    "product-tabs": {
+      "type": "product-tabs",
+      "settings": {
+      }
+    },
+    "tips-tricks-gallery": {
+      "type": "tips-tricks-gallery",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-recommendations",
+    "product-tabs",
+    "tips-tricks-gallery"
+  ]
+}

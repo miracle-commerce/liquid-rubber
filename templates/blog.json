@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "show_image": true,
+        "image_height": "adapt",
+        "show_date": true,
+        "show_author": false
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,24 @@
+<!-- Pass Large or Small Class -->
+<div class="benefits-ctas {{ class }}">
+    {% for item in callouts %}
+       {% assign icon = item["icon"] | downcase %}
+
+        <div class="benefit-cta">
+            {% liquid
+                 if icon != blank
+                         case icon
+                                 when 'shield'
+                                        render 'icon-shield'
+                                 when 'chain'
+                                         render 'icon-chain'
+                                 else
+                                        render 'icon-paint'
+                         endcase
+                 endif
+            %}
+            {% if item["content"] != blank %}
+                <span>{{ item["content"] }}</span>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,147 @@
+<section class="c-ft-wrapper wrapp--{{ template | replace: '.', '-' | downcase }}">
+  <div class="ft-v-container">
+    <div class="ft-mobile lazy-bg" data-bg="{{ 'bg_testimonial_poster.png' | asset_url }}">&nbsp;</div>
+    <video id="rubber-card-bg-video" class="lazy-video" autoplay loop muted poster="{{ 'bg_testimonial_poster.png' | asset_url }}">&nbsp;
+      <source data-src="{{ 'bg_testimonials.mp4' | asset_url }}" type="video/mp4">
+    </video>
+  </div>
+  <div class="container">
+    {%- if section.settings.testimonial_title != blank -%}
+      <div class="row">
+        <div class="rubber-card-header">
+          <h2>{{ section.settings.testimonial_title }}</h2>
+        </div>
+      </div>
+    {%- endif -%}
+    <div class="row rc-slide">
+      <div class="rc-arrows">
+        <button class="rc-prev"></button>
+        <button class="rc-next"></button>
+      </div>
+      <div class="slide-container">
+        {%- for block in section.blocks -%}
+          <div class="wrapper">
+            <div class="rubber-card testimonial-card">
+              <div class="rc-title-wrap">
+                {%- if block.settings.card_title != blank -%}
+                  <div class="rubber-card-title">
+                    <h2>{{ block.settings.card_title }}</h2>
+                  </div>
+                  <div class="rubber-card-detail">
+                    <img class="lazy" loading="lazy" data-src="{{ 'LR_Homepage_Testimonials_OrangePaint.svg' | asset_url }}" alt="Orange Paint" />
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.card_rating != blank -%}
+                  <div class="rubber-card-rate-wrapper">
+                    <input class="rubber-card-rating" max="5" step="0.5" style="--value:{{ block.settings.card_rating }}" type="range" aria-label="{{ block.settings.card_rating }} stars">
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.card_text != blank -%}
+                  <div class="rubber-card-txt">{{ block.settings.card_text }}</div>
+                {%- endif -%}
+                {%- if block.settings.card_name != blank -%}
+                  <div class="rc-divider">&nbsp;</div>
+                  <div class="rubber-card-person">
+                    <div class="rubber-card-name">{{ block.settings.card_name }}</div>
+                    <div class="rubber-card-product-purchased">{{ block.settings.card_product_purchased | replace: '-', ' ' | capitalize }}</div>
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Testimonial",
+  "class": "section",
+  "tag": "section",
+  "limit": 1,
+  "max_blocks": 15,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Testimonial Card Minimum must have 4. Do NOT go below 4 cards."
+    },
+    {
+      "type": "text",
+      "id": "testimonial_title",
+      "default": "Testimonial Section Title",
+      "label": "Testimonial Section Title",
+      "info": "Add Section Title Here"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Testimonial Card",
+      "type": "card",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Testimonial Card Minimum must have 4. Do NOT go below 4 cards."
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "default": "Testimonial Card Title",
+          "label": "Testimonial Card Title",
+          "info": "Add Testimonial Card Title Here"
+        },
+        {
+          "type": "range",
+          "id": "card_rating",
+          "min": 0,
+          "max": 5,
+          "step": 0.5,
+          "label": "Customer Rating",
+          "default": 5,
+          "info": "Move Slider. Increments of 0.5."
+        },
+        {
+          "type": "richtext",
+          "id": "card_text",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat convallis lectus, at facilisis nunc. Donec iaculis quam non gravida ornare. Ut ut eros sed neque aliquet porttitor. Donec in aliquam quam, at sodales purus. Nam a metus ut velit!</p>",
+          "label": "Customer Testimonial",
+          "info": "Add Customer Testimonial Here"
+        },
+        {
+          "type": "text",
+          "id": "card_name",
+          "default": "Jane Doe",
+          "label": "Customer Name",
+          "info": "Add Customer Name"
+        },
+        {
+          "type": "product",
+          "id": "card_product_purchased",
+          "label": "Product Purchased By Customer",
+          "info": "Select Product purchased by customer."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Testimonial",
+      "blocks": [
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

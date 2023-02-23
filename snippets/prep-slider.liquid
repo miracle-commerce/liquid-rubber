@@ -1,0 +1,51 @@
+{% if component != blank %}
+    <section id="{{ idName }}" class="c-preparation {{ className }}" aria-label="{{ component['section_2_title'] }}">
+        {% if component["prep_slider_top_stroke"] == 1 %}
+            {% assign top_stroke = 'top-section-stroke.svg' | asset_url %}
+            <img class="section-stroke top lazy" data-src="{{ top_stroke }}" aria-hidden="true" alt="" />
+        {% endif %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                {% if component["section_2_title"] != blank %}
+                    <h2>{{ component["section_2_title"] }}</h2>
+                {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                {% if component["prep_slider"] != blank %}
+                    <div class="slider">
+                    {% for prep_slider_item in component["prep_slider"] %}
+                        <div class="slide">
+                        {% if prep_slider_item["icon"] != blank %}
+                            {{ prep_slider_item["icon"] }}
+                        {% endif %}
+                        {% if prep_slider_item["title"] != blank %}
+                            <h3>{{ prep_slider_item["title"] }}</h3>
+                        {% endif %}
+                        {% if prep_slider_item["content"] != blank %}
+                            {{ prep_slider_item["content"] }}
+                        {% endif %}
+                        {% if prep_slider_item["button_text"] != blank %}
+                            <a
+                                class="button orange"
+                                href="{{ prep_slider_item['button_link'] }}"
+                                aria-label='{{ prep_slider_item["button_aria_label"] }}'
+                                {% if prep_slider_item["open_in_new_tab"] != 0 %}target="_blank"{% else %}target="_self"{% endif %}
+                            >{{ prep_slider_item["button_text"] }} <span class="arrow"></span></a>
+                        {% endif %}
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <div class="arrows"></div>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if component["prep_slider_bottom_stroke"] == 1 %}
+            {% assign bottom_stroke = 'bottom-section-stroke.svg' | asset_url %}
+            <img class="section-stroke bottom lazy" data-src="{{ bottom_stroke }}" aria-hidden="true" alt="" />
+        {% endif %}
+    </section>
+{% endif %}

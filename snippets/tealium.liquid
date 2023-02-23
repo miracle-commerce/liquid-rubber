@@ -1,0 +1,119 @@
+{% if template == 'cart' %}
+    <script>
+        {% liquid
+            assign cart_coupon_codes = cart.cart_level_discount_applications | map: 'title' | join: ', '
+            assign cart_discounts = cart.cart_level_discount_applications | map: 'total_allocated_amount' | join: ', ' | money_without_currency
+            assign product_id = cart.items | map: 'product_id' | join: ', '
+            assign product_quantity = cart.items | map: 'quantity' | join: ', '
+            assign product_name = ''
+            assign product_variant = ''
+            assign product_unit_price = ''
+            assign item_category = ''
+            assign item_category2 = ''
+            assign product_promotion_name = ''
+            assign product_discount = ''
+            assign order_coupon_code = ''
+            assign order_discount = ''
+
+            for coupon in cart_coupon_codes
+                assign order_coupon_code = order_coupon_code | append: '"' | append: coupon | append: '"'
+            endfor
+
+            for discount in cart_discounts
+                assign order_discount = order_discount | append: '"' | append: discount | append: '"'
+            endfor
+
+            for product in cart.items
+                assign variants = product.title | split: '-'
+                assign variant_title = variants | last | strip
+                assign price = product.original_price | money_without_currency
+                assign promotion_names = product.discounts | map: 'title'
+                assign promotion_prices = product.discounts | map: 'amount'
+                assign product_promotion_prices = ''
+
+                if product.product.metafields.product.product_type
+                    assign types = product.product.metafields.product.product_type | split: ","
+                    assign cat = ''
+
+                    for type in types
+                        unless forloop.last
+                            assign cat = cat | append: type | append: "|" | replace: '"', ''
+                        else
+                            assign cat = cat | append: type | replace: '"', ''
+                        endunless
+                    endfor
+
+                    assign product_type = cat | append: '"' | prepend: '"' | replace: '[', '' | replace: ']', ''
+                else
+                    assign product_type = '[]'
+                endif
+
+                if product.product.metafields.product.project
+                    assign projects = product.product.metafields.product.project | split: ","
+                    assign cat = ''
+
+                    for project in projects
+                        unless forloop.last
+                            assign cat = cat | append: project | append: "|" | replace: '"', ''
+                        else
+                            assign cat = cat | append: project | replace: '"', ''
+                        endunless
+                    endfor
+
+                    assign project = cat | append: '"' | prepend: '"' | replace: '[', '' | replace: ']', ''
+                else
+                    assign project = '[]'
+                endif
+
+                for promotion_price in promotion_prices
+                    assign price_formatted = promotion_price | money_without_currency
+                    assign product_promotion_prices = product_promotion_prices | append: '"' | append: price_formatted | append: '"'
+                endfor
+
+                assign product_variant = product_variant | append: '"' | append: variant_title | append: '",'
+                assign product_name = product_name | append: '"' | append: product.product.title | append: '",'
+                assign product_unit_price = product_unit_price | append: '"' | append: price | append: '",'
+                assign item_category = item_category | append: product_type | append: ','
+                assign item_category2 = item_category2 | append: project | append: ','
+                assign product_promotion_name = product_promotion_name | append: product_discounts | append: ','
+                assign product_discount = product_discount | append: '[' | append: product_promotion_prices | append: '],'
+            endfor
+        %}
+
+        let utag_data = {
+            tealium_event: "view_cart",
+            event_type: "view_cart",
+            page_type: "cart",
+            page_name: 'Cart',
+            country_code: "{{ localization.country.iso_code }}",
+            {% if customer %}
+            customer_id: "{{ customer.id }}", //AudienceStream send if logged in
+            customer_email: "{{ customer.email }}", //AudienceStream send if logged in
+            customer_first_name: "{{ customer.first_name }}",
+            customer_last_name: "{{ customer.last_name }}",
+            customer_mobile_phone_number: "{{ customer.default_address.phone }}",
+            customer_city: "{{ customer.default_address.city }}",
+            customer_state: "{{ customer.default_address.province }}",
+            customer_zip: "{{ customer.default_address.zip }}",
+            user_is_logged_in: "true",
+            {% else %}
+            user_is_logged_in: "false",
+            {% endif %}
+            order_coupon_code: [{{ order_coupon_code }}], //Order level promo code
+            order_discount: [{{ order_discount }}], //Order level discount amount
+            product_name: [{{ product_name | remove_last: ',' }}],
+            product_id: [{{ product_id }}],
+            product_unit_price: [{{ product_unit_price | remove_last: ',' }}], //unit price
+            item_category: [{{ item_category | remove_last: ',' }}], //product_type
+            item_category2: [{{ item_category2 | remove_last: ',' }}], //use project meta field from shopify
+            product_variant: [{{ product_variant | remove_last: ',' }}],  //If applicable
+            product_quantity: [{{ product_quantity }}],
+            product_promotion_name: [{{ product_promotion_name | remove_last: ',' }}], //Product level promo code
+            product_discount: [{{ product_discount | remove_last: ',' }}] //Product level promo discount
+        }
+    </script>
+{%- else -%}
+    <script type="text/javascript">
+        let utag_data = {}
+    </script>
+{% endif %}

@@ -1,0 +1,261 @@
+<div class="desktop-form-container">
+    {% render 'modal-paintbrush-stroke' %}
+    {% render 'landing-form', class: 'd-none d-md-block' %}
+</div>
+<div class="masthead-container lp-v3-hero">
+    <div class="container">
+        {% if section.settings.landing_page_bg_mobile or section.settings.landing_page_bg_desktop %}
+            <style>
+                {% if section.settings.landing_page_bg_mobile %}
+                .c-landing-page .masthead-container { background-image: url({{ section.settings.landing_page_bg_mobile | image_url: width: 768 }}) }
+                {% endif %}
+
+                {% if section.settings.landing_page_bg_desktop %}
+                @media (min-width: 768px) {
+                    .c-landing-page .masthead-container { background-image: url({{ section.settings.landing_page_bg_desktop | image_url: width: 1600 }}) }
+                }
+                {% endif %}
+            </style>
+        {% endif %}
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-3 col-xl-2 text-center">
+                <a href="{{ routes.root_url }}" class="logo">
+                    <img src=" {{ 'liquid-rubber-logo.svg' | asset_url }}"
+                         class="header__heading-logo"
+                         alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
+                         width="145"
+                         height="75"
+                    >
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="headline-container">
+                    <img class="d-none d-md-block img-fluid" src="{{ section.settings.landing_page_headline_desktop | image_url: width: 525 }}" alt="{{ section.settings.landing_page_headline_desktop.alt }}" width="450">
+                    <img class="d-block d-md-none img-fluid" src="{{ section.settings.landing_page_headline_mobile | image_url: width: 335 }}" alt="{{ section.settings.landing_page_headline_mobile.alt }}" width="350">
+                    <h2>{{ section.settings.landing_page_subheadline }}</h2>
+                    <div class="lp-vr-content">{{ section.settings.landing_page_content }}</div>
+                    <a href="#prizes" class="button orange d-inline-flex d-md-none" data-anchor-link="true">{{ section.settings.landing_page_anchor_button }} {% render 'icon-caret' %}</a>
+                </div>
+                {% if section.settings.landing_page_anchor_content %}
+                {% endif %}
+                {% render 'landing-form', class: 'd-md-none' %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="prize-container" id="prizes">
+                {% for block in section.blocks %}
+                    {% if block.type == 'prizes' %}
+                        <div class="prize">
+                          <a href={{ block.settings.prize_link }}>
+                            <div class="prize-name">
+                                <h3>{{ block.settings.prize_name }}</h3>
+                                {% render 'prize-paintbrush-stroke' %}
+                            </div>
+                            <img data-src="{{ block.settings.prize_image | image_url: width: 350 }}" width="{{  block.settings.prize_image.width }}" height="{{  block.settings.prize_image.height }}" alt="" class="lazy">
+                            <h4>{{ block.settings.prize_headline }}</h4>
+                            {{ block.settings.prize_description }}
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="terms-container">
+                {{ section.settings.landing_page_terms }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if section.settings.landing_page_countdown %}
+    <script>
+        // Set the date we're counting down to
+        let contestDate = '{{section.settings.landing_page_end_date}}',
+            countDownDate = new Date(contestDate).getTime();
+
+        // Update the countdown every 1 second
+        let x = setInterval(function() {
+            // Get today's date and time
+            let now = new Date().getTime();
+
+            // Find the distance between now and the countdown date
+            let distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24)),
+                hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+                minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+                seconds = Math.floor((distance % (1000 * 60)) / 1000),
+                text = days + " Days " + hours.toString().padStart(2, '0') + ":" + minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0') + " Remaining",
+                countDown = document.querySelectorAll(".countdown");
+
+            // Display the result in the element with id="demo"
+            countDown.forEach((value, index) => {
+                countDown[index].innerHTML = text;
+
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    countDown[index].innerHTML = "Contest Closed.";
+                }
+            })
+        }, 1000);
+    </script>
+{% endif %}
+
+{% schema %}
+{
+"name": "Landing Page",
+"class": "c-landing-page",
+"tag": "section",
+"limit": 1,
+"settings": [
+{
+"type": "image_picker",
+"id": "landing_page_logo",
+"label": "Logo",
+"info": "Image dimensions: 145 x 70px"
+},
+{
+"type": "image_picker",
+"id": "landing_page_bg_desktop",
+"label": "Desktop Background Image",
+"info": "Image dimensions: 1600 x 965px"
+},
+{
+"type": "image_picker",
+"id": "landing_page_bg_mobile",
+"label": "Mobile Background Image",
+"info": "Image dimensions: 768 x 1800px"
+},
+{
+"type": "image_picker",
+"id": "landing_page_headline_desktop",
+"label": "Desktop Headline Image",
+"info": "Image dimensions: 525 x 220px"
+},
+{
+"type": "image_picker",
+"id": "landing_page_headline_mobile",
+"label": "Mobile Headline Image",
+"info": "Image dimensions: 335 x 65px"
+},
+{
+"type": "text",
+"id": "landing_page_subheadline",
+"label": "Subheadline"
+},
+{
+"type": "richtext",
+"id": "landing_page_content",
+"label": "Content"
+},
+{
+"type": "text",
+"id": "landing_page_form_headline",
+"label": "Form Headline",
+"info": "This will appear above the form."
+},
+{
+"type": "checkbox",
+"id": "landing_page_countdown",
+"label": "Include Form Countdown?"
+},
+{
+"type": "text",
+"id": "landing_page_end_date",
+"label": "End Date",
+"info": "If form countdown checked, please provide an end date. Format it YYYY-MM-DDTHH:MM:SSZ."
+},
+{
+"type": "html",
+"id": "landing_page_form",
+"label": "Form HTML Code"
+},
+{
+"type": "richtext",
+"id": "landing_page_partner_content",
+"label": "Partner Content",
+"info": "This will appear below the partner logo. Max height 55px."
+},
+{
+"type": "textarea",
+"id": "landing_page_anchor_content",
+"label": "Anchor Content",
+"info": "This will appear above the fold for desktop. Letting users know of the content below."
+},
+{
+"type": "text",
+"id": "landing_page_anchor_button",
+"label": "Anchor Button Content",
+"info": "This will appear above the fold for mobile. Letting users know of the content below."
+},
+{
+"type": "richtext",
+"id": "landing_page_terms",
+"label": "Terms"
+}
+],
+"blocks": [
+{
+"name": "Partner Logos",
+"type": "partner_logos",
+"limit": 2,
+"settings": [
+{
+"type": "image_picker",
+"id": "logo",
+"label": "Partner Logo"
+},
+{
+"type": "url",
+"id": "logo_link",
+"label": "Partner Link"
+},
+{
+"type": "checkbox",
+"id": "logo_new_tab",
+"label": "Open in New Tab?"
+}
+]
+},
+{
+"name": "Prizes",
+"type": "prizes",
+"settings": [
+{
+"type": "text",
+"id": "prize_name",
+"label": "Name"
+},
+{
+"type": "image_picker",
+"id": "prize_image",
+"label": "Image",
+"info": "Image dimensions: 350 x 225px"
+},
+{
+"type": "text",
+"id": "prize_headline",
+"label": "Headline"
+},
+{
+"type": "html",
+"id": "prize_description",
+"label": "Content"
+},
+{
+"type": "html",
+"id": "prize_link",
+"label": "Product Link"
+}
+]
+}
+]
+}
+{% endschema %}

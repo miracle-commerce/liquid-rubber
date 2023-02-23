@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_image": true,
+        "override_benefit_cta": false
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "enable_filtering": true
+      }
+    },
+    "content-image-cta": {
+      "type": "content-image-cta",
+      "settings": {
+        "title": "Ready to Start your project?",
+        "content": "<p>Get your supplies ready and learn from the pros on several step-by-step DIY tutorials.<\/p>",
+        "link_text": "Project walk throughs",
+        "link_url": "shopify:\/\/collections\/projects",
+        "link_aria_label": "",
+        "open_in_new_tab": false,
+        "image": "shopify:\/\/shop_images\/content-image-cta_7ed0d1fb-b7a9-4c6d-a9e5-58011f8c1f4e.png"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "content-image-cta"
+  ]
+}

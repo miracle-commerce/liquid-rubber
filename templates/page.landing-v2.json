@@ -1,0 +1,147 @@
+{
+  "wrapper": "div#landing",
+  "sections": {
+    "main": {
+      "type": "landing-page",
+      "blocks": {
+        "47b81e6e-5464-427e-8689-d334dae10f77": {
+          "type": "partner_logos",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/LR-Store-Logo.png",
+            "logo_link": "https:\/\/shopliquidrubber.com\/",
+            "logo_new_tab": true
+          }
+        },
+        "076d4e82-61f8-49df-aeac-55830ae639a8": {
+          "type": "partner_logos",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/PR-Logo.png",
+            "logo_link": "https:\/\/www.phoenixraceway.com\/",
+            "logo_new_tab": true
+          }
+        },
+        "a83d33e1-7c7d-4228-9ec7-935180166a61": {
+          "type": "prizes",
+          "settings": {
+            "prize_name": "For Race Fans",
+            "prize_image": "shopify:\/\/shop_images\/VIP-Experience-350x225.jpg",
+            "prize_headline": "Phoenix Raceway VIP Experience for Two & $500 Liquid Rubber Gift Card",
+            "prize_description": "<p>Get as close to the action as you can during Championship weekend with two (2): Ally Curve passes, (2) VIP Credentials, and a pace car ride for two.<sup>1<\/sup><\/p>"
+          }
+        },
+        "07a9e802-c167-4522-b269-ca5390ba759d": {
+          "type": "prizes",
+          "settings": {
+            "prize_name": "For Race Week RVers",
+            "prize_image": "shopify:\/\/shop_images\/Live-RV-Restoration-350x225.jpg",
+            "prize_headline": "LIVE RV Roof Restoration + Busch Light Lounge Passes",
+            "prize_description": "<p>Staying at the campgrounds during Championship week? Enter to win a Liquid Rubber RV Roof Restoration during your trip and two (2) Busch Light Lounge Passes.<sup>2<\/sup><\/p>"
+          }
+        },
+        "4c44e128-93bf-4ba0-9737-e3eff19f524c": {
+          "type": "prizes",
+          "settings": {
+            "prize_name": "For Road Warriors",
+            "prize_image": "shopify:\/\/shop_images\/Product-Bundle-350x225.jpg",
+            "prize_headline": "Liquid Rubber Meets the Road Prize Pack ($500 value!)",
+            "prize_description": "<p>Get a taste of the action with Phoenix Raceway swag and all the Liquid Rubber RV supplies you need: 1 Gallon RV Roof Primer, 5 Gallon RV Roof Coating, Seam Tape (2” x 50’), 4-Pack Sealant &amp; Adhesive, RV Roof Smart Cleaner.<\/p>"
+          }
+        },
+        "47054ed8-51d1-41f6-ba77-b37b9399feb7": {
+          "type": "prizes",
+          "settings": {
+            "prize_name": "For Entertainers",
+            "prize_image": "shopify:\/\/shop_images\/Yeti_Cooler-350x225.jpg",
+            "prize_headline": "Yeti Cooler Prize Pack",
+            "prize_description": "<p>Play it cool during the race with a Liquid Rubber customized Yeti Tundra® 65 Cooler and Phoenix Raceway swag fit for a checkered flag.<\/p>"
+          }
+        },
+        "ccacbf6c-0988-47e7-9a87-5e4dfd966b14": {
+          "type": "prizes",
+          "settings": {
+            "prize_name": "For Tailgaters",
+            "prize_image": "shopify:\/\/shop_images\/Cornhole-350x225-v2.jpg",
+            "prize_headline": "Cornhole Prize Pack",
+            "prize_description": "<p>Get in race mode with Liquid Rubber customized Cornhole boards and and challenge friends to a game  while sporting Phoenix Raceway swag.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "47b81e6e-5464-427e-8689-d334dae10f77",
+        "076d4e82-61f8-49df-aeac-55830ae639a8",
+        "a83d33e1-7c7d-4228-9ec7-935180166a61",
+        "07a9e802-c167-4522-b269-ca5390ba759d",
+        "4c44e128-93bf-4ba0-9737-e3eff19f524c",
+        "47054ed8-51d1-41f6-ba77-b37b9399feb7",
+        "ccacbf6c-0988-47e7-9a87-5e4dfd966b14"
+      ],
+      "settings": {
+        "landing_page_logo": "shopify:\/\/shop_images\/liquid-rubber-logo_55b65983-be01-421b-a098-94438dbdda40.png",
+        "landing_page_bg_desktop": "shopify:\/\/shop_images\/Masthead_1600x965_ffcde6a7-7abc-4d13-95b7-00316a1d854b.jpg",
+        "landing_page_bg_mobile": "shopify:\/\/shop_images\/Masthead-BG-768x1800.jpg",
+        "landing_page_headline_desktop": "shopify:\/\/shop_images\/Masthead-Headline-525x220.png",
+        "landing_page_headline_mobile": "shopify:\/\/shop_images\/Masthead-Headline-335x65.png",
+        "landing_page_subheadline": "Sweepstakes",
+        "landing_page_content": "<p>Whether you’re behind the wheel of a stock car or motorhome, Liquid Rubber’s professional-grade sealants can handle the toughest jobs to drive you across the finish line.<\/p>",
+        "landing_page_form_headline": "Enter to win!",
+        "landing_page_countdown": true,
+        "landing_page_end_date": "2023-02-13T23:59:59Z",
+        "landing_page_form": "<div class=\"klaviyo-form-Ww48fE\"><\/div>",
+        "landing_page_partner_content": "<p>We’re proud to be an Official Partner of Phoenix Raceway, home of Championship Weekend. To gear up, we’re calling race fans to put us to the test. <\/p>",
+        "landing_page_anchor_content": "Enter to win one of five (5) prizes\nthat put the pedal to the metal.",
+        "landing_page_anchor_button": "View Prizes",
+        "landing_page_terms": "<p>1. Travel not included; winner is responsible for all travel and accommodations to and from the event<br\/><br\/> 2. Must be a Phoenix Raceway RV Campground ticketholder to be eligible, prize must be performed on site<\/p>"
+      }
+    },
+    "project-gallery": {
+      "type": "project-gallery",
+      "blocks": {
+        "181eb5df-b80f-4ba3-812e-fe67bcdc9c90": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_About-Us_Gallery-01.jpg"
+          }
+        },
+        "14b80f5c-ca74-4bdb-9019-6b216c2c5ca4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_About-Us_Gallery-02.jpg"
+          }
+        },
+        "d4ece30b-7836-45e0-9e24-d8cd5221fa29": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_About-Us_Gallery-03.jpg"
+          }
+        },
+        "7dcb9dd2-981c-40ff-913a-e6356d64ebea": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_Project_Decks-and-Docs_Gallery-03.jpg"
+          }
+        },
+        "69d55941-20b9-41e6-99ef-a4f9ae2efdd5": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_Project_Basement-Interior-Wall_Gallery-03.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "181eb5df-b80f-4ba3-812e-fe67bcdc9c90",
+        "14b80f5c-ca74-4bdb-9019-6b216c2c5ca4",
+        "d4ece30b-7836-45e0-9e24-d8cd5221fa29",
+        "7dcb9dd2-981c-40ff-913a-e6356d64ebea",
+        "69d55941-20b9-41e6-99ef-a4f9ae2efdd5"
+      ],
+      "settings": {
+        "section_title": "Cross that next project off your list",
+        "bg_color": "black"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "project-gallery"
+  ]
+}

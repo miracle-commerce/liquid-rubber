@@ -1,0 +1,314 @@
+<section class="container customer-account register-wrapper">
+  <div class="row">
+    <div
+      class="col-12 col-md-6 bg-gray  section-padding" >
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center px-md-4 px-lg-5 px-xl-3 position-relative">        
+          {% if shop.metafields.custom_fields["register_page"] != blank %} 
+            {% for item in shop.metafields.custom_fields["register_page"] %}
+              <div class="z-1">
+                {% if item["register_title"] != blank %}
+                  <h2 class="mb-0">
+                    {{ item["register_title"] }}
+                  </h2>     
+                {% else %}
+                    JOIN THE DIY CREW
+                {% endif %}   
+                
+                {% if item["feature_list"] != blank %}
+                  <ul class="feature-list">
+                    {% for repeater_item in item["feature_list"] %}
+                      <li class="repeater-item repeater-item--text">
+                        {{ repeater_item["feature_list"] }}
+                      </li>
+                    {% endfor %}
+                  </ul>  
+                {% endif %}              
+                
+                {% if item["banner_image_alt_text"] != blank %}
+                  {% assign alt = item["banner_image_alt_text"] %} 
+                {% endif %} 
+                {% if item["banner_image"] != blank %}  
+                  {% assign image = item["banner_image"] %}
+                  <img data-src="{{ image }}" alt="{% if alt %}{{ alt }}{% endif %}" class="banner-image lazy" />
+                {% endif %} 
+              </div>
+
+              {% if item["brush_image_alt_text"] != blank %}
+                {% assign alt = item["brush_image_alt_text"] %} 
+              {% endif %} 
+              {% if item["brush_image"] != blank %}  
+                {% assign image = item["brush_image"] %}
+                <img data-src="{{ image }}" alt="{% if alt %}{{ alt }}{% endif %}" class="background-brush lazy" />
+              {% endif %} 
+            {% endfor %} 
+          {% endif %}
+        
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="col-12 col-md-5 offset-md-1 d-flex justify-content-center section-padding"
+    >
+      <div class="row">
+        <div class="col-12 pt-5 pt-md-2 pt-lg-3 pt-xl-5 ">
+          <h3 class="text-center mb-0">
+            {{ "customer.register.title" | t }}
+          </h3>
+          <p class="text-center fw-300 mb-4">Already have an account?  
+            <a class="accent-link" href="{{ routes.account_login_url }}">
+              {{ 'customer.login_page.title' | t }}
+            </a>
+          </p>
+
+          {%- form 'create_customer', return_to: '/pages/thank-you?register=true', novalidate: 'novalidate', class: 'form register-form', autocomplete: 'off' -%} 
+          
+          {%- if form.errors -%}
+          <ul class="form-message invalid">
+            {%- for field in form.errors -%}
+            <li>
+              <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 13 13">
+                <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+                <circle cx="6.5" cy="6.5" r="5.5" fill="#9d0000" stroke="#9d0000" stroke-width="0.7"/>
+                <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+                <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#9d0000" stroke-width="0.7">
+              </svg> 
+              {%- if field == 'form' -%}
+              {{ form.errors.messages[field] }}
+              {%- else -%}
+              <a href="#RegisterForm-{{ field }}">
+                {{ form.errors.translated_fields[field] | capitalize }}
+                {{ form.errors.messages[field] }}
+              </a>
+              {%- endif -%}
+            </li>
+            {%- endfor -%}
+          </ul>
+          {%- endif -%}
+          
+          <div class="d-flex flex-column">     
+            <div class="d-flex flex-column flex-lg-row justify-content-lg-between">     
+              <div class="flex-fill mr-0 mr-lg-3">
+                <div class="input-container">
+                  <input
+                    type="text"
+                    name="customer[first_name]"
+                    id="RegisterForm-FirstName"
+                    {%
+                    if
+                    form.first_name
+                    %}value="{{ form.first_name }}"
+                    {%
+                    endif
+                    %}
+                    autocomplete="off"
+                    class="form-control"
+                  />
+                  <label for="RegisterForm-FirstName" class="field__label">
+                    {{ "customer.register.first_name" | t }}
+                  </label>
+                </div>
+              </div>
+              <div class="flex-fill">
+                <div class="input-container">
+                  <input
+                    type="text"
+                    name="customer[last_name]"
+                    id="RegisterForm-LastName"
+                    {%
+                    if
+                    form.last_name
+                    %}value="{{ form.last_name }}"
+                    {%
+                    endif
+                    %}
+                    autocomplete="family-name"
+                    class="form-control"
+                  />
+                  <label for="RegisterForm-LastName" class="field__label">
+                    {{ "customer.register.last_name" | t }}
+                  </label>
+                </div>
+              </div>
+             
+            </div>
+
+            <div class="input-container">
+              <input type="email" 
+              name="customer[email]" 
+              id="RegisterForm-email"
+              {% if form.email %} 
+                value="{{ form.email }}"
+                {% endif %}
+              spellcheck="false" 
+              autocapitalize="off" 
+              autocomplete="off"
+              aria-required="true" {% if form.errors contains 'email' %}
+              aria-invalid="true" 
+              aria-describedby="RegisterForm-email-error" {%
+              endif %} class="form-control" />
+              
+              <label for="RegisterForm-email" class="field__label">
+                {{ "customer.register.email" | t }}
+              </label>
+            </div>
+
+            <div class="input-container">
+              <input type="password" 
+                name="customer[password]"
+                id="RegisterForm-password" 
+                aria-required="true" 
+                autocomplete="new-password"
+                {% if form.errors contains 'password' %} 
+                  aria-invalid="true"
+                  aria-describedby="RegisterForm-password-error" 
+                {% endif %}
+                class="form-control"/>
+
+              <label for="RegisterForm-password" class="field__label">
+                {{ "customer.register.password" | t }}
+              </label>
+              <small class="text-password d-inline-block mt-2">Passwords must be at least 8 characters in length and contain 1 upper case letter.</small>
+            </div>
+
+            <div class="checkbox-wrapper terms">
+             
+              <label class="register-checkbox" for="chk-terms-conditions">
+                <input checked type="checkbox" value="" id="chk-terms-conditions"/>
+                <svg width="1.6rem" height="1.6rem" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
+                </svg>
+                <svg class="icon icon-checkmark"
+                     width="1.1rem"
+                     height="0.7rem"
+                     viewBox="0 0 11 7"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <span>Yes, I would like Liquid Rubber to send me email communications. By clicking “Create Account”, you agree to our <a class="accent-link" href="{{ shop.terms_of_service.url }}">Terms &amp; Conditions</a>.</span>
+              </label>
+            </div>
+            
+            <div class="checkbox-wrapper mb-3">
+             
+              <label class="register-checkbox" for="chk-rewards">
+                <input checked type="checkbox" value="" id="chk-rewards"/>
+                <svg width="1.6rem" height="1.6rem" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
+                </svg>
+                <svg class="icon icon-checkmark"
+                     width="1.1rem"
+                     height="0.7rem"
+                     viewBox="0 0 11 7"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                Yes, I would like to register to Liquid Rubber's Rewards. <a class="accent-link" href="/pages/rewards-t-and-c"> Rewards T&C</a>.
+              </label>
+            </div>
+
+            <div class="input-container text-center">    
+              <button class="button orange mt-0" id="btnSubmit">
+                {{ "customer.register.submit" | t }}
+              </button>
+            </div>
+          </div>
+          {%- endform -%}
+                   
+        </div>      
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  $(document).ready(function() {  
+
+    function validateRequired($element){
+      if($element.val().length <= 0){
+        $element.nextAll(".error-message").remove();
+        $element.after('<div class="error-message">This field is required.</div>').addClass('error');       
+        $valid = false;
+      }else{
+        $valid = true;
+        $element.removeClass("error").nextAll(".error-message").remove();
+      }
+      return $valid;
+    }
+
+    function validatePassword($element){
+      if ($element.val().length >= 8 && (/[A-Z]/).test($element.val())) {
+        $valid = true;
+        $element.removeClass("error").nextAll(".error-message").remove();
+      }else{
+        $element.nextAll(".error-message").remove();          
+        $element.after('<div class="error-message">Passwords must be at least 8 characters in length and contain 1 upper case letter.</div>').addClass('error')  ;
+        $valid = false;
+      }
+      return $valid;
+    }
+
+    function validateEmail($element){
+      if( (/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/).test($element.val())){
+        $valid = true;        
+        $element.removeClass("error").nextAll(".error-message").remove();
+      }else{
+        $element.nextAll(".error-message").remove();          
+        $element.after('<div class="error-message">Please enter valid email address.</div>').addClass('error')  ;
+        $valid = false;
+      }
+      return $valid;
+    }
+
+    $('body').on('click', '.register-form button', function() {     
+      let $validFN = false, 
+          $validLN = false, 
+          $validEmail = false, 
+          $validPass = false, 
+          $validTerms = false;
+              
+      const $firstName = $("#RegisterForm-FirstName"),
+            $lastName =  $("#RegisterForm-LastName"),
+            $email = $("#RegisterForm-email"),
+            $password = $("#RegisterForm-password"),
+            $terms = $("#chk-terms-conditions")
+
+      if (!$terms.is(':checked')) {      
+        $(".terms").addClass("checkbox__error");
+        $validTerms = false;
+      }else{
+        $(".terms").removeClass("checkbox__error");
+        $validTerms = true;
+      }
+
+   
+      $validEmail = validateRequired($email);
+      if($validEmail){
+        $validEmail = validateEmail($email);
+      }
+      $validPass = validateRequired($password);
+      if($validPass){
+        $validPass = validatePassword($password);
+      }
+      $validFN = validateRequired($firstName);
+      $validLN = validateRequired($lastName);
+
+      if($validFN && $validLN && $validEmail && $validPass && $validTerms){      
+        return true
+      }
+      return false
+
+    });
+  });
+</script>

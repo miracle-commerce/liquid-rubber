@@ -1,0 +1,69 @@
+{% if component != blank %}
+    <section class="c-tips-and-tricks" aria-label="Tips and Tricks">
+        {% if component["tips_and_tricks_top_stroke"] == 1 %}
+            {% assign top_stroke = 'top-section-stroke.svg' | asset_url %}
+            <img loading="lazy" class="lazy section-stroke top" data-src="{{ top_stroke }}" aria-hidden="true" alt="" />
+        {% endif %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    {% if component["tips_and_tricks_title"] != blank %}
+                        <h2>{{ component["tips_and_tricks_title"] }}</h2>
+                    {% endif %}
+                </div>
+                <div class="col-12">
+                    {% if component["slides"] != blank %}
+                        <div class="slider mb-4">
+                            {% for slides_item in component["slides"] %}
+                                <div class="slide">
+                                    <div class="slide-content">
+                                        {% if slides_item["image"] != blank %}
+                                            <img loading="lazy" data-lazy="{{ slides_item['image'] }}" height="320" width="570" alt="{{ slides_item['image_alt'] }}" />
+                                        {% endif %}
+                                        {% if slides_item["video"] != blank %}
+                                            {% liquid
+                                                 assign video_id = slides_item["video"] | remove: "https://www.youtube.com/watch?v=" | escape
+
+                                                 if slides_item["video_thumbnail"] != blank
+                                                     assign img_thumbnail = slides_item["video_thumbnail"]
+                                                 else
+                                                     assign img_thumbnail = "https://img.youtube.com/vi/" | append: video_id | append: "/mqdefault.jpg"
+                                                 endif
+                                            %}
+                                            <div class="video-container">
+                                                <div class="video-inner">
+                                                    <div class="video-overlay" aria-label="Play Video" tabindex="0" data-video-index="{{ forloop.index }}"></div>
+                                                    <img loading="lazy" class="video-thumbnail" src="{{ img_thumbnail }}" data-video-index="{{ forloop.index }}" height="{{img_thumbnail.height}}" width="{{img_thumbnail.width}}" />
+                                                    <div id="ytplayer-{{ forloop.index }}" class="youtube-player" data-video="{{ video_id }}" data-video-index="{{ forloop.index }}"></div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                        {% if slides_item["title"] != blank %}
+                                            <h3>{{ slides_item["title"] }}</h3>
+                                        {% endif %}
+                                        {% if slides_item["content"] != blank %}
+                                            {{ slides_item["content"] }}
+                                        {% endif %}
+                                        {% if slides_item["button_text"] != blank %}
+                                            <a
+                                                class="button orange"
+                                                href="{{ slides_item['button_link'] }}"
+                                                aria-label='{{ slides_item["button_aria_label"] }}'
+                                                {% if slides_item["open_in_new_tab"] != 0 %}target="_blank"{% else %}target="_self"{% endif %}
+                                            >{{ slides_item["button_text"] }} <span class="arrow"></span></a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="arrows"></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if component["tips_and_tricks_bottom_stroke"] == 1 %}
+            {% assign bottom_stroke = 'bottom-section-stroke.svg' | asset_url %}
+            <img loading="lazy" class="lazy section-stroke bottom" data-src="{{ bottom_stroke }}" aria-hidden="true" alt="" />
+        {% endif %}
+    </section>
+{% endif %}

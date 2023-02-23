@@ -1,0 +1,325 @@
+{% comment %}theme-check-disable TemplateLength{% endcomment %}
+<!-- Individual Project Page -->
+
+<link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
+{% if product.metafields.custom_fields["project"] != blank %}
+  {% for item in product.metafields.custom_fields["project"] %}
+    <section class="c-information c-main-product" aria-label="Project Information">
+      <div class="container">
+        <div class="row">
+          <!-- Desktop Project Info -->
+          <div class="d-none d-lg-block col-md-12 col-lg-6 project-media">
+            {% if product.images.size > 1 %}
+              <style>.c-information .slick-slide img {width: 100%;}</style>
+              <div class="product-image-container" style="padding-top:0;">
+                {%- if product.featured_image != null or product.images != null -%}
+                  {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
+                  <div class="featured-image-gallery">    
+                    {%- for media in product.images -%}
+                        <div class="img-container" data-media-id="{{ media.id }}">
+                          <img loading="lazy" data-srcset="{% if media.preview_image.width >= 330 %}{{ media.preview_image | image_url: width: 330 }} 330w,{% endif %}
+                                            {% if media.preview_image.width >= 445 %}{{ media.preview_image | image_url: width: 445 }} 445w,{% endif %}"
+                               src="{{ media | image_url: width: 445 }}"
+                               data-sizes="(min-width: 1200px) 445px, 330px"
+                               alt="{{ media.alt | escape }}"
+                               class="lazy"
+                               height="{{ media.preview_image.height }}"
+                               width="{{ media.preview_image.width }}"
+                          >
+                        </div>
+                    {%- endfor -%}
+                  </div>
+    
+                  <div class="thumbnail-image-gallery">  
+                    {%- for media in product.images -%}
+                      <div class="img-container" data-media-id="{{ media.id }}">
+                        <img src="{{ media | image_url: width: 78, height: 78 }}" alt="{{ media.alt | escape }}"
+                             loading="lazy"
+                             height="78"
+                             width="78"
+                        >
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                {%- endif -%}
+              </div>
+            {% else %}
+              {% if item["image"] != blank %}
+                <div class="project-image-container">
+                  {{ item["image"] }}
+                </div>
+              {% endif %}
+              {% if item["video"] != blank %}
+                {% liquid
+                   assign video_id = item["video"] | remove: "https://www.youtube.com/watch?v=" | escape
+                   if item["video_thumbnail"] != blank
+                       assign img_thumbnail = item["video_thumbnail"]
+                   else
+                       assign img_thumbnail = "https://img.youtube.com/vi/" | append: video_id | append: "/mqdefault.jpg"
+                   endif
+                %}
+                <div class="video-container">
+                    <div class="video-inner">
+                      <div class="video-overlay" aria-label="Play Video" tabindex="0" data-video-index="0"></div>
+                      <img loading="lazy" class="video-thumbnail" src="{{ img_thumbnail }}" height="100" width="100" data-video-index="0" />
+                      <div id="ytplayer-0" class="youtube-player" data-video="{{ video_id }}" data-video-index="0"></div>
+                    </div>
+                </div>
+             {% endif %}
+            {% endif %}
+          </div>
+          <!-- Mobile Project Info -->
+          <div class="col-md-12 col-lg-6">
+            {% if item["title"] != blank %}
+              <h1>{{ item["title"] }}</h1>
+            {% endif %}
+            <div class="col-md-12 d-block d-lg-none">
+              {% if product.images.size > 1 %}
+                <style>.c-information .slick-slide img {width: 100%;}</style>
+                <div class="product-image-container" style="padding-top:0;">
+                  {%- if product.featured_image != null or product.images != null -%}
+                    {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
+                    <div class="featured-image-gallery">    
+                      {%- for media in product.images -%}
+                          <div class="img-container" data-media-id="{{ media.id }}">
+                            <img loading="lazy" data-srcset="{% if media.preview_image.width >= 330 %}{{ media.preview_image | image_url: width: 330 }} 330w,{% endif %}
+                                              {% if media.preview_image.width >= 445 %}{{ media.preview_image | image_url: width: 445 }} 445w,{% endif %}"
+                                 data-src="{{ media | image_url: width: 445 }}"
+                                 data-sizes="(min-width: 1200px) 445px, 330px"
+                                 alt="{{ media.alt | escape }}"
+                                 class="lazy"
+                                 height="{{ media.preview_image.height }}"
+                                 width="{{ media.preview_image.width }}"
+                            >
+                          </div>
+                      {%- endfor -%}
+                    </div>
+      
+                    <div class="thumbnail-image-gallery">  
+                      {%- for media in product.images -%}
+                        <div class="img-container" data-media-id="{{ media.id }}">
+                          <img src="{{ media | image_url: width: 78, height: 78 }}" alt="{{ media.alt | escape }}"
+                               loading="lazy"
+                               height="78"
+                               width="78"
+                          >
+                        </div>
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+              {% else %}
+                {% if item["image"] != blank %}
+                  <div class="project-image-container">
+                    {{ item["image"] }}
+                  </div>
+                {% endif %}
+                {% if item["video"] != blank %}
+                  {% liquid
+                     assign video_id = item["video"] | remove: "https://www.youtube.com/watch?v=" | escape
+                     if item["video_thumbnail"] != blank
+                         assign img_thumbnail = item["video_thumbnail"]
+                     else
+                         assign img_thumbnail = "https://img.youtube.com/vi/" | append: video_id | append: "/mqdefault.jpg"
+                     endif
+                  %}
+  
+                  <div class="video-container">
+                      <div class="video-inner">
+                        <div class="video-overlay" aria-label="Play Video" tabindex="0" data-video-index="0"></div>
+                        <img loading="lazy" class="video-thumbnail" src="{{ img_thumbnail }}" height="100" width="100" data-video-index="0" />
+                        <div id="ytplayer-0" class="youtube-player" data-video="{{ video_id }}" data-video-index="0"></div>
+                      </div>
+                  </div>
+                {% endif %}
+              {% endif %}
+            </div>
+            {% if shop.metafields.custom_fields["project_information"] != blank %}
+              {% for item in shop.metafields.custom_fields["project_information"] %}
+                {% if item["project"] == product.handle %}
+                  <div class="row requirements">
+                      <div class="col-12 col-sm-4 requirement">
+                        <div class="img-container">
+                          <img loading="lazy" src="{{ item['time_icon'] }}" height="35.75" width="35.75" />
+                        </div>
+                        <span class="requirement-title">{{ item["time_title"] }}</span>
+                        <p class="requirement-content">{{ item["time_to_complete"] }}</p>
+                      </div>
+                      <div class="col-12 col-sm-4 requirement">
+                        <div class="img-container">
+                          <img loading="lazy" src="{{ item['difficulty_icon'] }}" height="35.75" width="35.75" />
+                        </div>
+                        <span class="requirement-title">{{ item["difficulty_title"] }}</span>
+                        <p class="requirement-content">{{ item["difficulty_level"] }}</p>
+                      </div>
+                      <div class="col-12 col-sm-4 requirement">
+                        <div class="img-container">
+                          <img loading="lazy" src="{{ item['products_icon'] }}" height="35.75" width="35.75" />
+                        </div>
+                        <span class="requirement-title">{{ item["products_title"] }}</span>
+                        <p class="requirement-content">{{ item["products_needed"] }}</p>
+                      </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            {% if item["description"] != blank %}
+              <div class="description">
+                {{ item["description"] }}
+              </div>
+            {% endif %}
+              <!-- Wishlist button -->
+            <div class="project-favorite">
+              <button id="custom-swym" data-with-epi="true" {% if customer %} rel="js-swym-button-dl-trigger" data-projectname="{{ item["title"] }}" {% endif %} style="border: none !important; background: transparent !important; text-transform: uppercase !important;" class="swym-button swym-heart swym-add-to-wishlist swym-add-to-wishlist-view-product product_{{ project.id }}" data-swaction="addToWishlist" data-product-id="{{ project.id | json }}" data-variant-id="{{ project.variants[0].id }}" data-product-url="{{ shop.url }}{{ project.url }}"><span>Save This Project</span></button>
+            </div>
+              <script>
+                //Start DataLayer
+                $('button[rel="js-swym-button-dl-trigger"]').click(function(){                  
+                  if(!$(this).hasClass("disabled"))
+                  {
+                    let $this = $(this),
+                      $projectName = $this.data('projectname')                    
+                      utag.link({
+                        event_type: "select_content",
+                        content_type: "save project",
+                        project_name: $projectName,
+                    });
+                  }
+                });
+                 //End DataLayer
+              </script>
+            {% render 'login-modal' %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sticky Navigation -->
+    <section class="c-sub-section-nav" aria-label="Sub Section Nav">
+      <div class="container">
+        <div class="row">
+          {% if item["navigation"] != blank %}
+            {% for navigation_item in item["navigation"] %}
+              <!-- desktop nav -->
+              <div class="desktop-nav d-none d-lg-flex">
+                {% for section_link in navigation_item["nav_item"] %}
+                  <div class="col links">
+                    <a href="#section-{{ forloop.index }}" data-anchor-link="true">{{ section_link["nav_item"] }}<span>{% render 'icon-caret' %}</span></a>
+                  </div>
+                {% endfor %}
+              </div>
+              <!-- mobile nav -->
+              <div class="mobile-nav d-flex d-lg-none">
+                <div class="nav-title">
+                  {% for section_link in navigation_item["nav_item"] %}
+                    {% if forloop.first %}
+                      <span class="section-title">{{ section_link["nav_item"] }}</span><span>{% render 'icon-caret' %}</span>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                <div class="col-12 nav-menu">
+                  {% for section_link in navigation_item["nav_item"] %}
+                    <a href="#section-{{ forloop.index }}">{{ section_link["nav_item"] }}</a>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    <section id="section-1" class="c-product-list sub-section" aria-label="{{ item['section_1_title'] }}">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            {% render 'recommended-product-preview', headline: item["section_1_title"], description: item["products_needed_description"] products: item["product_list"], lazy: true, list_id: "project", list_name: "Project Pages" %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="c-add-to-cart-cta" aria-label="Add to Cart">
+      {% if item["add_to_cart_cta"] != blank %}
+        {% for add_to_cart_cta_item in item["add_to_cart_cta"] %}
+          <div class="container background {% if add_to_cart_cta_item['background_color'] == blank %}bg-gray{% else %} bg-{{ add_to_cart_cta_item['background_color'] | downcase }}{% endif %}">
+            <div class="row">
+              <div class="col">
+                {% if add_to_cart_cta_item["content"] != blank %}
+                  <div class="content">
+                    {{ add_to_cart_cta_item["content"] }}
+                  </div>
+                {% endif %}
+                  <product-form class="product-form" data-project="true">
+                      {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                          <div class="product-form__buttons">
+                              <button type="submit" name="add" class="addtocart product-form__submit button {% if add_to_cart_cta_item['background_color'] == 'Green' %}white{% else %}orange{% endif %}" aria-label="{{ add_to_cart_cta_item['button_aria_label'] }}">
+                                <span>{{ add_to_cart_cta_item["button_text"] }}</span>
+                              </button>
+                          </div>
+                      {%- endform -%}
+                  </product-form>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </section>
+    {% render 'cta-coverage-calculator', component: item %}
+    {% render 'prep-slider', component: item, idName: 'section-2', className: 'sub-section' %}
+    <section id="section-3" class="c-walkthrough sub-section" aria-label="{{ item['section_3_title'] }}">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <img src="{{ 'liquid-rubber-logo.svg' | asset_url }}"
+                   loading="lazy"
+                   class="header__heading-logo print-logo"
+                   alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
+                   height="{{ section.settings.image.height }}"
+                   width="{{ section.settings.image.width }}">
+            
+            {% if item["section_3_title"] != blank %}
+              <h2>{{ item["section_3_title"] }}</h2>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+        <div class="container gray-bg">
+            <div class="row pro-tip">
+                <div class="col">
+                    {% if item["tip"] != blank %}
+                        {% for tip_item in item["tip"] %}
+                            <div class="tip">
+                                {% if tip_item["icon"] != blank %}
+                                    {{ tip_item["icon"] }}
+                                {% endif %}
+                                {% if tip_item["title"] != blank %}
+                                    <span>{{ tip_item["title"] }}</span>
+                                {% endif %}
+                                {% if tip_item["content"] != blank %}
+                                    {{ tip_item["content"] }}
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+
+            {% liquid
+             if shop.metafields.custom_fields["project_steps"] != blank
+                 for item in shop.metafields.custom_fields["project_steps"]
+                     assign projects_products = item['project']
+                     for project_product in projects_products
+                         if project_product == product.handle
+                            render 'steps', steps: item["steps"], button_link: item["button_link"], button_aria_label: item["button_aria_label"], button_text: item["button_text"]
+                         endif
+                     endfor
+                 endfor
+             endif
+            %}
+        </div>
+    </section>
+    {% render 'project-gallery', component: item %}
+    {% render 'tips-and-tricks', component: item %}
+
+  {% endfor %}
+{% endif %}

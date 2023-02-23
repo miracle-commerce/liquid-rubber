@@ -1,0 +1,156 @@
+{
+  "wrapper": "div#landing",
+  "sections": {
+    "main": {
+      "type": "landing-page",
+      "blocks": {
+        "47b81e6e-5464-427e-8689-d334dae10f77": {
+          "type": "partner_logos",
+          "settings": {
+            "logo_link": "https:\/\/shopliquidrubber.com\/",
+            "logo_new_tab": true
+          }
+        },
+        "076d4e82-61f8-49df-aeac-55830ae639a8": {
+          "type": "partner_logos",
+          "settings": {
+            "logo_link": "https:\/\/www.phoenixraceway.com\/",
+            "logo_new_tab": true
+          }
+        },
+        "a83d33e1-7c7d-4228-9ec7-935180166a61": {
+          "type": "prizes",
+          "settings": {
+            "prize_name": "Foundation Sealant",
+            "prize_image": "shopify:\/\/shop_images\/Group_27_b69580d5-54ee-48e2-a740-c02158c2c207.png",
+            "prize_headline": "The Best Foundation Sealant\/Basement Coating",
+            "prize_description": "<p>This easy-to-apply, high-quality Foundation Sealant is designed to protect your home from water damage. Its flexible, durable, and resistant properties make it an ideal choice for basements and other areas prone to dampness, as it is highly resistant to mildew, mold, and other organic growth.<\/p>",
+            "prize_link": "\/products\/foundation-sealant?variant=42521006309630"
+          }
+        },
+        "07a9e802-c167-4522-b269-ca5390ba759d": {
+          "type": "prizes",
+          "settings": {
+            "prize_name": "GEO-TEXTILE",
+            "prize_image": "shopify:\/\/shop_images\/Group_28.png",
+            "prize_headline": "Geo-Textile",
+            "prize_description": "<p>Liquid Rubber Geo-Textile is used to bridge joints and seams which reinforces those areas that tend to leak.<\/p>",
+            "prize_link": "\/products\/geo-textile?variant=42940017770750"
+          }
+        },
+        "4c44e128-93bf-4ba0-9737-e3eff19f524c": {
+          "type": "prizes",
+          "settings": {
+            "prize_name": "SEALANT & ADHESIVE",
+            "prize_image": "shopify:\/\/shop_images\/Group_29.png",
+            "prize_headline": "Industrial & Construction Hybrid Sealant & Adhesive",
+            "prize_description": "<p>The Sealant &amp; Adhesive is a one-part, moisture cure adhesive used to fill larger joints and cracks before waterproofing.<\/p>",
+            "prize_link": "\/products\/sealant-adhesive?variant=42861291372798"
+          }
+        },
+        "47054ed8-51d1-41f6-ba77-b37b9399feb7": {
+          "type": "prizes",
+          "disabled": true,
+          "settings": {
+            "prize_name": "For Entertainers",
+            "prize_image": "shopify:\/\/shop_images\/Yeti_Cooler-350x225.jpg",
+            "prize_headline": "Yeti Cooler Prize Pack",
+            "prize_description": "<p>Play it cool during the race with a Liquid Rubber customized Yeti Tundra® 65 Cooler and Phoenix Raceway swag fit for a checkered flag.<\/p>",
+            "prize_link": ""
+          }
+        },
+        "ccacbf6c-0988-47e7-9a87-5e4dfd966b14": {
+          "type": "prizes",
+          "disabled": true,
+          "settings": {
+            "prize_name": "For Tailgaters",
+            "prize_image": "shopify:\/\/shop_images\/Cornhole-350x225-v2.jpg",
+            "prize_headline": "Cornhole Prize Pack",
+            "prize_description": "<p>Get in race mode with Liquid Rubber customized Cornhole boards and and challenge friends to a game  while sporting Phoenix Raceway swag.<\/p>",
+            "prize_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "47b81e6e-5464-427e-8689-d334dae10f77",
+        "076d4e82-61f8-49df-aeac-55830ae639a8",
+        "a83d33e1-7c7d-4228-9ec7-935180166a61",
+        "07a9e802-c167-4522-b269-ca5390ba759d",
+        "4c44e128-93bf-4ba0-9737-e3eff19f524c",
+        "47054ed8-51d1-41f6-ba77-b37b9399feb7",
+        "ccacbf6c-0988-47e7-9a87-5e4dfd966b14"
+      ],
+      "custom_css": [
+        ".desktop-form-container.active {z-index:0;}"
+      ],
+      "settings": {
+        "landing_page_bg_desktop": "shopify:\/\/shop_images\/bg_Group_25.jpg",
+        "landing_page_bg_mobile": "shopify:\/\/shop_images\/Group_21.png",
+        "landing_page_headline_desktop": "shopify:\/\/shop_images\/Group_30_3c795d11-a88d-4513-98d7-4c3944c730b8.png",
+        "landing_page_headline_mobile": "shopify:\/\/shop_images\/Group_30_m_c7448eb8-2057-4b6f-b385-5cba78bee7ad.png",
+        "landing_page_subheadline": "",
+        "landing_page_content": "<p>Here's your chance to stop water from getting into your basement!  <\/p><p>Liquid Rubber Tech Support will walk through your project from start to finsih with you.<\/p><p><\/p><p>Fill out the form for your chance to win.<\/p>",
+        "landing_page_form_headline": "Enter to win!",
+        "landing_page_countdown": true,
+        "landing_page_end_date": "2023-02-22T23:59:00Z",
+        "landing_page_form": "<div class=\"klaviyo-form-UHkFy2\"><\/div>",
+        "landing_page_partner_content": "",
+        "landing_page_anchor_content": "",
+        "landing_page_anchor_button": "",
+        "landing_page_terms": ""
+      }
+    },
+    "project-gallery": {
+      "type": "project-gallery",
+      "blocks": {
+        "181eb5df-b80f-4ba3-812e-fe67bcdc9c90": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Liquid_Rubber_Foundation_Sealant_Flexibility_220x250_17796549-047a-4f55-9cb1-3ff51d3132af.jpg"
+          }
+        },
+        "14b80f5c-ca74-4bdb-9019-6b216c2c5ca4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Liquid_Rubber_Exterior_Foundation_Waterproofing.png"
+          }
+        },
+        "d4ece30b-7836-45e0-9e24-d8cd5221fa29": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Liquid_Rubber_Exterior_Foundation_Leak_Repair_220x250_1_1.png"
+          }
+        },
+        "7dcb9dd2-981c-40ff-913a-e6356d64ebea": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_Project_Decks-and-Docs_Gallery-03.jpg"
+          }
+        },
+        "69d55941-20b9-41e6-99ef-a4f9ae2efdd5": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LiquidRubber_Project_Basement-Interior-Wall_Gallery-03.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "181eb5df-b80f-4ba3-812e-fe67bcdc9c90",
+        "14b80f5c-ca74-4bdb-9019-6b216c2c5ca4",
+        "d4ece30b-7836-45e0-9e24-d8cd5221fa29",
+        "7dcb9dd2-981c-40ff-913a-e6356d64ebea",
+        "69d55941-20b9-41e6-99ef-a4f9ae2efdd5"
+      ],
+      "settings": {
+        "section_title": "Cross that next project off your list",
+        "bg_color": "black"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "project-gallery"
+  ]
+}

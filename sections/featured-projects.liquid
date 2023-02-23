@@ -1,0 +1,105 @@
+{% if section.settings.top_stroke == true %}
+    {% assign top_stroke = 'top-section-stroke.svg' | asset_url %}
+    <img class="section-stroke top lazy" data-src="{{ top_stroke }}" aria-hidden="true" alt="" />
+{% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>{{ section.settings.section_title }}</h2>
+        </div>
+        {% for block in section.blocks %}
+            {% if block.type == 'card' %}
+                <div class="col-lg-4 col-sm-6 col-12 project-container">
+                    <a class="project" href="{{ product.url }}" aria-label="{{ product.url }}">
+                        {% render 'card-project', project: block.settings.project, class: ".project-favorite" %}
+                    </a>
+                </div>
+            {% elsif block.type == 'button' %}
+                <div class="col-12 button-container">
+                    <a class="button orange" href="{{ block.settings.button_link }}" aria-label="{{ block.settings.button_text }}" target="{% if block.settings.button_target == true %}_blank{% else %}_self{% endif %}">{{ block.settings.button_text }}<span class="arrow"></span></a>
+                </div>
+            {% endif %}
+        {% endfor %}
+        {% render 'login-modal' %}
+    </div>
+</div>
+{% if section.settings.bottom_stroke == true %}
+    {% assign bottom_stroke = 'bottom-section-stroke.svg' | asset_url %}
+    <img class="section-stroke bottom lazy" data-src="{{ bottom_stroke }}" aria-hidden="true" alt="" />
+{% endif %}
+
+{% schema %}
+{
+  "name": "Featured Projects",
+  "class": "c-featured-projects bg-black",
+  "tag": "section",
+  "limit": 1,
+  "max_blocks": 7,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "top_stroke",
+      "label": "Show Top Stroke?"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "default": "Section Title",
+      "label": "Section Title",
+      "info": "Add Section Title Here"
+    },
+    {
+      "type": "checkbox",
+      "id": "bottom_stroke",
+      "label": "Show Bottom Stroke?"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Project",
+      "type": "card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "project",
+          "label": "Featured Project",
+          "info": "Select project to be featured"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "default": "Button Text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_target",
+          "label": "Open In New tab?"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Projects",
+      "blocks": [
+        {
+          "type": "card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

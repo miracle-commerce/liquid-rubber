@@ -1,0 +1,26 @@
+<section class="c-contact-page container" aria-lable="Contact Page">
+    <div class="row py-3 py-lg-3 py-xl-5">
+        <div class="col-12 center">
+            <h1 class="h1 mb-0">
+                {{ page.title | escape }}
+              </h1>
+              <div class="rte sub-heading">
+                {{ page.content }}
+              </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    }
+  ]
+}
+{% endschema %}

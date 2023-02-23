@@ -1,0 +1,25 @@
+<div class="coverage-calculator-cta-container">
+   <div class="headline-container">
+       {% if icon != blank %}
+           <img data-src="{{ icon }}" class="img-fluid lazy" alt="">
+       {% else %}
+           {% render 'icon-calculator' %}
+       {% endif %}
+       {% if headline != blank %}
+           <h4>{{ headline }}</h4>
+       {% endif %}
+   </div>
+    <button class="button {% if button_class %} {{ button_class }} {% else %} orange {% endif %} cost-calculator-modal" rel="js-dl-cc-trigger">{% if button_text %}{{ button_text }}{% else %}Coverage Calculator{% endif %} <span class="arrow"></span></button>
+</div>
+<script>
+    $(document).ready(function() {  
+        //Start DataLayer
+        $('button[rel="js-dl-cc-trigger"]').click(function(){                  
+            utag.link({
+                event_type: "select_content",
+                content_type: "coverage calculator cta",
+            });                
+        });
+        //End DataLayer
+    });
+</script>

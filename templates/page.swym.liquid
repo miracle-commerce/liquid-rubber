@@ -1,0 +1,124 @@
+{% if page.metafields.custom_fields["my_projects"] != blank %}
+    {% for item in page.metafields.custom_fields["my_projects"] %}
+        <div class="my-projects">
+            <section class="c-my-projects" aria-label="My Projects">
+                <div class="header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <h1>{{ item["title"] }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dynamically populated through swym js file -->
+                <div class="wishlist {% if customer %}{% else %}d-none{% endif %}">
+                    <div class="container">
+                        <div id="wishlist-items-container" class="row">
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="c-no-items d-none" aria-label="No Items Saved">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 description">
+                            <p>{{ item["no_items_description"] }}</p>
+                        </div>
+                        <div class="col-12 cta">
+                            <span class="content">{{ item["no_items_title"] }}</span>
+                            <div class="buttons">
+                                {% for no_items_button_item in item["no_items_button"] %}
+                                    <div>
+                                        <a class="button orange" href="{{ no_items_button_item['link'] }}" target="{% if no_items_button_item['target'] == 1 %}_blank{% else %}_self{% endif %}" aria-label="{{ no_items_button_item['aria_label'] }}">{{ no_items_button_item["label"] }}<span class="arrow"></span></a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="c-rewards {% if customer %}{% else %}d-none{% endif %}" aria-label="Rewards">
+                <div class="container rewards-container">
+                    <div class="row">
+                        <div class="col-12 reward">
+                            <span class="rewards-title">{{ item["rewards_title"] }}</span>
+                            <span class="rewards-description">{{ item["rewards_description"] }}</span>
+                            {% for rewards_button_item in item["rewards_button"] %}
+                                <a class="button orange" href="{{ rewards_button_item['link'] }}" target="{% if rewards_button_item['target'] == 1 %}_blank{% else %}_self{% endif %}" aria-label="{{ rewards_button_item['aria_label'] }}">{{ rewards_button_item["label"] }}<span class="arrow"></span></a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="c-sign-in-cta {% if customer %}d-none{% endif %}" aria-label="Sign In CTA">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 description">
+                            <p>{{ item["sign_in_description"] }}</p>
+                        </div>
+                        <div class="col-12 cta">
+                            <span class="content">{{ item["sign_in_cta_title"] }}</span>
+                            <div class="buttons">
+                                {% for sign_in_button_item in item["sign_in_button"] %}
+                                    <div>
+                                        <a class="button orange" href="{{ sign_in_button_item['link'] }}" target="{% if sign_in_button_item['target'] == 1 %}_blank{% else %}_self{% endif %}" aria-label="{{ sign_in_button_item['aria_label'] }}">{{ sign_in_button_item["label"] }}<span class="arrow"></span></a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="c-suggested-projects bg-black {% if customer %}d-none{% endif %}" aria-label="Suggested Projects">
+                {% if item["top_stroke"] == 1 %}
+                    {% assign top_stroke = 'top-section-stroke.svg' | asset_url %}
+                    <img class="section-stroke top lazy" data-src="{{top_stroke}}" aria-hidden="true" alt="" />
+                {% endif %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>{{ item["suggest_projects_title"] }}</h2>
+                        </div>
+                        {% for suggested_projects_item in item["suggested_projects"] %}
+                            <div class="col-4">
+                                <a class="project" href="{{ product.url }}" aria-label="{{ product.url }}">
+                                    {% render 'card-project', project: all_products[suggested_projects_item.project], class: ".project-favorite" %}
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% if item["bottom_stroke"] == 1 %}
+                    {% assign bottom_stroke = 'bottom-section-stroke.svg' | asset_url %}
+                    <img class="section-stroke bottom lazy" data-src="{{bottom_stroke}}" aria-hidden="true" alt="" />
+                {% endif %}
+            </section>
+        </div>
+    {% endfor %}
+{% endif %}
+{% if shop.metafields.custom_fields["project_information"] != blank %}
+    <script>
+    var projects = {};
+    {% for item in shop.metafields.custom_fields["project_information"] %}
+        {% assign projects_product = item['project'] %}
+        projects[{{all_products[projects_product].id}}] = {
+            'project-id': '{{all_products[projects_product].id}}',
+            'time': '{{ item["time"] }}',
+            'time_title': '{{ item["time_title"] }}',
+            'time_icon': '{{ item["time_icon"] }}',
+            'time_to_complete': '{{ item["time_to_complete"] }}',
+            'difficulty': '{{ item["difficulty"] }}',
+            'difficulty_icon': '{{ item["difficulty_icon"] }}',
+            'difficulty_title': '{{ item["difficulty_title"] }}',
+            'difficulty_level': '{{ item["difficulty_level"] }}',
+            'products': '{{ item["products"] }}',
+            'products_title': '{{ item["products_title"] }}',
+            'products_icon': '{{ item["products_icon"] }}',
+            'products_needed': '{{ item["products_needed"] }}'
+        }
+    {% endfor %}
+    </script>
+{% endif %}
+<script src="{{ 'swym-wishlist-page.js' | asset_url }}" project{{forloop.index}}='{{item}}'></script>

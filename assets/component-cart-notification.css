@@ -1,0 +1,37 @@
+.cart-notification-wrapper {
+  position: relative;
+}
+
+.cart-notification-wrapper .cart-notification.active {
+  display: block;
+}
+
+.cart-notification {
+  background-color: #ffffff;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+@media screen and (min-width: 768px) {
+  .cart-notification {
+    right: 4rem;
+  }
+}
+
+.cart-notification.animate {
+  transition: transform var(--duration-short) ease,
+    visibility 0s var(--duration-short) ease;
+}
+
+.cart-notification.active {
+  transform: translateY(0);
+  transition: transform var(--duration-default) ease, visibility 0s;
+  visibility: visible;
+}
+
+.cart-notification__close {
+  margin-top: -2rem;
+  margin-right: -3rem;
+}

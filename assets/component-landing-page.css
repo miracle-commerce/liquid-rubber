@@ -1,0 +1,387 @@
+/* Reomved to hide extra scrollbar on product page by Tushar Jadhav */
+/* html,body{
+  overflow-x:hidden;
+} */
+  .page-contractor-landing .section-benefit{
+          padding: 80px 0 100px;
+    position: relative;
+       background: #000;
+      color: #fff;
+          margin-bottom: 60px;
+    }
+    .page-contractor-landing .section-benefit .image-width-text{
+      display: flex;
+    align-items: center;
+    }
+    .page-contractor-landing .section-benefit .header_cap{
+         color: #fff;;
+      line-height: 1;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    }
+    .page-contractor-landing .section-benefit .image-width-text p{
+      font-size: 23px;
+    line-height: 26px;
+    font-family: Khand,sans-serif;
+    font-weight: 600;
+    margin: auto;
+    margin-left: 20px;
+      max-width: 260px;
+    }
+    .page-contractor-landing .section-benefit .image-width-text img{
+         width: 100%;
+    max-width: 50px;
+    }
+.top--page-contractor-landing{
+width: 100%;
+    max-width: 100%;
+    padding: 0 !important;
+    margin: 0;
+  background: #000;
+}
+.top--page-contractor-landing .row{
+    margin: 0!important;
+  width: 100%;
+  padding-top: 60px;
+    padding-bottom: 20px;
+}
+.top--page-contractor-landing .row:last-child{
+ display: none;
+}
+.top--page-contractor-landing .row h1{
+    font-size: 70px;
+    line-height: 65px;
+    color: #fff;
+}
+.top--page-contractor-landing .section-stroke-bottom{
+width: 100%;
+    max-width: 100%;
+    display: block;
+}
+.section-rich-text .text-center{
+      text-align: center;
+}
+.section-rich-text h2{
+       font-size: 30px;
+    line-height: 24px;
+}
+.section-rich-text{
+  padding-top: 60px;
+   padding-bottom: 60px;
+}
+.section-rich-text p{
+     font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+}
+.section-rich-text p strong{
+    font-weight: 700;
+}
+.section-rich-text .rich-text__heading--medium{
+  margin-bottom: 20px;
+}
+.section-rich-text .rich-text__heading--medium{
+      font-size: 30px;
+    line-height: 24px;
+    font-weight: 700;
+      font-family: Khand,sans-serif;
+      text-transform: uppercase;
+}
+.page-contractor-landing .c-f2col-wrapper .f2col-col{
+      text-align: left;
+}
+.page-contractor-landing .c-f2col-wrapper .f2col-bc .f2col-title h3{
+      color: #000;
+    font-size: 65px;
+    line-height: 56px;
+    text-transform: uppercase;
+  display: block;
+    margin-bottom: 18px;
+}
+.page-contractor-landing .f2col-text p strong{
+  font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+}
+.page-contractor-landing .c-f2col-wrapper .f2col-img{
+      background-image: none !important;
+}
+.page-contractor-landing .c-f2col-wrapper .f2col-col .f2col-col-btn a{
+      border: none;
+    background: #C05630;
+    color: #fff;
+    width: 253px;
+    padding: 0;
+    height: 51px;
+    line-height: 51px;
+}
+.page-contractor-landing .c-f2col-wrapper .f2col-bc {
+    padding: 0 10px;
+}
+.page-contractor-landing .c-f2col-wrapper .button.white .arrow,
+.page-contractor-landing .c-f2col-wrapper .button.white .arrow:after, 
+.page-contractor-landing .c-f2col-wrapper .button.white .arrow:before {
+    background: #fff;
+}
+.page-contractor-landing .c-f2col-wrapper .button.white .arrow{
+  margin-left: 10px;
+}
+.page-contractor-landing .c-f2col-wrapper .f2col-col .f2col-col-btn {
+    width: 100%;
+    padding: 0 10px;
+    margin-top: 35px;
+}
+.page-contractor-landing .c-f2col-wrapper .f2col-col .f2col-col-btn a:hover{
+background: #657c49;
+    border-color: #657c49;
+}
+.page-contractor-landing .section .c-f2col-wrapper{
+  padding: 0;
+}
+.page-contractor-landing .c-f2col-wrapper .f2col-text {
+    min-height: auto;
+}
+.page-contractor-landing .section .c-f2col-wrapper .row{
+      align-items: center;
+}
+.page-contractor-landing .section .c-f2col-wrapper .f2col-img,
+ .page-contractor-landing .section .c-f2col-wrapper .f2col-img img{
+      max-width: 100%;
+    width: 100%;
+}
+.page-contractor-landing .custom-contractors+.custom-contractors .c-f2col-wrapper .f2col-col{
+      padding: 0;
+}
+.page-contractor-landing .custom-contractors+.custom-contractors .f2col-col:first-child{
+  flex: 0 0 47%;
+    max-width: 47%;
+      padding-left: 2.5rem;
+}
+.page-contractor-landing .custom-contractors+.custom-contractors .f2col-col:last-child{
+      flex: 0 0 53%;
+    max-width: 53%;
+      padding-right: 2.5rem;
+}
+.page-contractor-landing .custom-contractors{
+      margin-bottom: 15px;
+}
+.page-contractor-landing .custom-contractors+.custom-contractors {
+      margin-bottom: 70px;
+}
+.page-contractor-landing .c-project-gallery .content h2{
+font-size: 40px;
+    line-height: 40px;
+    max-width: 200px;
+}
+.page-contractor-landing #shopify-section-template--16608418562302__6ad036f0-2bf2-4310-bd9c-731d0b4a3a63 .c-ft-wrapper {
+    height: 53.75rem;
+}
+.c-contact-form-contractors .form-wrapper .contact-form {
+    z-index: 1;
+    background-color: #ededed;
+    box-shadow: 0 4px 8px #00000040;
+  max-width: 620px;
+    margin: auto;
+      padding-bottom: 3rem !important;
+      padding-top: 3rem!important;
+}
+.c-contact-form-contractors .form-wrapper svg{
+        position: absolute;
+    z-index: -1;
+    left: 53%;
+    -webkit-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translate(-50%);
+        top: -10px;
+    max-width: 800px;
+    height: 300px;
+}
+.c-contact-form-contractors .contact-support-form{
+  margin-top: 70px;
+}
+.c-contact-form-contractors .form-container{
+      max-width: 490px;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+.c-contact-form-contractors .h3-section p{
+  font-size: 40px;
+  line-height: 40px;
+    color: #C05630;
+    text-transform: uppercase;
+    font-family: Khand,sans-serif;
+    font-weight: 500;
+}
+.c-contact-form-contractors .h2-section{
+      font-size: 70px;
+  line-height: 65px;
+}
+.c-contact-form-contractors .h3-section p strong{
+   font-weight: 700;display: block;
+}
+.c-contact-form-contractors .h3-section{
+      margin-bottom: 30px;
+}
+.c-contact-form-contractors .form-wrapper .contact-form .input-container.contact-select:after {
+    border: 2px solid transparent;
+    border-radius: 1px;
+    border-top-color: #c05630;
+    border-right-color: #c05630;
+    content: "";
+    height: 0.625rem;
+    pointer-events: none;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+    transform: rotate(135deg);
+    width: 0.625rem;
+    z-index: 1;
+}
+.c-contact-form-contractors .button.orange{
+    text-transform: capitalize;
+    max-width: 137px;
+    min-width: 137px;
+    height: 43px;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 500;
+    display: block;
+    margin: auto;
+    margin-top: 20px !important;
+}
+.c-contact-form-contractors{
+      display: block;
+    margin-bottom: 100px;
+}
+.page-contractor-landing .project-gallery .c-project-gallery{
+  padding-bottom: 50px;
+}
+@media screen and (max-width: 991px) {
+.page-contractor-landing .section .c-f2col-wrapper .f2col-img, .page-contractor-landing .section .c-f2col-wrapper .f2col-img img {
+    max-width: 28.125rem;
+    width: 100%;
+}
+.page-contractor-landing .section .c-f2col-wrapper .f2col-col {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+  .page-contractor-landing .custom-contractors+.custom-contractors .f2col-col:first-child,
+  .page-contractor-landing .custom-contractors+.custom-contractors .f2col-col:last-child{
+    flex: 100%;
+    max-width: 100%;
+    padding-right: 0;
+  }
+   .page-contractor-landing .custom-contractors+.custom-contractors .f2col-col:first-child{
+     order: 1;
+   }
+  .page-contractor-landing .custom-contractors+.custom-contractors .f2col-col:last-child{
+    order: 0;
+    margin-top: 30px;
+  }
+  .page-contractor-landing .c-f2col-wrapper .f2col-bc .f2col-title h3 {
+   font-size: 55px;
+    line-height: 55px;
+    margin-bottom: 12px;
+}
+  .c-contact-form-contractors .h2-section{
+   font-size: 55px;
+    line-height: 55px;
+  }
+  .section-rich-text {
+    padding-bottom: 20px;
+}
+  .page-contractor-landing .section-benefit .image-width-text p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+.page-contractor-landing .c-project-gallery .content h2 {
+    max-width: 100%;
+}
+  
+}
+@media screen and (max-width: 767px) {
+.top--page-contractor-landing .row {
+    padding-top: 30px;
+}
+.top--page-contractor-landing .row h1 {
+      line-height: 1;
+    font-size: 3.25rem;
+}
+  .page-contractor-landing .section .c-f2col-wrapper .f2col-col,
+   .page-contractor-landing .custom-contractors+.custom-contractors .f2col-col:first-child {
+padding: 0 25px;
+}
+.page-contractor-landing .section .c-f2col-wrapper .f2col-img, .page-contractor-landing .section .c-f2col-wrapper .f2col-img img {
+    max-width: 100%;
+    width: 100%;
+    justify-content: left;
+}
+ .page-contractor-landing .c-f2col-wrapper .f2col-img-wrap {
+    padding: 0 15px;
+}
+.page-contractor-landing .section-benefit .image-width-text {
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+  .page-contractor-landing .section-benefit {
+    padding: 85px 0 85px;
+    margin-bottom: 100px;
+  }
+  .page-contractor-landing .section-benefit .image-width-text p {
+    margin: 0;
+    text-align: center;
+}
+ .page-contractor-landing .section-benefit .image-width-text img{
+    margin-bottom: 20px;
+}
+  .c-contact-form-contractors .form-wrapper svg {
+    max-width: 650px;
+  }
+  .c-contact-form-contractors {
+    margin-bottom: 65px;
+}
+  .wrapp--page-contractor-landing{
+        padding-top: 0;
+  }
+}
+@media screen and (max-width: 576px) {
+.page-contractor-landing .c-f2col-wrapper .f2col-bc .f2col-title h3,
+  .c-contact-form-contractors .h2-section{
+    font-size: 45px;
+    line-height: 45px;
+}
+  .page-contractor-landing .custom-contractors+.custom-contractors{
+    margin-bottom: 60px;
+}
+.page-contractor-landing .section-benefit .image-width-text img {
+    margin-bottom: 0;
+}
+.page-contractor-landing .section-benefit .image-width-text {
+    margin-bottom: 25px;
+}
+.page-contractor-landing .section-benefit .image-width-text p {
+    text-align: left;
+    margin-left: 20px;
+}
+.page-contractor-landing .section-benefit .image-width-text img {
+    max-width: 45px;
+}
+ .page-contractor-landing .section-benefit {
+    padding: 75px 0 60px;
+ }
+.c-contact-form-contractors .h3-section p {
+    font-size: 28px;
+    line-height: 28px;
+}
+.c-contact-form-contractors .form-wrapper .contact-form{
+      padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+  .section-rich-text .rich-text__heading--medium{
+    font-size: 23px;
+  }
+  .section-rich-text .rich-text__heading--medium {
+    margin-bottom: 15px;
+}
+}

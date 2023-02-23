@@ -1,0 +1,28 @@
+{% comment %}
+    Renders cart notification
+
+    Usage:
+    {% render 'cart-notification' %}
+{% endcomment %}
+
+<cart-notification class="{% if cart == empty %} is-empty{% endif %}" id="{% if notification_id %}{{ notification_id }}-{% endif %}cart-notification-wrapper">
+    <div class="container cart-notification-wrapper">
+        <div id="{% if notification_id %}{{ notification_id }}-{% endif %}cart-notification" class="cart-notification focus-inset" aria-modal="true" aria-label="{{ 'general.cart.item_added' | t }}" role="dialog" tabindex="-1">
+            <button class="cart-notification-close d-lg-none">
+                {% render 'icon-close' %}
+            </button>
+
+            <h2>My Cart</h2>
+            {% render 'text-brushstroke' %}
+
+            <div id="{% if notification_id %}{{ notification_id }}-{% endif %}cart-notification-product" class="cart-notification-products"></div>
+
+            <div class="cart-notification__links">
+                <a href="{{ routes.cart_url }}" id="{% if notification_id %}{{ notification_id }}-{% endif %}cart-notification-button" type="submit" class="button orange button--secondary button--full-width">
+                    <span>{{ 'sections.cart.checkout' | t }}<span class="arrow"></span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</cart-notification>
+{% style %}.cart-notification { display: none; }{% endstyle %}

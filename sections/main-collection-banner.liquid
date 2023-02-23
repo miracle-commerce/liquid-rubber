@@ -1,0 +1,135 @@
+<section class="c-main-collection-banner {% if section.settings.show_collection_image and collection.image %} has-img {% endif %}">
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2000" height="596" viewBox="0 0 2000 596" class="d-none d-lg-block bg-blob" preserveAspectRatio="xMidYMid">
+    <path d="M0,592.8c0,0,24.1-30.5,76.5-52.2c52.4-21.7,82.2,33.3,126,25.1s46.7-26.2,79.8-4c33.1,22.2,47.1,62.4,102.5,0
+			c55.4-62.4,72-38.5,124.6-36.5c52.6,2,39.4-51.1,72.6-62.4c33.2-11.3,36.5,45.5,86.8,39.3c50.3-6.1,36.7-37.6,104.3-56.8
+			s109.7-15.8,179.6-16s169.7-114.4,305.2-79.6c135.6,34.8,86.3-52.3,195.1-82.1c108.8-29.9,151.3-70.3,260.6-27.7
+			s286.6-90.9,286.6-90.9L2000,0H-0.1L0,592.8z" fill="#000000"/>
+  </svg>
+  <div class="container">
+    <div class="row align-items-md-start justify-content-md-start">
+      <div class="col-12 {% if section.settings.show_collection_image and collection.image %} col-md-5 {% else %} col-md-7 {% endif %}">
+        <h1>{{ collection.title }}</h1>
+        {% if section.settings.override_benefit_cta %}
+          <div class="benefits-ctas small">
+            {% for block in section.blocks %}
+              {% if block.type == 'benefit_cta' %}
+                {% assign icon = block.settings.icon | downcase %}
+
+                <div class="benefit-cta">
+                  {% liquid
+                     if icon != blank
+                       case icon
+                         when 'shield'
+                           render 'icon-shield'
+                         when 'chain'
+                           render 'icon-chain'
+                         else
+                           render 'icon-paint'
+                       endcase
+                     endif
+                  %}
+                  {% if block.settings.content != blank %}
+                    <span>{{ block.settings.content }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          {% liquid
+             for block in section.blocks
+               if block.type == 'benefit_cta'
+                 for operation in menuItems
+                   assign icon = block.settings.icon | split: '_' | first | split: ''
+                   assign cta = cta | concat: icon
+                 endfor
+               endif
+           endfor
+          %}
+        {% else %}
+          {% liquid
+             assign benefit_ctas = shop.metafields.custom_fields["benefit_callouts"]
+             if benefit_ctas != blank
+               render 'benefit-ctas', callouts: benefit_ctas, class: 'small'
+             endif
+          %}
+        {% endif %}
+      </div>
+      {%- if section.settings.show_collection_image and collection.image -%}
+        <div class="col-12 col-md-7">
+          <img srcset="{%- if collection.image.width >= 395 -%}{{ collection.image | image_url: width: 395 }} 395w,{%- endif -%}
+              {%- if collection.image.width >= 420 -%}{{ collection.image | image_url: width: 420 }} 420w,{%- endif -%}
+              {%- if collection.image.width >= 560 -%}{{ collection.image | image_url: width: 560 }} 560w,{%- endif -%}
+              {%- if collection.image.width >= 992 -%}{{ collection.image | image_url: width: 665 }} 665w,{%- endif -%}
+              {{ collection.image | image_url: width: 735 }} 735w"
+               sizes="(min-width: 320px) 395w, (min-width: 768px) 420w, (min-width: 992px) 560w, (min-width: 1200px) 665w, 735w"
+               src="{{ collection.image | img_url: '735x' }}"
+               alt="{{ collection.title | escape }}"
+               class="lazy"
+               width="{{ collection.image.width }}"
+               height="{{ collection.image.height }}"
+          >
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-banner.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-collection-banner.settings.paragraph.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_image",
+      "default": true,
+      "label": "t:sections.main-collection-banner.settings.show_collection_image.label",
+      "info": "t:sections.main-collection-banner.settings.show_collection_image.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "override_benefit_cta",
+      "default": false,
+      "label": "Override Benefit Callouts",
+      "info": "If selected, please add blocks to customize the benefit callouts. Otherwise it will inherit the global benefit callouts."
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Benefit Callout",
+      "type": "benefit_cta",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "chain",
+              "label": "Chain"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "paint",
+              "label": "Paint"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

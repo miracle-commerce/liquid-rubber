@@ -1,0 +1,191 @@
+<section>
+  <div class="col-12 d-flex justify-content-center section-padding">     
+      <div class="login width-full pt-4">
+        <div>
+         
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-8">                    
+               {%- if recover_success == true -%}
+          <div class="form text-center">
+            <p class="form-message valid" tabindex="-1" autofocus>
+              <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 13 13">
+                <path d="M6.5 12.35C9.73087 12.35 12.35 9.73086 12.35 6.5C12.35 3.26913 9.73087 0.65 6.5 0.65C3.26913 0.65 0.65 3.26913 0.65 6.5C0.65 9.73086 3.26913 12.35 6.5 12.35Z" fill="#657c49" stroke="white" stroke-width="0.7"/>
+                <path d="M5.53271 8.66357L9.25213 4.68197" stroke="white"/>
+                <path d="M4.10645 6.7688L6.13766 8.62553" stroke="white">
+              </svg>
+            </p>
+          </div>
+          {%- endif -%}
+              {%- form 'customer_login', novalidate: 'novalidate', class: 'form login-form' -%}
+                {%- if form.errors -%}
+                  <ul class="form-message invalid"> 
+                    {% for field in form.errors %}
+                      <li>
+                        <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 13 13">
+                          <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+                          <circle cx="6.5" cy="6.5" r="5.5" fill="#9d0000" stroke="#9d0000" stroke-width="0.7"/>
+                          <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+                          <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#9d0000" stroke-width="0.7">
+                        </svg> 
+
+                        {% if field == 'form' %}
+                          {{ form.errors.messages[field] }}
+                        {% else %}
+                          {{ form.errors.translated_fields[field] }} - {{ form.errors.messages[field] }}
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {%- endif -%}
+                  <div class="d-flex flex-column">                   
+                    <div class="input-container">        
+                      <input
+                        type="email"
+                        name="customer[email]"
+                        id="CustomerEmail"
+                        autocomplete="email"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        {% if form.errors contains 'form' %}
+                          aria-invalid="true"
+                        {% endif %}
+                        class="form-control"                      
+                      >
+                      <label for="CustomerEmail" class="field__label">
+                        {{ 'customer.login_page.email' | t }}
+                      </label>
+                    </div>
+                
+                    {%- if form.password_needed -%}                   
+                    <div class="input-container">          
+                      <input
+                        type="password"
+                        value=""
+                        name="customer[password]"
+                        id="CustomerPassword"
+                        autocomplete="current-password"
+                        {% if form.errors contains 'form' %}
+                          aria-invalid="true"
+                        {% endif %}
+                        class="form-control"
+                      
+                      >
+                      <label for="CustomerPassword" class="field__label">
+                        {{ 'customer.login_page.password' | t }}
+                      </label>
+                    </div>
+                    <div class="text-end mt-n3">
+                        <a href="/account/login#recover" class="link-small">
+                          {{ 'customer.login_page.forgot_password' | t }}
+                        </a>                      
+                    </div>                    
+                    {%- endif -%}
+                  </div>
+                 
+                  <div class="text-center">    
+                    <button  class="button orange">
+                      {{ 'customer.login_page.sign_in' | t }} <span class="arrow"></span>
+                    </button>
+                  </div>                   
+                 
+                  <div class="mt-5 text-center">                 
+                      <p class="register__link">Don't have an account? 
+                        <br>
+                        <a class="accent-link" href="{{ routes.account_register_url }}">
+                          {{ 'customer.login_page.create_account' | t }}
+                        </a>
+                      </p>
+                  </div>                 
+              {%- endform -%}
+            </div>
+          </div> 
+        </div>
+        
+        {%- if shop.checkout.guest_login -%}
+          <div>
+            <div class="row">
+              <div class="col-12 text-center">
+                <hr>
+                <h3 class="text-center">{{ 'customer.login_page.guest_title' | t }}</h3>
+                {%- form 'guest_login' -%}
+                  <button  class="button orange">
+                    {{ 'customer.login_page.guest_continue' | t }} <span class="arrow"></span>
+                  </button>
+                {%- endform -%}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+  $(document).ready(function() {  
+
+    $('body').on('click', '.login-form button', function() {
+      let $validEmail = false,
+          $validPassword = false;
+     
+      const $email =  $('#CustomerEmail'),
+            $password =  $('#CustomerPassword');
+
+      if($email.val().length <= 0){
+        $email.nextAll(".error-message").remove();
+        $email.after('<div class="error-message">This field is required.</div>').addClass('error');
+        $validEmail = false;
+      }else{
+        if( (/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/).test($email.val())){
+          $validEmail = true;        
+          $email.removeClass("error").nextAll(".error-message").remove();
+        }else{
+          $email.nextAll(".error-message").remove();          
+          $email.after('<div class="error-message">Please enter valid email address.</div>').addClass('error')  ;
+          $validEmail = false;
+        }
+      }
+
+      if($password.val().length <= 0){
+        $password.nextAll(".error-message").remove();
+        $password.after('<div class="error-message">This field is required.</div>').addClass('error');       
+        $validPassword = false;
+      }else{
+        $validPassword = true;
+        $password.removeClass("error").nextAll(".error-message").remove();
+      }
+    
+      if($validEmail && $validPassword){
+        return true;
+      }
+      return false;
+      
+    });
+
+    $('body').on('click', '.password-reset-form button', function() {
+      let $valid = false;
+         
+      const $email =  $('#RecoverEmail');           
+
+      if($email.val().length <= 0){
+        $email.nextAll(".error-message").remove();
+        $email.after('<div class="error-message">This field is required.</div>').addClass('error');
+        $valid = false;
+      }else{
+        if( (/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/).test($email.val())){
+          $valid = true;        
+          $email.removeClass("error").nextAll(".error-message").remove();
+        }else{
+          $email.nextAll(".error-message").remove();          
+          $email.after('<div class="error-message">Please enter valid email address.</div>').addClass('error')  ;
+          $valid = false;
+        }
+      }
+    
+      if($valid){
+        return true;
+      }
+      return false;
+      
+    });
+  });
+</script>

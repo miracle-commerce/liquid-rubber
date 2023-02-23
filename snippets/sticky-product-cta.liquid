@@ -1,0 +1,26 @@
+<section class="c-sticky-product-cta">
+    <div class="container">
+        <div class="row flex-nowrap align-items-center justify-content-between">
+            <div class="col order-1 order-md-0">
+                <div class="product-cta-info">
+                    {% if product.featured_image %}
+                        {% assign img = product.featured_image %}
+                    {% else %}
+                        {% assign img = product.images[0] %}
+                    {% endif %}
+                    <img
+                            data-src="{{ img | img_url }}"
+                            data-srcset="{{ img | img_url: '60x' }} 60w, {{ img | img_url: '90x' }} 90w"
+                            data-sizes="90px, (max-width: 768px) 60px"
+                            class="img-fluid lazy"
+                            alt="{{ img.alt }}"
+                    >
+                    <h3>{{ product.title | escape }}</h3>
+                </div>
+            </div>
+            <div class="col-auto order-0 order-md-1">
+                <a href="#product-information" data-anchor-link="true" class="button green small">Back To Top {% render 'icon-caret' %}</a>
+            </div>
+        </div>
+    </div>
+</section>

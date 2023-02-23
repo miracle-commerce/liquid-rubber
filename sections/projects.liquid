@@ -1,0 +1,13 @@
+{% comment %}theme-check-disable TemplateLength{% endcomment %}
+
+<link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
+
+{% liquid
+    if collection.metafields.custom_fields["projects"] != blank
+     for item in collection.metafields.custom_fields["projects"]
+         render 'internal-masthead', component: item
+         render 'project-list', component: item
+         render 'cta-content-image', component: item["content_image_cta"][0]
+     endfor
+    endif
+%}

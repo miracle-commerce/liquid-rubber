@@ -1,0 +1,58 @@
+{% if steps != blank %}
+   {% if button_link != blank %}
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-auto download-section">
+                <a class="button orange download" href="{{ button_link }}" aria-label="{% if button_aria_label != blank %}{{ button_aria_label }}{% else %}{{ item['button_text'] }}{% endif %}" target="_blank">{{ button_text }} {% render 'icon-download' %}</a>
+            </div>
+        </div>
+    {% endif %}
+    <div class="steps-container" id="steps-container">
+        {% for steps_item in steps %}
+            <div class="row steps {% if forloop.last == true %}last-step{% endif %}">
+                <div class="step col-md-12 {% if steps_item['optional_tip_title'] != blank %}col-lg-8{% else %}col-lg-12{% endif %}">
+                    <span class="step-number">{{ forloop.index }}</span>
+                    <img data-src="{{ 'step_icon.svg' | asset_url }}" alt="Circle around step number design detail" class="lazy">
+                    <div class="step-content">
+                        {% if steps_item["title"] != blank %}
+                            <h3>{{ steps_item["title"] }}</h3>
+                        {% endif %}
+                        {% if steps_item["content"] != blank %}
+                            <p class="{% if steps_item['title'] == blank %}content{% endif %}">{{ steps_item["content"] }}</p>
+                        {% endif %}
+                        {% if steps_item["add_cart_product"] != blank %}
+                            {% assign add_to_cart = all_products[steps_item["add_cart_product"]] %}
+                            <a href="{{ add_to_cart.url }}" class="add-to-cart-modal">Add this Product to Cart</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if steps_item['optional_tip_title'] != blank %}
+                    <div class="col-lg-4 col-md-12 optional-tip">
+                        {% if steps_item["optional_tip_icon"] != blank %}
+                            <img data-srcset="{%- if image.width >= 40 -%}{{ steps_item['optional_tip_icon'] }} 42w, {%- endif -%} {{ steps_item['optional_tip_icon'] }}"
+                            data-sizes="(min-width: 1px) 42w, (min-width: 992px) 42w, (min-width: 1200px) 42w, 42w"
+                            data-src="{{ steps_item['optional_tip_icon'] }}" alt="{{ steps_item['optional_tip_icon_alt'] }}" class="lazy" />
+                        {% endif %}
+                        {% if steps_item["optional_tip_title"] != blank %}
+                            <span class="tip-title">{{ steps_item["optional_tip_title"] }}</span>
+                        {% endif %}
+                        {% if steps_item["optional_tip_content"] != blank %}
+                            <p>{{ steps_item["optional_tip_content"] }}</p>
+                        {% endif %}
+                        {% if steps_item["optional_tip_link"] != blank %}
+                            {% for repeater_item in steps_item["optional_tip_link"] %}
+                                {{ repeater_item["optional_tip_link"] }}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    {% if button_link != blank %}
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-auto download-section">
+                <a class="button orange download" href="{{ button_link }}" aria-label="{% if button_aria_label != blank %}{{ button_aria_label }}{% else %}{{ item['button_text'] }}{% endif %}" target="_blank">{{ button_text }} {% render 'icon-download' %}</a>
+            </div>
+        </div>
+    {% endif %}
+{% endif %}

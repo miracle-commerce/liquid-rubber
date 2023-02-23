@@ -1,0 +1,62 @@
+{% liquid
+    if article.metafields.custom_fields["product_list"] != blank
+        assign products = article.metafields.custom_fields["product_list"]
+    else
+        assign products = shop.metafields.custom_fields["blogs"][0]["product_list"]
+    endif
+%}
+
+<section class="c-commonly-used-products c-product-list sub-section {% if section.settings.bg_color %} bg-{{ section.settings.bg_color }} {% endif %}" aria-label="{{ section.settings.heading }}">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% render 'recommended-product-preview', headline: section.settings.heading, products: products, color: section.settings.bg_color, lazy: true, list_id: "blogs", list_name: "Blogs" %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Commonly Used Products",
+  "tag": "section",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Commonly Purchased Products",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "gray",
+      "options": [
+        {
+          "value": "gray",
+          "label": "Gray"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        },
+        {
+          "value": "green",
+          "label": "Green"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Commonly Used Products"
+    }
+  ],
+  "templates": [
+    "article"
+  ]
+}
+{% endschema %}

@@ -1,0 +1,73 @@
+    
+    {% assign top_stroke = 'top-section-stroke.svg' | asset_url %}
+    <img class="section-stroke top lazy" data-src="{{ top_stroke }}" aria-hidden="true" alt="" />
+    <div class="landing-benefit">
+    <div class="container">
+    <div class="row">
+    <div class="col-12">
+    <h2 class="header_cap" >{{ section.settings.header}}</h2>
+    </div>
+      {%- for block in section.blocks -%}
+    <div class="col-lg-4 col-sm-4 col-12 image-width-text">
+     {% if block.settings.image != blank %}
+       <img src="{{ block.settings.image | img_url: 'master' }}" alt="" />
+       {% endif %}
+   {% if block.settings.text != blank %}
+     <div>{{ block.settings.text }}</div>
+     {% endif %}
+    </div>
+      {%- endfor -%}
+
+    </div>
+    </div>
+    </div>
+    {% assign bottom_stroke = 'bottom-section-stroke.svg' | asset_url %}
+    <img class="section-stroke bottom lazy" data-src="{{ bottom_stroke }}" aria-hidden="true" alt="" />
+    
+
+ {% schema %}
+{
+  "name": "Three Benefit",
+  "class": "section-benefit",
+   "tag": "section",
+  "settings": [
+        	{
+    "type": "text",
+    "id": "header",
+    "label": "Header"
+    }
+      ],
+     "blocks": [
+    {
+    "type": "text",
+    "name":"Content",
+    "settings": [   
+      {
+    "type": "image_picker",
+    "id": "image",
+    "label": "Image"
+    },
+        {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+      }
+    ]
+    }
+    ],
+    "presets": [
+    {
+    "name": "Three Benefit"
+    }
+    ]
+    }
+    {% endschema %}
+
+  <style>
+    .page-contractor-landing .landing-benefit{
+         
+    }
+  
+
+    
+  </style>

@@ -1,0 +1,82 @@
+{% if item["top_stroke"] == 1 %}
+    {% assign top_stroke = 'top-section-stroke.svg' | asset_url %}
+    <img loading="lazy" class="section-stroke top lazy" data-src="{{ top_stroke | asset_url }}" aria-hidden="true" alt="" />
+{% endif %}
+<div class="container">
+    <div class="row">
+        {% for block in section.blocks %}
+            {% if block.type == 'image' %}
+                <div class="col-12 col-md-6 image">
+                    <img loading="lazy" srcset="
+                    {% if block.settings.image.width >= 330 %}{{ block.settings.image | image_url: width: 300 }} 300w,{% endif %}
+                    {% if block.settings.image.width >= 450 %}{{ block.settings.image | image_url: width: 450 }} 450w,{% endif %}
+                    {% if block.settings.image.width >= 510 %}{{ block.settings.image | image_url: width: 510 }} 510w,{% endif %}
+                    {% if block.settings.image.width >= 540 %}{{ block.settings.image | image_url: width: 540 }} 540w,{% endif %}"
+                       src="{{ block.settings.image.src | image_url: width: 100, height: 100, width: 540 }}"
+                       sizes="(min-width: 1400px) 540px, (min-width: 1200px) 510px, (min-width: 992px) 450px"
+                       alt="{{ block.settings.image.src.alt | escape }}"
+                       height="{{ block.settings.image.height }}"
+                       width="{{ block.settings.image.width }}">
+                </div>
+            {% elsif block.type == 'button' %}
+                <div class="col-12 col-md-6 content">
+                    <h2>{{ block.settings.content }}</h2>
+                    <a class="button orange" href="{{ block.settings.button_link }}" aria-label="{{ block.settings.button_text }}" target="{% if block.settings.button_target == true %}_blank{% else %}_self{% endif %}">{{ block.settings.button_text }}<span class="arrow"></span></a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product CTA",
+  "class": "product-cta",
+  "tag": "section",
+  "limit": 1,
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "info": "Recommended image size: 540 x 350",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "default": "Button Text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_target",
+          "label": "Open In New tab?"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
