@@ -93,8 +93,7 @@ $(document).ajaxComplete(function(event, request, settings){
 </script>
     {% endif %}
 
-  {%comment%}{{ content_for_header }}{%endcomment%}
-  {{ content_for_header | replace: 'https:\/\/upsells.boldapps.net\/v2_ui\/js\/UpsellTracker.js?shop=liquid-rubber-zionandzion.myshopify.com', '' | replace: 'https:\/\/upsells.boldapps.net\/v2_ui\/js\/upsell.js?shop=liquid-rubber-zionandzion.myshopify.com', '' }}
+  {{ content_for_header }}
 
     {% style %}
       :root {
@@ -248,15 +247,8 @@ $(document).ajaxComplete(function(event, request, settings){
     if (Shopify.designMode) {
       document.documentElement.classList.add('shopify-design-mode');
     }
-    </script>
-
-    {% comment %}
-    {%- render 'bold-common' -%}
-{%- render 'bold-includes' -%}
-    {% endcomment %}
-    {%- render 'judgeme_core' -%}
-    
-  {% render 'judgeme_core' %}
+    </script>    
+    {% render 'judgeme_core' %}
 
 {% render 'gsf-conversion-pixels' %}
 <!-- Hotjar Tracking Code for Shop Liquid Rubber -->
@@ -442,10 +434,7 @@ $(document).ajaxComplete(function(event, request, settings){
 
           setCookie('localization', "{{ localization.country.iso_code }}", 365)
         </script>
-
-    {% comment %}
-    {%- render "bold-custom-upsell-template" -%}
-    {% endcomment %}
+        
     {% section 'sezzle-widget' %}
   {% include 'socialboost-widgets' %}
   

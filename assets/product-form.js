@@ -81,10 +81,6 @@ if (!customElements.get('product-form')) {
               productItem.classList.remove('modalClick')
             }
           }
-
-          if(typeof BOLD === 'object' && BOLD.common && BOLD.common.eventEmitter && typeof BOLD.common.eventEmitter.emit === 'function') {
-            BOLD.common.eventEmitter.emit("BOLD_COMMON_cart_loaded");
-          }
         });
     }
 
