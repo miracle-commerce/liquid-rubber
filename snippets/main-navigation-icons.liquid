@@ -1,8 +1,4 @@
 <div class="header__icons">
-    <a href="/pages/swym-wishlist" class="swym-wishlist {%- if page.url == '/pages/my-projects' %} active{%- endif -%}">
-        <span class="label">My Projects</span>
-        {% render 'icon-project-favorites' %}
-    </a>
     <div id="cart-icon-bubble-container">
         <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset {%- if template == 'cart' %} active{%- endif -%}" id="{% if id %}{{ id }}-{% endif %}cart-icon-bubble">
             <span class="label">{{ 'templates.cart.cart' | t }}</span>

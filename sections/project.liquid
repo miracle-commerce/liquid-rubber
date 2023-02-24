@@ -168,26 +168,6 @@
                 {{ item["description"] }}
               </div>
             {% endif %}
-              <!-- Wishlist button -->
-            <div class="project-favorite">
-              <button id="custom-swym" data-with-epi="true" {% if customer %} rel="js-swym-button-dl-trigger" data-projectname="{{ item["title"] }}" {% endif %} style="border: none !important; background: transparent !important; text-transform: uppercase !important;" class="swym-button swym-heart swym-add-to-wishlist swym-add-to-wishlist-view-product product_{{ project.id }}" data-swaction="addToWishlist" data-product-id="{{ project.id | json }}" data-variant-id="{{ project.variants[0].id }}" data-product-url="{{ shop.url }}{{ project.url }}"><span>Save This Project</span></button>
-            </div>
-              <script>
-                //Start DataLayer
-                $('button[rel="js-swym-button-dl-trigger"]').click(function(){                  
-                  if(!$(this).hasClass("disabled"))
-                  {
-                    let $this = $(this),
-                      $projectName = $this.data('projectname')                    
-                      utag.link({
-                        event_type: "select_content",
-                        content_type: "save project",
-                        project_name: $projectName,
-                    });
-                  }
-                });
-                 //End DataLayer
-              </script>
             {% render 'login-modal' %}
           </div>
         </div>

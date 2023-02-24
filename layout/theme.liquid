@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
-	{% include "pandectes-rules" %}
+	  {% include "pandectes-rules" %}
 	
 	
     <meta charset="utf-8">
@@ -52,46 +52,46 @@
     <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
     {% comment %} <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin> {% endcomment %}
     <script src="https://www.youtube.com/player_api" defer></script>
-  <!-- Code add by sumeru from line no. 51 to 89 -->
-  {% if product %}
-    <script type="text/javascript">
-      var _learnq = _learnq || [];
-      function addedToCart() {
-        fetch(`${window.location.origin}/cart.js`)
-        .then(res => res.clone().json().then(data => {
-          var cart = {
-            total_price: data.total_price/100,
-            $value: data.total_price/100,
-            total_discount: data.total_discount,
-            original_total_price: data.original_total_price/100,
-            items: data.items
-          }
-          if (item !== 'undefined') {
-            cart = Object.assign(cart, item)
-          }
-          _learnq.push(['track', 'Added to Cart', cart])
-        }))
-      } 
-      (function (ns, fetch) {
-        ns.fetch = function() {
-          const response = fetch.apply(this, arguments);
-          response.then(res => {
-            if (`${window.location.origin}/cart/add.js`
-              .includes(res.url)) {
-                addedToCart()
+    <!-- Code add by sumeru from line no. 51 to 89 -->
+    {% if product %}
+      <script type="text/javascript">
+        var _learnq = _learnq || [];
+        function addedToCart() {
+          fetch(`${window.location.origin}/cart.js`)
+          .then(res => res.clone().json().then(data => {
+            var cart = {
+              total_price: data.total_price/100,
+              $value: data.total_price/100,
+              total_discount: data.total_discount,
+              original_total_price: data.original_total_price/100,
+              items: data.items
             }
-          });
-          return response
-        }
-      }(window, window.fetch))
+            if (item !== 'undefined') {
+              cart = Object.assign(cart, item)
+            }
+            _learnq.push(['track', 'Added to Cart', cart])
+          }))
+        } 
+        (function (ns, fetch) {
+          ns.fetch = function() {
+            const response = fetch.apply(this, arguments);
+            response.then(res => {
+              if (`${window.location.origin}/cart/add.js`
+                .includes(res.url)) {
+                  addedToCart()
+              }
+            });
+            return response
+          }
+        }(window, window.fetch))
 
-      $(document).ajaxComplete(function(event, request, settings){
-        if(settings.url == "/cart/add.js"){
-            addedToCart()
-        }
-      })
-      </script>
-  {% endif %}
+        $(document).ajaxComplete(function(event, request, settings){
+          if(settings.url == "/cart/add.js"){
+              addedToCart()
+          }
+        })
+        </script>
+    {% endif %}
 
     {% comment %} {{ content_for_header }} {% endcomment %}
     {{ content_for_header | replace : ' href=', ' data-href=' | replace : "addEventListener('load'", "addEventListener('wnw_load'" | replace : 'DOMContentLoaded', 'DOMContentLoaded2' | replace : 'defer="defer" src=', 'type="lazyload2" defer="defer" data-src=' }}
@@ -250,7 +250,6 @@
     }
     </script>    
     {% render 'judgeme_core' %}
-
     {% render 'gsf-conversion-pixels' %}
     <!-- Hotjar Tracking Code for Shop Liquid Rubber -->
     <script>
@@ -266,7 +265,7 @@
   </head>
 
   <body class="gradient {{ template | replace: '.', '-' | downcase }} {% if template contains 'landing' %} page-landing{% endif %}">
-  {% render 'tealium' %}
+    {% render 'tealium' %}
 
     <script type="text/javascript">
       (function(a,b,c,d){
@@ -322,14 +321,6 @@
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       }
     </script>
-
-    {% liquid
-      render 'swymSnippet'
-      render 'custom-swym'
-      if template == 'product'
-        render 'sticky-product-cta'
-      endif
-    %}
 
     {% if template == 'product' or template == 'product.project' %}
       <section class="c-modal" id="modal-coverage-calculator">
@@ -437,9 +428,7 @@
         </script>
         
     {% section 'sezzle-widget' %}
-  {% include 'socialboost-widgets' %}
-  
-  {% include 'swymSnippet' %}
-  {% render 'optimization-js' %}
-</body>
+    {% include 'socialboost-widgets' %}
+    {% render 'optimization-js' %}
+  </body>
 </html>

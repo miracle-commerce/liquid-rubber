@@ -85,12 +85,12 @@
       lazyLink=document.querySelectorAll("link");
       lazyLoadLink();
       
-      lazyLoadJS("{{ 'lazysizes.js' | asset_url }}");
+      {% comment %} lazyLoadJS("{{ 'lazysizes.js' | asset_url }}"); {% endcomment %}
       
-      lazyLoadJS("{{ 'vendors.js' | asset_url }}");
+      {% comment %} lazyLoadJS("{{ 'vendors.js' | asset_url }}");
       lazyLoadJS("{{ 'sections.js' | asset_url }}");
       lazyLoadJS("{{ 'utilities.js' | asset_url }}");
-      lazyLoadJS("{{ 'app.js' | asset_url }}");
+      lazyLoadJS("{{ 'app.js' | asset_url }}"); {% endcomment %}
       wnwAnalytics();
   
       j=0;
