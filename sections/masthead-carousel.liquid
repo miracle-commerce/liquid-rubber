@@ -17,7 +17,7 @@
           {% if block.settings.image != blank %}
             <div class="masthead-slide">
 
-               <div class="scroll-img img-responsive cover"><img class="lazyload" srcset="
+               <div class="scroll-img img-responsive cover"><img srcset="
                   {%- if block.settings.image.width >= 375 -%}{{ block.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
                   {%- if block.settings.image.width >= 750 -%}{{ block.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
                   {%- if block.settings.image.width >= 1100 -%}{{ block.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
@@ -26,7 +26,8 @@
                   {%- if block.settings.image.width >= 2000 -%}{{ block.settings.image | image_url: width: 2000 }} 2000w,{%- endif -%}
                   {%- if block.settings.image.width >= 3000 -%}{{ block.settings.image | image_url: width: 3000 }} 3000w,{%- endif -%}
                   {%- if block.settings.image.width >= 3840 -%}{{ block.settings.image | image_url: width: 3840 }} 3840w,{%- endif -%}
-                  {{ block.settings.image | image_url }} {{ block.settings.image.width }}w" data-src="{{ block.settings.image | image_url: width: 1920 }}" sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}" alt="{{ block.settings.image.alt }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}"></div>
+                  {{ block.settings.image | image_url }} {{ block.settings.image.width }}w" src="{{ block.settings.image | image_url: width: 1920 }}" sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}" alt="{{ block.settings.image.alt }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}"
+                loading="lazy"></div>
 
               <div class="container mc-group-c">
                 <div class="row mc-group-r">
