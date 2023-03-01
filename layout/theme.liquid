@@ -43,6 +43,7 @@
 
     {% render 'meta-tags' %}
 
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {% style %}
       :root {
         --font-body-family: 'Roboto', {{ settings.type_body_font.fallback_families }};
@@ -184,11 +185,18 @@
       }
     {% endstyle %}
     
+    <link rel="preload" href="{{'base.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{'base.min.css' | asset_url }}"></noscript>
+    <link rel="preload" href="{{'theme.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{'theme.css' | asset_url }}"></noscript>
+    <link rel="preload" href="{{'component-landing-page.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{'component-landing-page.css' | asset_url }}"></noscript>
+
     <script src="{{ 'global.js' | asset_url }}" defer></script>
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
-    <script rel="preload" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script rel="preload" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" async></script>
     <script rel="preload" type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>    
-    <script rel="preload" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"></script>
+    <script rel="preload" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js" async></script>
     {% comment %} <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script> {% endcomment %}
     {% comment %} <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin> {% endcomment %}
     <script src="https://www.youtube.com/player_api" defer></script>
@@ -235,10 +243,6 @@
 
     {% comment %} {{ content_for_header }} {% endcomment %}
     {{ content_for_header | replace : ' href=', ' data-href=' | replace : "addEventListener('load'", "addEventListener('wnw_load'" | replace : 'DOMContentLoaded', 'DOMContentLoaded2' | replace : 'defer="defer" src=', 'type="lazyload2" defer="defer" data-src=' }}
-
-    {{ 'base.min.css' | asset_url | stylesheet_tag }}
-    {{ 'theme.css' | asset_url | stylesheet_tag }}
-    {{ 'component-landing-page.css' | asset_url | stylesheet_tag}}
 
     {%- if settings.predictive_search_enabled -%}
       <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -400,32 +404,32 @@
     {% endif %}
 
     <script>
-          if(Storage !== undefined) {
+      if(Storage !== undefined) {
 
-            var defaultLink = "/collections/products";
+        var defaultLink = "/collections/products";
 
-            {% if template contains 'collection' %}
-            sessionStorage.collection = "{{ collection.url }}";
-            {% endif %}
+        {% if template contains 'collection' %}
+        sessionStorage.collection = "{{ collection.url }}";
+        {% endif %}
 
-            {% if template contains 'cart' %}
-            if( !sessionStorage.collection ) {
-              sessionStorage.collection = defaultLink;
-            }
-            document.getElementById("continue-shopping").href = sessionStorage.collection;
-            {% endif %}
+        {% if template contains 'cart' %}
+        if( !sessionStorage.collection ) {
+          sessionStorage.collection = defaultLink;
+        }
+        document.getElementById("continue-shopping").href = sessionStorage.collection;
+        {% endif %}
 
-          }
+      }
 
-          function setCookie(cname, cvalue, exdays) {
-            const d = new Date();
-            d.setTime(d.getTime() + (exdays*24*60*60*1000));
-            let expires = "expires="+ d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-          }
+      function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
 
-          setCookie('localization', "{{ localization.country.iso_code }}", 365)
-        </script>
+      setCookie('localization', "{{ localization.country.iso_code }}", 365)
+    </script>
         
     {% section 'sezzle-widget' %}
     {% include 'socialboost-widgets' %}
