@@ -38,22 +38,23 @@
 
     <a rel="js-dl-cp-trigger" href="{{ card_product.url | default: '#' }}" data-product-name="{{ card_product.title }}" data-product-id="{{ card_product.id }}" data-unit-price="{{ card_product.selected_or_first_available_variant.price | divided_by: 100.00 }}" data-item-category='{{ card_product.metafields.product.product_type }}' data-item-category2='{{ card_product.metafields.product.project }}' data-product-variant="{{ card_product.selected_or_first_available_variant.title }}" data-index-count="{{ indexCount }}">
         {%- if card_product.featured_media -%}
+            {%- assign card_product_image_height = 1 | divided_by: card_product.featured_media.aspect_ratio | times: 300 | floor -%}
             <img loading="lazy"
                  {% if lazy_load %}
-                     data-srcset="{%- if card_product.featured_media.width >= 160 -%}{{ card_product.featured_media | image_url: width: 160 }} 160w,{%- endif -%}
+                     srcset="{%- if card_product.featured_media.width >= 160 -%}{{ card_product.featured_media | image_url: width: 160 }} 160w,{%- endif -%}
                       {%- if card_product.featured_media.width >= 185 -%}{{ card_product.featured_media | image_url: width: 185 }} 185w,{%- endif -%}
                       {%- if card_product.featured_media.width >= 215 -%}{{ card_product.featured_media | image_url: width: 215 }} 215w,{%- endif -%}
                       {%- if card_product.featured_media.width >= 265 -%}{{ card_product.featured_media | image_url: width: 265 }} 265w,{%- endif -%}
                       {{ card_product.featured_media | image_url: width: 300 }} 300w"
-                     data-sizes="(min-width: 320px) 160w, (min-width: 768px) 185w, (min-width: 992px) 215w, (min-width: 1200px) 265w, 300w"
-                     data-src="{{ card_product.featured_media | image_url: width: 300 }}"
-                     class="lazy"
+                     sizes="(min-width: 320px) 160w, (min-width: 768px) 185w, (min-width: 992px) 215w, (min-width: 1200px) 265w, 300w"
+                     src="{{ card_product.featured_media | image_url: width: 300 }}"
+                     
                  {% else %}
                      src="{{ card_product.featured_media | image_url: width: 300 }}"
                  {% endif %}
                  alt="{{ card_product.featured_media.alt | escape }}"
-                 width="{{ card_product.featured_media.width }}"
-                 height="{{ card_product.featured_media.height }}"
+                 width="300"
+                 height="{{ card_product_image_height }}"
             >
         {%- endif -%}
 
