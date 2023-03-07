@@ -271,8 +271,10 @@
           }
         {% endif %}
       {% endstyle %}
-      {%- if template.name == 'index' -%}
-        {% render 'critical-css-home' %}
+      
+      {% render 'critical-css-home' %}
+      {%- if template.name == 'product' -%}
+        {% render 'critical-css-product.liquid' %}
       {%- endif -%}
     {% comment %} End Critical CSS {% endcomment %}
     <link rel="preload" href="{{'base.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -284,7 +286,7 @@
 
     <script src="{{ 'global.js' | asset_url }}" defer></script>
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
-    <script rel="preload" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" async></script>
+    <script rel="preload" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script rel="preload" type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>    
     <script rel="preload" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js" async></script>
     {% comment %} <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script> {% endcomment %}

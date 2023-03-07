@@ -118,7 +118,7 @@
                 </div>
             </div>
         {%- endif -%}
-
+{% render 'judgeme_widgets', widget_type: 'judgeme_all_reviews_text', concierge_install: true %}
         <div class="row disclaimer-row">
             <div class="col-12">
                 <small class="copyright__content">{{ 'now' | date: "%Y" }} {{ shop.address.company }}</small>
