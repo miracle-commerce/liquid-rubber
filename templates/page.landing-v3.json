@@ -21,11 +21,11 @@
         "a83d33e1-7c7d-4228-9ec7-935180166a61": {
           "type": "prizes",
           "settings": {
-            "prize_name": "Foundation Sealant",
-            "prize_image": "shopify:\/\/shop_images\/Group_27_b69580d5-54ee-48e2-a740-c02158c2c207.png",
-            "prize_headline": "The Best Foundation Sealant\/Basement Coating",
-            "prize_description": "<p>This easy-to-apply, high-quality Foundation Sealant is designed to protect your home from water damage. Its flexible, durable, and resistant properties make it an ideal choice for basements and other areas prone to dampness, as it is highly resistant to mildew, mold, and other organic growth.<\/p>",
-            "prize_link": "\/products\/foundation-sealant?variant=42521006309630"
+            "prize_name": "NeoPond Sealant",
+            "prize_image": "shopify:\/\/shop_images\/Untitled_design.png",
+            "prize_headline": "NeoPond Sealant",
+            "prize_description": "<p> Our water-based sealant used for waterproofing areas submerged in water including fish and plant ponds. Contains no solvents, ultra-low VOCs, and provides uncompromising safety when it comes to your family, pets, and the environment.<\/p>",
+            "prize_link": "\/products\/neoprene-pond-sealant?variant=42521008406782"
           }
         },
         "07a9e802-c167-4522-b269-ca5390ba759d": {
@@ -41,11 +41,11 @@
         "4c44e128-93bf-4ba0-9737-e3eff19f524c": {
           "type": "prizes",
           "settings": {
-            "prize_name": "SEALANT & ADHESIVE",
-            "prize_image": "shopify:\/\/shop_images\/Group_29.png",
-            "prize_headline": "Industrial & Construction Hybrid Sealant & Adhesive",
-            "prize_description": "<p>The Sealant &amp; Adhesive is a one-part, moisture cure adhesive used to fill larger joints and cracks before waterproofing.<\/p>",
-            "prize_link": "\/products\/sealant-adhesive?variant=42861291372798"
+            "prize_name": "Multipurpose Primer",
+            "prize_image": "shopify:\/\/shop_images\/Untitled_design_1.png",
+            "prize_headline": "MULTI-PURPOSE EPOXY PRIMER",
+            "prize_description": "<p>Our Primer works to increase bonding and provide a vapor barrier to help prevent blistering with other Liquid Rubber products.<\/p>",
+            "prize_link": "\/products\/multi-purpose-primer?variant=42521008799998"
           }
         },
         "47054ed8-51d1-41f6-ba77-b37b9399feb7": {
@@ -81,19 +81,19 @@
         "ccacbf6c-0988-47e7-9a87-5e4dfd966b14"
       ],
       "custom_css": [
-        ".desktop-form-container.active {z-index:0;}"
+        ".desktop-form-container.active {z-index: 0;}"
       ],
       "settings": {
         "landing_page_bg_desktop": "shopify:\/\/shop_images\/bg_Group_25.jpg",
         "landing_page_bg_mobile": "shopify:\/\/shop_images\/Group_21.png",
-        "landing_page_headline_desktop": "shopify:\/\/shop_images\/Group_30_3c795d11-a88d-4513-98d7-4c3944c730b8.png",
-        "landing_page_headline_mobile": "shopify:\/\/shop_images\/Group_30_m_c7448eb8-2057-4b6f-b385-5cba78bee7ad.png",
+        "landing_page_headline_desktop": "shopify:\/\/shop_images\/GIVEAWAY_2.png",
+        "landing_page_headline_mobile": "shopify:\/\/shop_images\/GIVEAWAY_2.png",
         "landing_page_subheadline": "",
-        "landing_page_content": "<p>Here's your chance to stop water from getting into your basement!  <\/p><p>Liquid Rubber Tech Support will walk through your project from start to finsih with you.<\/p><p><\/p><p>Fill out the form for your chance to win.<\/p>",
+        "landing_page_content": "<p>Here's your chance to stop your pond from leaking!  <\/p><p>Liquid Rubber Tech Support will walk through your project from start to finish with you.<\/p><p><\/p><p>Fill out the form for your chance to win.<\/p>",
         "landing_page_form_headline": "Enter to win!",
         "landing_page_countdown": true,
-        "landing_page_end_date": "2023-02-22T23:59:00Z",
-        "landing_page_form": "<div class=\"klaviyo-form-UHkFy2\"><\/div>",
+        "landing_page_end_date": "2023-03-27T23:59:00Z",
+        "landing_page_form": "<div class=\"klaviyo-form-YuthR3\"><\/div>",
         "landing_page_partner_content": "",
         "landing_page_anchor_content": "",
         "landing_page_anchor_button": "",
