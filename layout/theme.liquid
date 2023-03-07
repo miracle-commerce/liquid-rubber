@@ -44,7 +44,62 @@
     {% render 'meta-tags' %}
 
     <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    <link rel="preload" href="{{"khand-bold-webfont.woff2" | asset_url}}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="{{ 'liquid-rubber-logo.svg' | asset_url }}">
+
     {% style %}
+      @font-face {
+        font-family: Roboto;
+        src: url({{'roboto-light-webfont.woff' | asset_url }}) format("woff"), url({{"roboto-light-webfont.woff2" | asset_url }}) format("woff2");
+        font-weight: 300;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url({{"roboto-regular-webfont.woff" | asset_url}}) format("woff"), url({{"roboto-regular-webfont.woff2" | asset_url}}) format("woff2");
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url({{"roboto-medium-webfont.woff" | asset_url}}) format("woff"), url({{"roboto-medium-webfont.woff2" | asset_url}}) format("woff2");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Khand;
+        src: url({{"khand-regular-webfont.woff2" | asset_url }}) format("woff2"), url({{"khand-regular-webfont.woff" | asset_url}}) format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Khand;
+        src: url({{"khand-medium-webfont.woff2" | asset_url}}) format("woff2"), url({{"khand-medium-webfont.woff" | asset_url}}) format("woff");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Khand;
+        src: url({{"khand-semibold-webfont.woff2" | asset_url}}) format("woff2"), url({{"khand-semibold-webfont.woff" | asset_url}}) format("woff");
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Khand;
+        src: url({{"khand-bold-webfont.woff2" | asset_url}}) format("woff2"), url({{"khand-bold-webfont.woff" | asset_url}}) format("woff");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
       :root {
         --font-body-family: 'Roboto', {{ settings.type_body_font.fallback_families }};
         --font-body-style: 'normal';
@@ -185,6 +240,41 @@
       }
     {% endstyle %}
     
+    {% comment %} Begin Critical CSS {% endcomment %}
+      {% style %}
+        .c-announcements .announcements:not(.slick-initialized) .announcement:not(:first-child){
+          display: none;
+        }
+        
+        {% if template == 'index' %}
+          .c-lr-hero .hero .masthead-slide .mc-group-c .masthead-content h1 {
+            font-family: Khand, sans-serif;
+            color: var(--cx-mast-color);
+            float: left;
+            font-size: 4.375rem;
+            font-weight: 700;
+            letter-spacing: -.0625rem;
+            line-height: 4.0625rem;
+            position: relative;
+            text-align: center;
+            text-transform: uppercase;
+          }
+          .c-lr-hero .hero{
+            background-color: #c4c4c4;
+          }
+          .c-lr-hero .hero:not(.slick-initialized) .masthead-slide{
+            position: relative; 
+          }
+          .c-lr-hero .hero:not(.slick-initialized) .masthead-slide .mc-group-c{
+            position: absolute;
+            top: 0; 
+          }
+        {% endif %}
+      {% endstyle %}
+      {%- if template.name == 'index' -%}
+        {% render 'critical-css-home' %}
+      {%- endif -%}
+    {% comment %} End Critical CSS {% endcomment %}
     <link rel="preload" href="{{'base.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{'base.min.css' | asset_url }}"></noscript>
     <link rel="preload" href="{{'theme.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -199,7 +289,8 @@
     <script rel="preload" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js" async></script>
     {% comment %} <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script> {% endcomment %}
     {% comment %} <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin> {% endcomment %}
-    <script src="https://www.youtube.com/player_api" defer></script>
+    <script type="lazyload2" data-src="https://www.youtube.com/player_api" defer></script>
+    
     <!-- Code add by sumeru from line no. 51 to 89 -->
     {% if product %}
       <script type="text/javascript">
@@ -241,8 +332,11 @@
         </script>
     {% endif %}
 
-    {% comment %} {{ content_for_header }} {% endcomment %}
-    {{ content_for_header | replace : ' href=', ' data-href=' | replace : "addEventListener('load'", "addEventListener('wnw_load'" | replace : 'DOMContentLoaded', 'DOMContentLoaded2' | replace : 'defer="defer" src=', 'type="lazyload2" defer="defer" data-src=' }}
+    
+    {% comment %}{{ content_for_header }}{% endcomment %}
+    {{ content_for_header | replace : ' href=', ' data-href=' | replace : "addEventListener('load'", "addEventListener('wnw_load'" | replace : "document.addEventListener('DOMContentLoaded", "document.addEventListener('DOMContentLoaded2" | replace : 'defer="defer" src=', 'type="lazyload2" defer="defer" data-src=' }}
+      <script>var trekkie=[];trekkie.integrations=!0;</script>
+  
 
     {%- if settings.predictive_search_enabled -%}
       <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -256,7 +350,7 @@
     {% render 'judgeme_core' %}
     {% render 'gsf-conversion-pixels' %}
     <!-- Hotjar Tracking Code for Shop Liquid Rubber -->
-    <script>
+    <script type="lazyload2">
         (function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
             h._hjSettings={hjid:3379647,hjsv:6};
@@ -271,7 +365,7 @@
   <body class="gradient {{ template | replace: '.', '-' | downcase }} {% if template contains 'landing' %} page-landing{% endif %}">
     {% render 'tealium' %}
 
-    <script type="text/javascript">
+    <script type="lazyload2">
       (function(a,b,c,d){
         a='https://tags.tiqcdn.com/utag/zionandzion/liquidrubber/prod/utag.js';
         b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;

@@ -15,9 +15,9 @@
         ".rich-text__heading--medium {font-family: \"Khand\"; font-style: normal; font-weight: 700; font-size: 40px; line-height: 44px; \/* identical to box height, or 110% *\/ text-align: center; text-transform: uppercase;}"
       ],
       "settings": {
-        "heading": "Earn more money using Liquid Rubber",
-        "richtext": "<p>Liquid Rubber coatings give you more <strong>options<\/strong> for your customers. More <strong>OPTIONS<\/strong> means more jobs and more <strong>REVENUE<\/strong>.<\/p>",
-        "cta_text": "Learn More",
+        "heading": "Enhance your business with liquid rubber",
+        "richtext": "<p>Liquid Rubber provides you with more options to offer your customers. <\/p><p>With a wider range of services available, you can take on more jobs and increase your revenue.<\/p>",
+        "cta_text": "Join Program",
         "cta_url": "#shopify-section-template--16656693625086__f9252600-3dc9-4651-bddb-ef9939ba8a2e"
       }
     },
@@ -37,8 +37,8 @@
         "template--16608372785406__7fa1c83a-2223-4a3c-8f14-fb17a43e2460-16698597664418e24a-1": {
           "type": "column",
           "settings": {
-            "title": "What are the OPTIONS?",
-            "text": "<p><strong>You can offer solutions for:<\/strong><br\/>1.  Roofs (Mod-Bit, Metal, Wood, Concrete, EPDM. Flat, Sloped, RV’s)<br\/>2.  Foundations (Interior & Exterior)<br\/>3.  Decks (Wood, Concrete, Balconies, Pools)<br\/>4.  Asphalt Driveways, Planter Boxes<br\/>5.  Ponds, Shower Liners and more<\/p>",
+            "title": "What services can you offer?",
+            "text": "<p><strong>You can offer solutions for:<\/strong><br\/>1.  <strong>Roofs:<\/strong> Our coatings are suitable for a variety of roof types, including Mod-Bit, Metal, Wood, Concrete, and EPDM. Effective on flat, sloped & RV roofs.<br\/>2.  <strong>Foundations:<\/strong> For both interior and exterior surfaces, providing reliable protection against water damage and other potential issues.<br\/>3.  <strong>Decks:<\/strong> Our deck coatings are suitable for wood, concrete, and other surfaces, and can be used on balconies, pools, and other structures.<br\/>4.  <strong>Driveways:<\/strong> Our asphalt driveway coatings provide a protective layer that can extend the life of your customers' driveways.<br\/>5.  <strong>Ponds and Shower Liners:<\/strong> Our products can be used to create a durable and watertight seal on ponds and shower liners.<\/p>",
             "link_cta": "View Our Projects",
             "link_url": "shopify:\/\/collections\/projects"
           }
@@ -61,7 +61,7 @@
           "type": "column",
           "settings": {
             "title": "What does your customer get?",
-            "text": "<p>1.  Tested and PROVEN products<br\/>2.  Peace of mind the job is done well, works and lasts<\/p>",
+            "text": "<p>1.  <strong>Tested and Proven Products:<\/strong> Our coatings have been tested and proven to provide reliable and long-lasting protection on a variety of surfaces.<br\/>2.  <strong>Reliable and Long-Lasting Solutions:<\/strong> With Liquid Rubber, your customers can enjoy peace of mind knowing that the job was done well and will last.<\/p>",
             "link_cta": "",
             "link_url": ""
           }
