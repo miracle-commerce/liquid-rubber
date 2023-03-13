@@ -17603,3 +17603,27 @@ body.page-landing header.header,body.page-landing section.c-announcements{displa
 .header__icon .icon-cart-mobile {
   fill: #000;
 }
+
+.mobile-header--logo{
+  width: 80px;
+  height: 60px;
+}
+
+.l-header.shopify-section-header-sticky .desktop-navigation .header__heading-logo.header__desktop-logo{
+  transform: scale(.625) translate(-50%);
+}
+
+
+@media only screen and (min-width: 992px){
+  .header__heading-logo.header__desktop-logo{
+    width: 200px; 
+    height: 150px; 
+    left: 50%;
+    margin-top: -3.5rem;
+    max-width: 200px;
+    position: absolute;
+    transition: .5s ease;
+    transform: translate(-50%);
+    z-index: 1;
+  }
+}
