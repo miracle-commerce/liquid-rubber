@@ -1,6 +1,6 @@
 <section class="c-ft-wrapper wrapp--{{ template | replace: '.', '-' | downcase }}">
   <div class="ft-v-container">
-    <div class="ft-mobile lazy-bg" data-bg="{{ 'bg_testimonial_poster.png' | asset_url }}">&nbsp;</div>
+    <div class="ft-mobile" style='background-image: url("{{'bg_testimonial_poster.png' | asset_url}}")'>&nbsp;</div>
     <video id="rubber-card-bg-video" class="lazy-video" autoplay loop muted poster="{{ 'bg_testimonial_poster.png' | asset_url }}">&nbsp;
       <source data-src="{{ 'bg_testimonials.mp4' | asset_url }}" type="video/mp4">
     </video>
@@ -20,7 +20,7 @@
       </div>
       <div class="slide-container">
         {%- for block in section.blocks -%}
-          <div class="wrapper">
+          <div class="wrapper {% if forloop.first %}no-js-active no-js-active--mobile{% elsif forloop.index == 2 %}no-js-active no-js-active--desktop{% endif %}">
             <div class="rubber-card testimonial-card">
               <div class="rc-title-wrap">
                 {%- if block.settings.card_title != blank -%}
@@ -28,7 +28,10 @@
                     <h2>{{ block.settings.card_title }}</h2>
                   </div>
                   <div class="rubber-card-detail">
-                    <img class="lazy" loading="lazy" data-src="{{ 'LR_Homepage_Testimonials_OrangePaint.svg' | asset_url }}" alt="Orange Paint" />
+                    {% render 'LR_Homepage_Testimonials_OrangePaint-svg' %}
+                    {%- comment -%}
+                    <img loading="lazy" src="{{ 'LR_Homepage_Testimonials_OrangePaint.svg' | asset_url }}" alt="Orange Paint" />
+                    {%- endcomment -%}
                   </div>
                 {%- endif -%}
                 {%- if block.settings.card_rating != blank -%}
