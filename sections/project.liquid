@@ -301,5 +301,14 @@
     {% render 'project-gallery', component: item %}
     {% render 'tips-and-tricks', component: item %}
 
+    {% if product.metafields.custom.faqs != blank %}
+      <section class="faq-section">
+        <h2>FAQs</h2>
+        <div class="faq-section__inner container">
+          {{ product.metafields.custom.faqs }}
+        </div>
+      </section>
+    {% endif %}
+
   {% endfor %}
 {% endif %}

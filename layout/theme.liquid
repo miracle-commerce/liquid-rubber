@@ -545,7 +545,8 @@
 
       setCookie('localization', "{{ localization.country.iso_code }}", 365)
     </script>
-        
+    {% comment %} Integrate Klaviyo Manually {% endcomment %}
+    <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=NvBiZv"></script>
     {% section 'sezzle-widget' %}
     {% include 'socialboost-widgets' %}
     {% render 'optimization-js' %}
