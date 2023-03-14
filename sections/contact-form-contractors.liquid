@@ -182,18 +182,15 @@
       return $valid;
     }
 
-    $('body').on('click', '.contact-support-form button', function() {     
+    $('body').on('click', '.contact-support-form button', function(e) {
+      console.log("submit");
       let $validFN = false, 
           $validLN = false, 
-          $validMessage = false, 
-          $validRFI = false, 
           $validEmail = false;
               
       const $firstName = $("#ContactForm-first-name"),
             $lastName =  $("#ContactForm-last-name"),
-            $email = $("#ContactForm-email"),
-            $reasonForInquiry = $("#ContactForm-reason"),
-            $message = $("#ContactForm-body");
+            $email = $("#ContactForm-email");
 
    
       $validEmail = validateRequired($email);
@@ -203,10 +200,34 @@
    
       $validFN = validateRequired($firstName);
       $validLN = validateRequired($lastName);
-      $validMessage = validateRequired($message);
-      $validRFI = validateRequired($reasonForInquiry);
 
-      if($validFN && $validLN && $validEmail && $validMessage && $validRFI){              
+      if($validFN && $validLN && $validEmail){
+        /* Send form data to special klaviyo list */
+        const klFormData = {
+          "g":"TGX4Xk", 
+          "email": document.getElementById("ContactForm-email").value,
+          "$fields":"$first_name, $last_name, $organization, $phone_number, $soruce",
+          "$first_name": document.getElementById("ContactForm-first-name").value,
+          "$last_name": document.getElementById("ContactForm-last-name").value,
+          "$organization": document.getElementById("ContactForm-company-name").value,
+          "$phone_number": document.getElementById("ContactForm-phone").value ||= "",
+          "$source":"Shopify Contractor Form"
+        }
+        console.log(klFormData);
+        $.ajax({
+          "async": true,
+          "crossDomain": true,
+          "url": "https://manage.kmail-lists.com/ajax/subscriptions/subscribe",
+          "method": "POST",
+          "headers": {
+            "content-type": "application/x-www-form-urlencoded",
+            "cache-control": "no-cache"
+          },
+          "data": klFormData
+        }).done(function (response) {
+          console.log(response);
+        });
+
         return true
       }
       return false
