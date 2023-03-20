@@ -118,7 +118,7 @@
                     <label class="field__label" for="ContactForm-email">{{ 'templates.contact.form.email' | t }} <span aria-hidden="true">*</span></label>
                   </div>       
               
-               <div class="input-container">
+                  <div class="input-container">
                     <input 
                       class="form-control" 
                       autocomplete="phone" 
@@ -128,10 +128,16 @@
                       <label class="field__label" for="ContactForm-phone">Phone Number (Optional)</label>
                   </div>                
                 
-                  <div class="text-center">   
-                    <button type="submit" class="button orange mt-0">
+                  <div class="input-container">                    
+                      <textarea name="contact[body]" id="message" class="form-control" rows="4" cols="50"></textarea>
+                      <label for="message" class="field__label">Message (Optional)</label>                    
+                  </div>
+
+                  <div class="text-center">
+                    <div id="re-captcha"></div>  
+                    <button type="submit" class="button orange mt-0" id="contactFormSubmit" disabled>
                       {{ 'templates.contact.form.send' | t }}
-                    </button> 
+                    </button>
                   </div>
                 </div>
             </div>
@@ -144,7 +150,25 @@
   </div>
 </div>
 
-
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+<script>
+  var actCallback = function (response) {
+    $('#contactFormSubmit').prop("disabled", false);
+    $('#re-captcha').remove();
+  };
+  var expCallback = function() {
+  $('#contactFormSubmit').prop("disabled", true);
+  };
+  
+  var onloadCallback = function () {
+  var widget = grecaptcha.render(document.getElementById("re-captcha"), {
+  'sitekey' : "6LcUfwMlAAAAABHlnfvjII3Bh07qOM-T5_l_2iO8", // Sitekey, Retrieving from reCaptcha
+  'theme': "light",
+  'callback' : actCallback,
+  'expired-callback': expCallback,
+  });
+  }
+</script>
 <script type="text/javascript">
   $(document).ready(function() {  
 
