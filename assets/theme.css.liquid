@@ -17659,7 +17659,7 @@ body.page-landing header.header,body.page-landing section.c-announcements{displa
   overflow: hidden;
 }
 
-.active,
+.faq-question.active,
 .faq-question:hover {
   background-color: #F9F9F9;
 }
@@ -17671,7 +17671,7 @@ body.page-landing header.header,body.page-landing section.c-announcements{displa
   float: right;
   margin-left: 5px;
 }
-.active:after {
+.faq-question.active:after {
   content: "\2796";
 }
 
@@ -17684,4 +17684,12 @@ body.page-landing header.header,body.page-landing section.c-announcements{displa
   flex-wrap: wrap; 
   justify-content: center;
   margin: 20px 0;
+}
+
+.col.links .active:after {
+display: none;
+}
+
+.col.links .active {
+background: transparent;
 }

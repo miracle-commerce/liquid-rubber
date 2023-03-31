@@ -14,6 +14,7 @@
         "076d4e82-61f8-49df-aeac-55830ae639a8": {
           "type": "partner_logos",
           "settings": {
+            "logo": "shopify:\/\/shop_images\/Stamp-for-Macaroon-Red-on-White_RVLife-App-square_1.png",
             "logo_link": "https:\/\/www.phoenixraceway.com\/",
             "logo_new_tab": true
           }
@@ -21,52 +22,50 @@
         "a83d33e1-7c7d-4228-9ec7-935180166a61": {
           "type": "prizes",
           "settings": {
-            "prize_name": "NeoPond Sealant",
-            "prize_image": "shopify:\/\/shop_images\/Untitled_design.png",
-            "prize_headline": "NeoPond Sealant",
-            "prize_description": "<p> Our water-based sealant used for waterproofing areas submerged in water including fish and plant ponds. Contains no solvents, ultra-low VOCs, and provides uncompromising safety when it comes to your family, pets, and the environment.<\/p>",
-            "prize_link": "\/products\/neoprene-pond-sealant?variant=42521008406782"
+            "prize_name": "For DIYers",
+            "prize_image": "shopify:\/\/shop_images\/Untitled_design_2.png",
+            "prize_headline": "RV Roof Kit",
+            "prize_description": "<p>Our RV Roof Coating Kit comes with Seam Tape and EPDM Primer and RV Smart Cleaner to waterproof and protect up to a 30' RV Roof.<\/p>",
+            "prize_link": "\/products\/copy-of-rv-roof-coating?variant=43842202861822"
           }
         },
         "07a9e802-c167-4522-b269-ca5390ba759d": {
           "type": "prizes",
           "settings": {
-            "prize_name": "GEO-TEXTILE",
-            "prize_image": "shopify:\/\/shop_images\/Group_28.png",
-            "prize_headline": "Geo-Textile",
-            "prize_description": "<p>Liquid Rubber Geo-Textile is used to bridge joints and seams which reinforces those areas that tend to leak.<\/p>",
-            "prize_link": "\/products\/geo-textile?variant=42940017770750"
+            "prize_name": "For Toasters",
+            "prize_image": "shopify:\/\/shop_images\/Untitled_design_3.png",
+            "prize_headline": "Yeti Cooler",
+            "prize_description": "<p>Keep it cool with a YETI Hard Cooler, over-engineered to outperform and sized for all adventures.<\/p>",
+            "prize_link": ""
           }
         },
         "4c44e128-93bf-4ba0-9737-e3eff19f524c": {
           "type": "prizes",
           "settings": {
-            "prize_name": "Multipurpose Primer",
-            "prize_image": "shopify:\/\/shop_images\/Untitled_design_1.png",
-            "prize_headline": "MULTI-PURPOSE EPOXY PRIMER",
-            "prize_description": "<p>Our Primer works to increase bonding and provide a vapor barrier to help prevent blistering with other Liquid Rubber products.<\/p>",
-            "prize_link": "\/products\/multi-purpose-primer?variant=42521008799998"
+            "prize_name": "For Grillers",
+            "prize_image": "shopify:\/\/shop_images\/Untitled_design_4.png",
+            "prize_headline": "Portable Barbecue",
+            "prize_description": "<p>Stay stoked with your very own portable barbecue grill, ready for those warm summer evenings.<\/p>",
+            "prize_link": ""
           }
         },
         "47054ed8-51d1-41f6-ba77-b37b9399feb7": {
           "type": "prizes",
-          "disabled": true,
           "settings": {
-            "prize_name": "For Entertainers",
-            "prize_image": "shopify:\/\/shop_images\/Yeti_Cooler-350x225.jpg",
-            "prize_headline": "Yeti Cooler Prize Pack",
-            "prize_description": "<p>Play it cool during the race with a Liquid Rubber customized Yeti Tundra® 65 Cooler and Phoenix Raceway swag fit for a checkered flag.<\/p>",
+            "prize_name": "For Explorers",
+            "prize_image": "shopify:\/\/shop_images\/Untitled_design_5.png",
+            "prize_headline": "RV Life Subscription",
+            "prize_description": "<p>Get a 1-Year subscription to RV Life with access to their trip wizard, never guess where you're heading again.<\/p>",
             "prize_link": ""
           }
         },
         "ccacbf6c-0988-47e7-9a87-5e4dfd966b14": {
           "type": "prizes",
-          "disabled": true,
           "settings": {
             "prize_name": "For Tailgaters",
             "prize_image": "shopify:\/\/shop_images\/Cornhole-350x225-v2.jpg",
             "prize_headline": "Cornhole Prize Pack",
-            "prize_description": "<p>Get in race mode with Liquid Rubber customized Cornhole boards and and challenge friends to a game  while sporting Phoenix Raceway swag.<\/p>",
+            "prize_description": "<p>Get in race mode with Liquid Rubber customized Cornhole boards and and challenge friends to a game.<\/p>",
             "prize_link": ""
           }
         }
@@ -84,16 +83,17 @@
         ".desktop-form-container.active {z-index: 0;}"
       ],
       "settings": {
+        "landing_page_logo": "shopify:\/\/shop_images\/Stamp-for-Macaroon-Red-on-White_RVLife-App-square_1.png",
         "landing_page_bg_desktop": "shopify:\/\/shop_images\/bg_Group_25.jpg",
         "landing_page_bg_mobile": "shopify:\/\/shop_images\/Group_21.png",
-        "landing_page_headline_desktop": "shopify:\/\/shop_images\/GIVEAWAY_2.png",
-        "landing_page_headline_mobile": "shopify:\/\/shop_images\/GIVEAWAY_2.png",
+        "landing_page_headline_desktop": "shopify:\/\/shop_images\/GIVEAWAY_4.png",
+        "landing_page_headline_mobile": "shopify:\/\/shop_images\/GIVEAWAY_4.png",
         "landing_page_subheadline": "",
-        "landing_page_content": "<p>Here's your chance to stop your pond from leaking!  <\/p><p>Liquid Rubber Tech Support will walk through your project from start to finish with you.<\/p><p><\/p><p>Fill out the form for your chance to win.<\/p>",
+        "landing_page_content": "<p>We've teamed up with RV Life to give away the ultimate travel package for your RV. <\/p><p>Liquid Rubber Tech Support will walk through your project from start to finish with you.<\/p><p>Fill out the form for your chance to win.<\/p>",
         "landing_page_form_headline": "Enter to win!",
         "landing_page_countdown": true,
-        "landing_page_end_date": "2023-03-27T23:59:00Z",
-        "landing_page_form": "<div class=\"klaviyo-form-YuthR3\"><\/div>",
+        "landing_page_end_date": "2023-04-17T23:59:00Z",
+        "landing_page_form": "<div class=\"klaviyo-form-TBn3Mb\"><\/div>",
         "landing_page_partner_content": "",
         "landing_page_anchor_content": "",
         "landing_page_anchor_button": "",

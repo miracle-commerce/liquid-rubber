@@ -13,7 +13,7 @@
           "settings": {
             "block_image": "shopify:\/\/shop_images\/icon-call_100eb203-0dae-4a5a-97f2-77b81275bed9.png",
             "block_heading": "Call",
-            "block_link": "<p><a href=\"tel:1-855-592-1049\" title=\"tel:1-855-592-1049\">1-855-592-1049<\/a><\/p>",
+            "block_link": "<p><a href=\"tel:1-855-592-1049\" title=\"tel:1-855-592-1049\">1-855-592-1049<\/a><\/p><p>UK - 020 8058 3938<\/p><p>Hours: 9am - 4:30pm EST<\/p>",
             "block_is_chat": false,
             "block_chat_link": ""
           }
