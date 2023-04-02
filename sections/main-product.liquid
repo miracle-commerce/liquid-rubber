@@ -282,64 +282,40 @@
           {% endif %}
 
           <div class="product-image-container">
-            {%- if product.featured_image != null or product.images != null -%}
+            {%- if product.featured_media != nil or product.media != nil -%}
               {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
               <div class="featured-image-gallery">
-
-                  {%- if product.featured_image != null -%}
-                    <div class="img-container {% if variant_images contains product.featured_image %} is-variant {% endif %}" data-media-id="{{ product.featured_image.id }}">
-                      <img srcset="{% if product.featured_image.width >= 330 %}{{ product.featured_image | image_url: width: 330 }} 330w,{% endif %}
-                                        {% if product.featured_image.width >= 445 %}{{ product.featured_image | image_url: width: 445 }} 445w,{% endif %}"
-                           src="{{ media | image_url: width: 445 }}"
-                           sizes="(min-width: 1400px) 445px, 330px"
-                           alt="{{ product.featured_image.alt | escape }}"
-                           height="{{ product.featured_image.height }}"
-                           width="{{ product.featured_image.width }}"
-                      >
-                    </div>
-                  {%- endif -%}
-
-                  {%- for media in product.images -%}
-                    {%- unless media.id == product.selected_or_first_available_variant.product.featured_image.id -%}
-                      <div class="img-container {% if variant_images contains media %} is-variant {% endif %}" data-media-id="{{ media.id }}">
-                      {%- unless media.id == product.selected_or_first_available_variant.product.featured_image.id -%}
-                        <img loading="lazy" data-srcset="{% if media.preview_image.width >= 330 %}{{ media.preview_image | image_url: width: 330 }} 330w,{% endif %}
-                                          {% if media.preview_image.width >= 445 %}{{ media.preview_image | image_url: width: 445 }} 445w,{% endif %}"
-                             data-src="{{ media | image_url: width: 445 }}"
-                             data-sizes="(min-width: 1200px) 445px, 330px"
-                             alt="{{ media.alt | escape }}"
-                             class="lazy"
-                             height="{{ media.preview_image.height }}"
-                             width="{{ media.preview_image.width }}"
+                {%- for media in product.media -%}
+                  <div class="img-container {% if media.media_type == 'video' or media.media_type == 'external_video' %}product-video-container{% endif %}" data-media-id="{{ media.id }}">
+                    {%- if media.media_type == 'image' -%}
+                      <img loading="lazy" data-srcset="{% if media.preview_image.width >= 330 %}{{ media.preview_image | image_url: width: 330 }} 330w,{% endif %}
+                                        {% if media.preview_image.width >= 445 %}{{ media.preview_image | image_url: width: 445 }} 445w,{% endif %}"
+                          src="{{ media | image_url: width: 445 }}"
+                          data-sizes="(min-width: 1200px) 445px, 330px"
+                          alt="{{ media.alt | escape }}"
+                          class="lazy"
+                          height="{{ media.preview_image.height }}"
+                          width="{{ media.preview_image.width }}"
                         >
-                      {%- endunless -%}
-                    </div>
-                    {%- endunless -%}
-                  {%- endfor -%}
+                    {%- elsif media.media_type == 'video' -%}
+                      {{media | media_tag: image_size: '445x', muted: true, autoplay: true}}
+                    {%- elsif media.media_type == 'external_video'-%}
+                      {{media | media_tag: image_size: '445x', muted: true, autoplay: true, width: '100%'}}
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
               </div>
 
-              {%- if product.images.size > 1 -%}
-                <div class="thumbnail-image-gallery">
-                  {%- if product.featured_image != null -%}
-                    <div class="img-container {% if variant_images contains product.featured_image %} is-variant {% endif %}" data-media-id="{{ product.featured_image.id }}">
-                      <img src="{{ product.featured_image | image_url: width: 78, height: 78 }}" alt="{{ product.featured_image.alt | escape }}"
+              {%- if product.media.size > 1 -%}
+                <div class="thumbnail-image-gallery">  
+                  {%- for media in product.media -%}
+                    <div class="img-container" data-media-id="{{ media.id }}">
+                      <img src="{{ media | image_url: width: 78, height: 78 }}" alt="{{ media.alt | escape }}"
                            loading="lazy"
                            height="78"
                            width="78"
                       >
                     </div>
-                  {%- endif -%}
-
-                  {%- for media in product.images -%}
-                    {%- unless media.id == product.selected_or_first_available_variant.product.featured_image.id -%}
-                      <div class="img-container {% if variant_images contains media %} is-variant {% endif %}" data-media-id="{{ media.id }}">
-                        <img src="{{ media | image_url: width: 78, height: 78 }}" alt="{{ media.alt | escape }}"
-                             loading="lazy"
-                             height="78"
-                             width="78"
-                        >
-                      </div>
-                    {%- endunless -%}
                   {%- endfor -%}
                 </div>
               {%- endif -%}

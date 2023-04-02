@@ -9,43 +9,49 @@
         <div class="row">
           <!-- Desktop Project Info -->
           <div class="d-none d-lg-block col-md-12 col-lg-6 project-media">
-            {% if product.images.size > 1 %}
+            {% if product.media.size > 0 %}
               <style>.c-information .slick-slide img {width: 100%;}</style>
               <div class="product-image-container" style="padding-top:0;">
                 {%- if product.featured_image != null or product.images != null -%}
                   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
                   <div class="featured-image-gallery">    
-                    {%- for media in product.images -%}
-                        <div class="img-container" data-media-id="{{ media.id }}">
-                          <img loading="lazy" data-srcset="{% if media.preview_image.width >= 330 %}{{ media.preview_image | image_url: width: 330 }} 330w,{% endif %}
-                                            {% if media.preview_image.width >= 445 %}{{ media.preview_image | image_url: width: 445 }} 445w,{% endif %}"
-                               src="{{ media | image_url: width: 445 }}"
-                               data-sizes="(min-width: 1200px) 445px, 330px"
-                               alt="{{ media.alt | escape }}"
-                               class="lazy"
-                               height="{{ media.preview_image.height }}"
-                               width="{{ media.preview_image.width }}"
-                          >
+                    {%- for media in product.media -%}
+                        <div class="img-container {% if media.media_type == 'video' %}product-video-container{% endif %}" data-media-id="{{ media.id }}">
+                          {%- if media.media_type == 'image' -%}
+                            <img loading="lazy" data-srcset="{% if media.preview_image.width >= 330 %}{{ media.preview_image | image_url: width: 330 }} 330w,{% endif %}
+                                              {% if media.preview_image.width >= 445 %}{{ media.preview_image | image_url: width: 445 }} 445w,{% endif %}"
+                                src="{{ media | image_url: width: 445 }}"
+                                data-sizes="(min-width: 1200px) 445px, 330px"
+                                alt="{{ media.alt | escape }}"
+                                class="lazy"
+                                height="{{ media.preview_image.height }}"
+                                width="{{ media.preview_image.width }}"
+                              >
+                          {%- elsif media.media_type == 'video' -%}
+                            {{media | media_tag: image_size: '445', muted: true, autoplay: true}}   
+                          {%- endif -%}
                         </div>
                     {%- endfor -%}
                   </div>
     
-                  <div class="thumbnail-image-gallery">  
-                    {%- for media in product.images -%}
-                      <div class="img-container" data-media-id="{{ media.id }}">
-                        <img src="{{ media | image_url: width: 78, height: 78 }}" alt="{{ media.alt | escape }}"
-                             loading="lazy"
-                             height="78"
-                             width="78"
-                        >
-                      </div>
-                    {%- endfor -%}
-                  </div>
+                  {%- if product.media.size > 1 -%}
+                    <div class="thumbnail-image-gallery">  
+                      {%- for media in product.media -%}
+                        <div class="img-container" data-media-id="{{ media.id }}">
+                          <img src="{{ media | image_url: width: 78, height: 78 }}" alt="{{ media.alt | escape }}"
+                               loading="lazy"
+                               height="78"
+                               width="78"
+                          >
+                        </div>
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
                 {%- endif -%}
               </div>
             {% else %}
               {% if item["image"] != blank %}
-                <div class="project-image-container">
+                <div class="project-image-container" lll>
                   {{ item["image"] }}
                 </div>
               {% endif %}
