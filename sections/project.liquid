@@ -27,8 +27,14 @@
                                 height="{{ media.preview_image.height }}"
                                 width="{{ media.preview_image.width }}"
                               >
-                          {%- elsif media.media_type == 'video' -%}
-                            {{media | media_tag: image_size: '445', muted: true, autoplay: true}}   
+                          {%- elsif media.media_type == 'video' or media.media_type == 'external_video' -%}
+                            <div class="product-featured-video--wrapper">
+                              {% if media.media_type == 'video' %}
+                                {{media | media_tag: image_size: '445x', muted: true, autoplay: true}}
+                              {%- elsif media.media_type == 'external_video' -%}
+                                {{media | media_tag: image_size: '445x', muted: true, autoplay: true, width: '100%'}}
+                              {% endif %}
+                            </div>
                           {%- endif -%}
                         </div>
                     {%- endfor -%}

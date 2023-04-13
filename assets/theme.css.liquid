@@ -17698,6 +17698,24 @@ background: transparent;
   height: auto;
 }
 
-.product-video-container video, .product-video-container iframe{ 
-  width: 100%;
+.product-featured-video--wrapper{
+  background-color: #000;
+  height: 0; 
+  width: 100%; 
+  padding-bottom: 100%; 
+  position: relative;
 }
+
+.product-featured-video--wrapper video, .product-featured-video--wrapper iframe{
+  position: absolute; 
+  width: 100%; 
+  height: auto; 
+  top: 50%; 
+  left: 0; 
+  transform: translateY(-50%);
+}
+
+.product-featured-video--wrapper iframe{
+  height: 100%;
+}
+
