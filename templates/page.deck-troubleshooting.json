@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "bottom_stroke": false
+      }
+    },
+    "88f4fef1-81bd-4d48-be21-aa9937e2f6c1": {
+      "type": "contact-form-deck-troubleshooting",
+      "settings": {
+        "heading": "DECK TROUBLESHOOTING",
+        "title_section": "<p>PLEASE FILL OUT THE FORM BELOW TO TROUBLESHOOT YOUR DECK<\/p>",
+        "form_success_title": "Thank you!",
+        "form_success_message": "A member of the Liquid Rubber team will follow up with you shortly."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "88f4fef1-81bd-4d48-be21-aa9937e2f6c1"
+  ]
+}
