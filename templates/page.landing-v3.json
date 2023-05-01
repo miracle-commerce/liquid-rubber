@@ -24,17 +24,17 @@
           "settings": {
             "prize_name": "For DIYers",
             "prize_image": "shopify:\/\/shop_images\/Untitled_design_2.png",
-            "prize_headline": "RV Roof Kit",
-            "prize_description": "<p>Our RV Roof Coating Kit comes with Seam Tape and EPDM Primer and RV Smart Cleaner to waterproof and protect up to a 30' RV Roof.<\/p>",
-            "prize_link": "\/products\/copy-of-rv-roof-coating?variant=43842202861822"
+            "prize_headline": "Deck Restoration Kit",
+            "prize_description": "<p>Everything you need to restore your deck, up to $500 worth of products.<\/p>",
+            "prize_link": "\/products\/decks-and-balconies-sealing"
           }
         },
         "07a9e802-c167-4522-b269-ca5390ba759d": {
           "type": "prizes",
           "settings": {
-            "prize_name": "For Toasters",
-            "prize_image": "shopify:\/\/shop_images\/Untitled_design_3.png",
-            "prize_headline": "Yeti Cooler",
+            "prize_name": "For Relaxers",
+            "prize_image": "shopify:\/\/shop_images\/Screenshot_2023-04-25_at_15.07.43.png",
+            "prize_headline": "Inflatable Deck Chair",
             "prize_description": "<p>Keep it cool with a YETI Hard Cooler, over-engineered to outperform and sized for all adventures.<\/p>",
             "prize_link": ""
           }
@@ -43,14 +43,15 @@
           "type": "prizes",
           "settings": {
             "prize_name": "For Grillers",
-            "prize_image": "shopify:\/\/shop_images\/Untitled_design_4.png",
-            "prize_headline": "Portable Barbecue",
-            "prize_description": "<p>Stay stoked with your very own portable barbecue grill, ready for those warm summer evenings.<\/p>",
+            "prize_image": "shopify:\/\/shop_images\/Untitled_design_6.png",
+            "prize_headline": "Barbecue Set",
+            "prize_description": "<p>Stay stoked with your very own barbecue tool set, ready for those warm summer evenings.<\/p>",
             "prize_link": ""
           }
         },
         "47054ed8-51d1-41f6-ba77-b37b9399feb7": {
           "type": "prizes",
+          "disabled": true,
           "settings": {
             "prize_name": "For Explorers",
             "prize_image": "shopify:\/\/shop_images\/Untitled_design_5.png",
@@ -62,10 +63,10 @@
         "ccacbf6c-0988-47e7-9a87-5e4dfd966b14": {
           "type": "prizes",
           "settings": {
-            "prize_name": "For Tailgaters",
-            "prize_image": "shopify:\/\/shop_images\/Cornhole-350x225-v2.jpg",
-            "prize_headline": "Cornhole Prize Pack",
-            "prize_description": "<p>Get in race mode with Liquid Rubber customized Cornhole boards and and challenge friends to a game.<\/p>",
+            "prize_name": "For Stylists",
+            "prize_image": "shopify:\/\/shop_images\/ler.png",
+            "prize_headline": "Patio Side Table",
+            "prize_description": "<p>Deck out your space with this stylish patio table to impress your guests<\/p>",
             "prize_link": ""
           }
         }
@@ -86,14 +87,14 @@
         "landing_page_logo": "shopify:\/\/shop_images\/Stamp-for-Macaroon-Red-on-White_RVLife-App-square_1.png",
         "landing_page_bg_desktop": "shopify:\/\/shop_images\/bg_Group_25.jpg",
         "landing_page_bg_mobile": "shopify:\/\/shop_images\/Group_21.png",
-        "landing_page_headline_desktop": "shopify:\/\/shop_images\/GIVEAWAY_4.png",
-        "landing_page_headline_mobile": "shopify:\/\/shop_images\/GIVEAWAY_4.png",
+        "landing_page_headline_desktop": "shopify:\/\/shop_images\/GIVEAWAY_5.png",
+        "landing_page_headline_mobile": "shopify:\/\/shop_images\/GIVEAWAY_5.png",
         "landing_page_subheadline": "",
-        "landing_page_content": "<p>We've teamed up with RV Life to give away the ultimate travel package for your RV. <\/p><p>Liquid Rubber Tech Support will walk through your project from start to finish with you.<\/p><p>Fill out the form for your chance to win.<\/p>",
+        "landing_page_content": "<p>We're giving away a full deck makeover package!<\/p><p>Liquid Rubber Tech Support will walk through your project from start to finish with you.<\/p><p>Fill out the form for your chance to win.<\/p>",
         "landing_page_form_headline": "Enter to win!",
         "landing_page_countdown": true,
-        "landing_page_end_date": "2023-04-17T23:59:00Z",
-        "landing_page_form": "<div class=\"klaviyo-form-TBn3Mb\"><\/div>",
+        "landing_page_end_date": "2023-05-08T23:59:00Z",
+        "landing_page_form": "<div class=\"klaviyo-form-VPB3nJ\"><\/div>",
         "landing_page_partner_content": "",
         "landing_page_anchor_content": "",
         "landing_page_anchor_button": "",
