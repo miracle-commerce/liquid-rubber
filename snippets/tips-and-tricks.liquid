@@ -31,15 +31,25 @@
                                                  endif
                                             %}
                                             <div class="video-container">
-                                                <div class="video-inner">
-                                                    <div class="video-overlay" aria-label="Play Video" tabindex="0" data-video-index="{{ forloop.index }}"></div>
-                                                    <img loading="lazy" class="video-thumbnail" src="{{ img_thumbnail }}" data-video-index="{{ forloop.index }}" height="{{img_thumbnail.height}}" width="{{img_thumbnail.width}}" />
-                                                    {%  if video_id contains 'vimeo' %}
-                                                      <iframe  class="youtube-player" src="{{ video_id }}"></iframe>
-                                                    {% else %}
-                                                    <div id="ytplayer-{{ forloop.index }}" class="youtube-player" data-video="{{ video_id }}" data-video-index="{{ forloop.index }}"></div>
-                                                    {%  endif %}
-                                                </div>
+                                                {% if slides_item["video"] contains 'youtube' or slides_item["video"] contains 'vimeo' %}
+                                                    <div class="video-inner">
+                                                        <div class="video-overlay" aria-label="Play Video" tabindex="0" data-video-index="{{ forloop.index }}"></div>
+                                                        <img loading="lazy" class="video-thumbnail" src="{{ img_thumbnail }}" data-video-index="{{ forloop.index }}" height="{{img_thumbnail.height}}" width="{{img_thumbnail.width}}" />
+                                                        {%  if video_id contains 'vimeo' %}
+                                                          <iframe  class="youtube-player" src="{{ video_id }}"></iframe>
+                                                        {% else %}
+                                                        <div id="ytplayer-{{ forloop.index }}" class="youtube-player" data-video="{{ video_id }}" data-video-index="{{ forloop.index }}"></div>
+                                                        {%  endif %}
+                                                    </div>
+                                                {% else %}
+                                                    {% assign video_url = slides_item["video"] %}
+                                                    <video
+                                                        controls
+                                                        src="{{video_url}}"
+                                                        width="620">
+                                                        Sorry, your browser doesn't support embedded videos.
+                                                    </video>
+                                                {% endif %}
                                             </div>
                                         {% endif %}
                                         {% if slides_item["title"] != blank %}
