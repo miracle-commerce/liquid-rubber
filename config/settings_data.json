@@ -79,17 +79,6 @@
         "type": "main-password-footer",
         "settings": {
         }
-      },
-      "sezzle-widget": {
-        "type": "sezzle-widget",
-        "settings": {
-          "show-sezzle-widget": true,
-          "color": "inherit",
-          "font-size": 14,
-          "font-family": "inherit",
-          "product-page-alignment": "auto",
-          "cart-page-alignment": "auto"
-        }
       }
     },
     "content_for_index": [
@@ -106,6 +95,19 @@
       },
       "855628211100114053": {
         "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "8133853093390032344": {
+        "type": "shopify:\/\/apps\/visual-quiz-builder\/blocks\/app-embed\/82108934-e042-4d36-9032-f4f6674fae34",
+        "disabled": false,
+        "settings": {
+          "render": "shadow"
+        }
+      },
+      "319724205969189013": {
+        "type": "shopify:\/\/apps\/hulk-form-builder\/blocks\/app-embed\/b6b8dd14-356b-4725-a4ed-77232212b3c3",
         "disabled": false,
         "settings": {
         }

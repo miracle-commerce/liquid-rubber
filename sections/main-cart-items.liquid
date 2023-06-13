@@ -29,6 +29,9 @@
                 </div>
 
                 <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
+                  
+                  <input type="hidden" name="discount" value="" />
+
                   <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
                     <div class="js-cart-contents">
                       {%- if cart != empty -%}
@@ -459,6 +462,19 @@ customElements.define('cart-note', CartNote);
       document.querySelector('#cart').submit();
     });
   });
+
+  $(document).ready(function() {
+    
+    let na_discount = sessionStorage.getItem("na_discount");
+
+console.log(na_discount);
+
+    if( na_discount === "TRUE" ) {
+      $('input[name="discount"]').val('NEWACCOUNT');
+    }
+
+  });
+
 </script>
 
 {% schema %}

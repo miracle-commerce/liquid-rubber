@@ -1,11 +1,11 @@
 {
   "store": {
     "plan": "premium",
-    "theme": "Zion & Zion | Contractor, PLP(2\/21\/2023)",
+    "theme": "LR - Account Features",
     "primaryLocale": "en",
     "adminMode": false
   },
-  "tsPublished": 1677003315,
+  "tsPublished": 1686647786,
   "declaration": {
     "showPurpose": false,
     "showProvider": false,
@@ -86,6 +86,9 @@
       },
       "erasureSectionParagraphText": {
         "en": "You have the right to ask all your data to be erased. After that, you will no longer be able to access your account."
+      },
+      "declIntroText": {
+        "en": "We use cookies to optimize website functionality, analyze the performance, and provide personalized experience to you. Some cookies are essential to make the website operate and function correctly. Those cookies cannot be disabled. In this window you can manage your preference of cookies."
       }
     },
     "categories": {
@@ -147,6 +150,27 @@
       },
       "declThirdParty": {
         "en": "Third-party"
+      },
+      "declSeconds": {
+        "en": "seconds"
+      },
+      "declMinutes": {
+        "en": "minutes"
+      },
+      "declHours": {
+        "en": "hours"
+      },
+      "declDays": {
+        "en": "days"
+      },
+      "declMonths": {
+        "en": "months"
+      },
+      "declYears": {
+        "en": "years"
+      },
+      "declSession": {
+        "en": "Session"
       },
       "cookiesDetailsText": {
         "en": "Cookies details"
@@ -292,7 +316,7 @@
       "imprintHref": "\/",
       "close": "&#10005;",
       "target": "",
-      "logo": "<img class=\"cc-banner-logo\" height=\"40\" width=\"40\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0629\/6774\/2718\/t\/22\/assets\/pandectes-logo.png?v=1677000711\" alt=\"Liquid Rubber\" \/>"
+      "logo": "<img class=\"cc-banner-logo\" height=\"40\" width=\"40\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0629\/6774\/2718\/t\/28\/assets\/pandectes-logo.png?v=1686647540\" alt=\"Liquid Rubber\" \/>"
     },
     "window": "<div role=\"dialog\" aria-live=\"polite\" aria-label=\"cookieconsent\" aria-describedby=\"cookieconsent:desc\" id=\"pandectes-banner\" class=\"cc-window-wrapper cc-bottom-wrapper\"><div class=\"pd-cookie-banner-window cc-window {{classes}}\"><!--googleoff: all-->{{children}}<!--googleon: all--><\/div><\/div>",
     "compliance": {
@@ -307,7 +331,7 @@
     "revokable": false,
     "animateRevokable": false,
     "revokableReset": false,
-    "revokableLogoUrl": "https:\/\/cdn.shopify.com\/s\/files\/1\/0629\/6774\/2718\/t\/22\/assets\/pandectes-reopen-logo.png?v=1677000711",
+    "revokableLogoUrl": "https:\/\/cdn.shopify.com\/s\/files\/1\/0629\/6774\/2718\/t\/28\/assets\/pandectes-reopen-logo.png?v=1686647541",
     "revokablePlacement": "bottom-left",
     "revokableMarginHorizontal": 15,
     "revokableMarginVertical": 15,
@@ -357,6 +381,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "30 minute(s)",
+        "expires": 30,
+        "unit": "declMinutes",
         "purpose": {
           "en": "Used in connection with buyer localization."
         }
@@ -368,6 +394,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Used in connection with customer login."
         }
@@ -379,6 +407,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Shopify store localization"
         }
@@ -390,6 +420,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "14 day(s)",
+        "expires": 14,
+        "unit": "declSession",
         "purpose": {
           "en": "Used in connection with shopping cart."
         }
@@ -401,6 +433,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "30 minute(s)",
+        "expires": 30,
+        "unit": "declMinutes",
         "purpose": {
           "en": "Used for managing customer privacy settings."
         }
@@ -412,6 +446,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "60 minute(s)",
+        "expires": 60,
+        "unit": "declMinutes",
         "purpose": {
           "en": "Used in connection with checkout."
         }
@@ -423,6 +459,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "14 day(s)",
+        "expires": 14,
+        "unit": "declSession",
         "purpose": {
           "en": "Used in connection with checkout."
         }
@@ -434,6 +472,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Tracking preferences."
         }
@@ -445,6 +485,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "14 day(s)",
+        "expires": 14,
+        "unit": "declSession",
         "purpose": {
           "en": "Used for managing customer privacy settings."
         }
@@ -456,6 +498,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Used for managing customer privacy settings."
         }
@@ -467,6 +511,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "24 hour(s)",
+        "expires": 24,
+        "unit": "declHours",
         "purpose": {
           "en": "Used in connection with navigation through a storefront."
         }
@@ -480,6 +526,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "14 day(s)",
+        "expires": 14,
+        "unit": "declSession",
         "purpose": {
           "en": "Tracks landing pages."
         }
@@ -491,6 +539,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "14 day(s)",
+        "expires": 14,
+        "unit": "declSession",
         "purpose": {
           "en": "Tracks landing pages."
         }
@@ -502,6 +552,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "30 minute(s)",
+        "expires": 30,
+        "unit": "declMinutes",
         "purpose": {
           "en": "Shopify analytics."
         }
@@ -513,6 +565,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Shopify analytics."
         }
@@ -524,6 +578,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "30 minute(s)",
+        "expires": 30,
+        "unit": "declMinutes",
         "purpose": {
           "en": "Shopify analytics."
         }
@@ -535,6 +591,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Shopify analytics."
         }
@@ -546,6 +604,8 @@
         "provider": "Google",
         "firstParty": true,
         "retention": "180 day(s)",
+        "expires": 180,
+        "unit": "declSession",
         "purpose": {
           "en": "A cookie that YouTube sets that measures your bandwidth to determine whether you get the new player interface or the old."
         }
@@ -557,6 +617,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "30 minute(s)",
+        "expires": 30,
+        "unit": "declMinutes",
         "purpose": {
           "en": "Shopify analytics relating to marketing & referrals."
         }
@@ -568,6 +630,8 @@
         "provider": "Shopify",
         "firstParty": true,
         "retention": "30 minute(s)",
+        "expires": 30,
+        "unit": "declMinutes",
         "purpose": {
           "en": "Shopify analytics relating to marketing & referrals."
         }
@@ -579,6 +643,8 @@
         "provider": "GrizzlyAppsSRL",
         "firstParty": true,
         "retention": "Session",
+        "expires": -1675872529,
+        "unit": "declSeconds",
         "purpose": {
           "en": "This cookie is provided by the app (BEST Currency Converter) and is used to secure the currency chosen by the customer."
         }
@@ -592,6 +658,8 @@
         "provider": "Google",
         "firstParty": true,
         "retention": "24 hour(s)",
+        "expires": 24,
+        "unit": "declHours",
         "purpose": {
           "en": "Cookie is placed by Google Analytics to count and track pageviews."
         }
@@ -603,6 +671,8 @@
         "provider": "Google",
         "firstParty": true,
         "retention": "45 second(s)",
+        "expires": 45,
+        "unit": "declSeconds",
         "purpose": {
           "en": "Cookie is placed by Google Analytics to filter requests from bots."
         }
@@ -614,6 +684,8 @@
         "provider": "Google",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Cookie is set by Google Analytics with unknown functionality"
         }
@@ -625,6 +697,8 @@
         "provider": "Google",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Cookie is set by Google Analytics with unknown functionality"
         }
@@ -636,6 +710,8 @@
         "provider": "Microsoft",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Used by Microsoft Clarity to store a unique user ID."
         }
@@ -647,6 +723,8 @@
         "provider": "Microsoft",
         "firstParty": true,
         "retention": "24 hour(s)",
+        "expires": 24,
+        "unit": "declHours",
         "purpose": {
           "en": "Used by Microsoft Clarity to store a unique user ID.\t"
         }
@@ -660,6 +738,8 @@
         "provider": "Google",
         "firstParty": true,
         "retention": "Session",
+        "expires": -1675872529,
+        "unit": "declSeconds",
         "purpose": {
           "en": "Registers a unique ID to keep statistics of what videos from YouTube the user has seen."
         }
@@ -671,6 +751,8 @@
         "provider": "Klaviyo",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Tracks when someone clicks through a Klaviyo email to your website"
         }
@@ -682,6 +764,8 @@
         "provider": "Bing",
         "firstParty": true,
         "retention": "24 hour(s)",
+        "expires": 24,
+        "unit": "declHours",
         "purpose": {
           "en": "This cookie is used by Bing to determine what ads should be shown that may be relevant to the end user perusing the site."
         }
@@ -693,6 +777,8 @@
         "provider": "Bing",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Used to track visitors on multiple websites, in order to present relevant advertisement based on the visitor's preferences."
         }
@@ -704,6 +790,8 @@
         "provider": "Microsoft",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Cookie is placed by Microsoft to track visits across websites."
         }
@@ -715,6 +803,8 @@
         "provider": "Facebook",
         "firstParty": true,
         "retention": "90 day(s)",
+        "expires": 90,
+        "unit": "declSession",
         "purpose": {
           "en": "Cookie is placed by Facebook to track visits across websites."
         }
@@ -726,6 +816,8 @@
         "provider": "Swym",
         "firstParty": true,
         "retention": "30 minute(s)",
+        "expires": 30,
+        "unit": "declMinutes",
         "purpose": {
           "en": "Used by the SWYM Wishlist Plus Shopify plugin."
         }
@@ -737,6 +829,8 @@
         "provider": "Swym",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Used by swym application."
         }
@@ -748,6 +842,8 @@
         "provider": "Swym",
         "firstParty": true,
         "retention": "30 minute(s)",
+        "expires": 30,
+        "unit": "declMinutes",
         "purpose": {
           "en": "Used by swym application."
         }
@@ -759,6 +855,8 @@
         "provider": "Amazon",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Used by swym application."
         }
@@ -770,6 +868,8 @@
         "provider": "Google",
         "firstParty": true,
         "retention": "90 day(s)",
+        "expires": 90,
+        "unit": "declSession",
         "purpose": {
           "en": "Cookie is placed by Google Tag Manager to track conversions."
         }
@@ -781,6 +881,8 @@
         "provider": "Swym",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Used by swym application."
         }
@@ -792,6 +894,8 @@
         "provider": "Swym",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Used by swym application."
         }
@@ -803,6 +907,8 @@
         "provider": "Google",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "To measure the visitors’ actions after they click through from an advert. Expires after 1 year."
         }
@@ -814,6 +920,8 @@
         "provider": "Google",
         "firstParty": true,
         "retention": "15 minute(s)",
+        "expires": 15,
+        "unit": "declMinutes",
         "purpose": {
           "en": "To measure the visitors’ actions after they click through from an advert. Expires after each visit."
         }
@@ -825,6 +933,8 @@
         "provider": "Microsoft",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": "Cookie is placed by Microsoft to track visits across websites."
         }
@@ -838,6 +948,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "180 day(s)",
+        "expires": 180,
+        "unit": "declSession",
         "purpose": {
           "en": ""
         }
@@ -849,6 +961,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": ""
         }
@@ -860,6 +974,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": ""
         }
@@ -871,6 +987,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "7 day(s)",
+        "expires": 7,
+        "unit": "declSession",
         "purpose": {
           "en": ""
         }
@@ -882,6 +1000,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": ""
         }
@@ -893,6 +1013,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "7 day(s)",
+        "expires": 7,
+        "unit": "declSession",
         "purpose": {
           "en": ""
         }
@@ -904,6 +1026,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": ""
         }
@@ -915,6 +1039,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "24 hour(s)",
+        "expires": 24,
+        "unit": "declHours",
         "purpose": {
           "en": ""
         }
@@ -926,6 +1052,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "17 second(s)",
+        "expires": 17,
+        "unit": "declSeconds",
         "purpose": {
           "en": ""
         }
@@ -937,6 +1065,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "7 day(s)",
+        "expires": 7,
+        "unit": "declSession",
         "purpose": {
           "en": ""
         }
@@ -948,6 +1078,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "10 minute(s)",
+        "expires": 10,
+        "unit": "declMinutes",
         "purpose": {
           "en": ""
         }
@@ -959,6 +1091,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": ""
         }
@@ -970,6 +1104,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": ""
         }
@@ -981,6 +1117,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": ""
         }
@@ -992,6 +1130,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "Session",
+        "expires": -1675872529,
+        "unit": "declSeconds",
         "purpose": {
           "en": ""
         }
@@ -1003,6 +1143,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": ""
         }
@@ -1014,6 +1156,8 @@
         "provider": "Unknown",
         "firstParty": true,
         "retention": "1 year(s)",
+        "expires": 1,
+        "unit": "declYears",
         "purpose": {
           "en": ""
         }

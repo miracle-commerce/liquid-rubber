@@ -1,0 +1,77 @@
+<style>
+    #account_popup_trigger {
+      display: none !important;
+    }
+</style>
+
+<!-- Popup Code -->
+<script src="https://www.powr.io/powr.js?platform=shopify"></script>
+
+{% comment %}
+{% if template contains 'index' %}
+  <!-- Quiz Popup -->
+  <div class="powr-popup" id="e1088233_1685458272"></div>
+{% endif %}
+{% endcomment %}
+
+
+<!-- Account Popup -->
+<div class="powr-popup" id="a2e162a7_1683832143"></div>
+<a href="javascript:void(0);" id="account_popup_trigger" class="trigger-popup">Account Popup Trigger</a>
+
+
+<!-- Account Page - Custom Trigger -->
+<script>
+window.addEventListener('load', function() {
+    
+  // Check if local storage is supported by the browser, and dosnt have an active account LS
+  if (typeof(Storage) !== "undefined" && localStorage.getItem("active_account_2") === null) {
+  
+    //Cookie name 
+    var sesion_name = "account_visit_data_2";
+    
+    // Get today's date
+    var today = new Date().toISOString().slice(0, 10);
+  
+    // Retrieve the visit data from local storage
+    var visitData = JSON.parse(localStorage.getItem(sesion_name));
+  
+    // Check if the visit data exists
+    if (visitData) {
+      // Only track if its a different day
+      if( visitData.date !== today ) {
+        // +1 to the existing session
+        visitData.count += 1;
+        visitData.date = today;
+      }
+    } else {
+      // Visit data for today does not exist
+      visitData = {
+        date: today,
+        last_triggered: today,
+        count: 1
+      };
+    }
+  
+    // Save the updated visit data to local storage
+    localStorage.setItem(sesion_name, JSON.stringify(visitData));
+  
+  
+    /* Trigger the account popup if 2, 3 visit */
+    var accountVisitData = JSON.parse(localStorage.getItem(sesion_name));
+      
+    if(accountVisitData.last_triggered !== today) {
+      if( accountVisitData.count == 2 || accountVisitData.count == 3 ) {
+
+        setTimeout(function () {  
+          document.getElementById("account_popup_trigger").click();
+          accountVisitData.last_triggered = today;
+          localStorage.setItem(sesion_name, JSON.stringify(accountVisitData));
+        }, 5000);
+        
+      }
+    }
+  
+  }
+});
+</script>

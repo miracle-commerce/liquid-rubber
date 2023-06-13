@@ -10,6 +10,12 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .page-content-discount {
+    display: none;
+    border: 1px solid;
+    padding: 20px;
+  }
 {%- endstyle -%}
 
 <section class="c-main-page container section-{{ section.id }}-padding " aria-lable="Main page">
@@ -18,14 +24,25 @@
           <div class="row">
             <div class="col-12 center">
               <h1 class="h1">
+                {% comment %}
                 {{ page.title | escape }}
+                {% endcomment %}
+                Welcome to the DIY crew!
               </h1>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <div class="rte page-content mb-5">
+              <div class="rte page-content mb-4">
                 {{ page.content }}
+              </div>
+
+              <div class="rte page-content page-content-discount mb-5">
+                <div style="text-align: center;">
+                  <strong>Your code: NEWACCOUNT</strong>
+                  <br /><br />
+                  Your 10% discount will be applied automatically when you checkout, so you dont need to copy it if you don't want to.
+                </div>
               </div>
             </div>
           </div>
@@ -47,6 +64,16 @@
       }
   
       let register = GetParameterValues('register');  
+
+      // New Account Discount
+      if(register){
+        // Show the discount code success message 
+        $('.page-content-discount').show();
+
+        // Save to local storage  
+        sessionStorage.setItem("na_discount", "TRUE");
+
+      }
       
       if(register){
         utag.link({
@@ -54,10 +81,9 @@
             method: "create an account",
         });
       }
+
     });
   </script>
-  
-
 
 {% schema %}
 {

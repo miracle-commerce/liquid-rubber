@@ -1,0 +1,198 @@
+{% style %}
+  .benecallouts {
+    background: #000;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .benecallouts__slider {
+    display: flex;
+  }
+
+  .benecallouts__slide {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+
+  .benecallouts .br {
+    border-right: 1px solid #2a2a2a;
+  }
+
+  .benecallouts .br-last {
+    border-right: none;
+  }
+
+  .benecallouts h4 {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .benecallouts img {
+    max-width: 35px;
+  }
+
+  .benecallouts img.benecallouts__img-large {
+    max-width: 100px;
+  }
+
+  .benefit-country {
+    display: none;
+  }
+
+  .location-us .benefit-country-us.benefit-country-desktop,
+  .location-ca .benefit-country-ca.benefit-country-desktop,
+  .location-gb .benefit-country-gb.benefit-country-desktop {
+    display: inline;
+  }
+
+  .benecallouts__inner a:not(.benefit-country),
+  .benecallouts__inner img,
+  .benecallouts__inner h4:not(.benefit-country) {
+    display: inline;
+    margin: 0;
+  }
+
+  .benecallouts__inner a,
+  .benecallouts__inner img,
+  .benecallouts__inner h4 {
+    vertical-align: middle;
+  }
+
+  @media (max-width: 991px) {
+    .location-us .benefit-country-us.benefit-country-desktop,
+    .location-ca .benefit-country-ca.benefit-country-desktop,
+    .location-gb .benefit-country-gb.benefit-country-desktop {
+      display: none;
+    }
+  
+    .location-us .benefit-country-us.benefit-country-mobile,
+    .location-ca .benefit-country-ca.benefit-country-mobile,
+    .location-gb .benefit-country-gb.benefit-country-mobile {
+      display: inline;
+    }
+    
+    .benecallouts .br {
+      border-right: none;
+    }
+
+    .benecallouts__slider {
+      display: block;
+    }
+
+    .benecallouts h4 {
+      margin: 0;
+    }
+    
+    .benecallouts__inner a.full-width {
+      width: 100%;
+    }
+
+    .benecallouts__slide {
+      display: none;
+    }
+  }
+
+{% endstyle %}
+
+<div class="benecallouts">
+  <div class="benecallouts__slider">
+    <div class="benecallouts__slide br">
+      <div class="benecallouts__inner">
+        <a href="/account/register" class="full-width">
+          <img src="{{ 'icons-benefit-account.svg' | asset_url }}" />
+          <h4>10% OFF</h4>
+          <h4>FIRST PURCHASE</h4>
+        </a>
+      </div>
+    </div>
+    <div class="benecallouts__slide br br-second">
+      <div class="benecallouts__inner">
+        
+        <a href="/pages/customer-support" class="benefit-country benefit-country-us benefit-country-desktop">
+          <img src="{{ 'icons-benefit-phone.svg' | asset_url }}" />
+        </a>
+        <a href="/pages/customer-support" class="benefit-country benefit-country-ca benefit-country-desktop">
+          <img src="{{ 'icons-benefit-phone.svg' | asset_url }}" />
+        </a>
+        <a href="/pages/customer-support" class="benefit-country benefit-country-gb benefit-country-desktop">
+          <img src="{{ 'icons-benefit-phone.svg' | asset_url }}" />
+        </a>
+
+        <a href="tel:18555921049" class="benefit-country benefit-country-us benefit-country-mobile">
+          <img src="{{ 'icons-benefit-phone.svg' | asset_url }}" />
+        </a>
+        <a href="tel:18555921049" class="benefit-country benefit-country-ca benefit-country-mobile">
+          <img src="{{ 'icons-benefit-phone.svg' | asset_url }}" />
+        </a>
+        <a href="tel:02080583938" class="benefit-country benefit-country-gb benefit-country-mobile">
+          <img src="{{ 'icons-benefit-phone.svg' | asset_url }}" />
+        </a>
+        
+        <a href="/pages/contact">
+          <h4>LIVE SUPPORT</h4>
+        </a>
+        <a href="tel:18555921049" class="benefit-country benefit-country-us benefit-country-desktop"> 
+          <h4>1-855-592-1049</h4>
+        </a>
+        <a href="tel:18555921049" class="benefit-country benefit-country-ca benefit-country-desktop"> 
+          <h4>1-855-592-1049</h4>
+        </a>
+        <a href="tel:02080583938" class="benefit-country benefit-country-gb benefit-country-desktop"> 
+          <h4>020 8058 3938</h4>
+        </a>
+        <a href="tel:18555921049" class="benefit-country benefit-country-us benefit-country-mobile"> 
+          <h4>1-855-592-1049</h4>
+        </a>
+        <a href="tel:18555921049" class="benefit-country benefit-country-ca benefit-country-mobile"> 
+          <h4>1-855-592-1049</h4>
+        </a>
+        <a href="tel:02080583938" class="benefit-country benefit-country-gb benefit-country-mobile"> 
+          <h4>020 8058 3938</h4>
+        </a>
+        <a href="mailto:support@shopliquidrubber.com">
+          <img src="{{ 'icons-benefit-email.svg' | asset_url }}" />
+        </a>
+      </div>
+    </div>
+    <div class="benecallouts__slide br">
+      <div class="benecallouts__inner">
+        <img src="{{ 'icons-benefit-star.svg' | asset_url }}" class="benecallouts__img-large" />
+        <h4>RATED EXCELLENT</h4>
+        <h4>4.8/5</h4>
+      </div>
+    </div>
+    <div class="benecallouts__slide br br-last">
+      <div class="benecallouts__inner">
+        <a href="/pages/shipping-return-refund" class="full-width">
+          <img src="{{ 'icons-benefit-delivery.svg' | asset_url }}" />
+          <h4>FREE </h4>
+          <h4 class="benefit-country benefit-country-gb benefit-country-desktop">DELIVERY £49.95+</h4>
+          <h4 class="benefit-country benefit-country-us benefit-country-desktop">SHIPPING $49.95+</h4>
+          <h4 class="benefit-country benefit-country-ca benefit-country-desktop">SHIPPING $74.95+</h4>
+
+          <h4 class="benefit-country benefit-country-gb benefit-country-mobile">DELIVERY £49.95+</h4>
+          <h4 class="benefit-country benefit-country-us benefit-country-mobile">SHIPPING $49.95+</h4>
+          <h4 class="benefit-country benefit-country-ca benefit-country-mobile">SHIPPING $74.95+</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+{% schema %}
+{
+  "name": "Benefit Callouts",
+  "class": "section-benefit-callouts",
+  "tag": "section",
+  "settings": [
+  ],
+  "presets": [
+    {
+      "name": "Benefit Callouts"
+    }
+  ]
+}
+{% endschema %}

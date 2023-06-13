@@ -2,13 +2,36 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
-        "padding_bottom": 28
+        "padding_bottom": 28,
+        "bottom_stroke": false
+      }
+    },
+    "1684301773aad6d5ca": {
+      "type": "apps",
+      "blocks": {
+        "1a34d736-a43b-42de-90bc-2526fbc5f9dd": {
+          "type": "shopify:\/\/apps\/visual-quiz-builder\/blocks\/app-block\/82108934-e042-4d36-9032-f4f6674fae34",
+          "settings": {
+            "quiz_id": 9055,
+            "render": "shadow"
+          }
+        }
+      },
+      "block_order": [
+        "1a34d736-a43b-42de-90bc-2526fbc5f9dd"
+      ],
+      "custom_css": [
+        ".quiz-logo-container {display: none !important;}"
+      ],
+      "settings": {
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "1684301773aad6d5ca"
   ]
 }

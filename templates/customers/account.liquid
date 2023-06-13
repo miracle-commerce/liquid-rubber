@@ -134,6 +134,17 @@
 
 <script>
 
+  /* Set account cookie to not show account signup popup again */
+  if (typeof(Storage) !== "undefined") {
+    
+    // Check if the visit data exists and if it is for today
+    if (localStorage.getItem("active_account_2") === null) {
+      
+      // Save the updated visit data to local storage
+      localStorage.setItem("active_account_2", "TRUE");
+      
+    }
+  }
   
   $(document).ready(function() {
     

@@ -392,7 +392,7 @@
     </script>
   </head>
 
-  <body class="gradient {{ template | replace: '.', '-' | downcase }} {% if template contains 'landing' %} page-landing{% endif %}">
+  <body class="gradient {{ template | replace: '.', '-' | downcase }} {% if template contains 'landing' %} page-landing{% endif %} location-{{ localization.country.iso_code | downcase }}">
     {% render 'tealium' %}
 
     <script type="lazyload2">
@@ -413,6 +413,7 @@
     </section>
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      {% comment %}{% section 'benefits-callout' %}{% endcomment %}
       {{ content_for_layout }}
     </main>
 
@@ -564,7 +565,11 @@
       }
     </script>-->
 
+    {% section 'sezzle-widget' %}
     {% include 'socialboost-widgets' %}
     {% render 'optimization-js' %}
+
+    {% render 'custom-popup-logic' %}
+
   </body>
 </html>

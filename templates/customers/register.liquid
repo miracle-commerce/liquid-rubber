@@ -3,9 +3,9 @@
     <div
       class="col-12 col-md-6 bg-gray  section-padding" >
       <div class="row">
-        <div class="col-12 d-flex justify-content-center px-md-4 px-lg-5 px-xl-3 position-relative">        
-          {% if shop.metafields.custom_fields["register_page"] != blank %} 
-            {% for item in shop.metafields.custom_fields["register_page"] %}
+        <div class="col-12 d-flex justify-content-center px-md-4 px-lg-5 px-xl-3 position-relative">   
+          {% if shop.metafields.custom_fields["register_page_temp"] != blank %}
+            {% for item in shop.metafields.custom_fields["register_page_temp"] %}
               <div class="z-1">
                 {% if item["register_title"] != blank %}
                   <h2 class="mb-0">
@@ -191,7 +191,7 @@
                         stroke-linecap="round"
                         stroke-linejoin="round" />
                 </svg>
-                <span>Yes, I would like Liquid Rubber to send me email communications. By clicking “Create Account”, you agree to our <a class="accent-link" href="{{ shop.terms_of_service.url }}">Terms &amp; Conditions</a>.</span>
+                <span>“Yes, I would like Liquid Rubber to send me <strong>offers</strong>, <strong>competitions</strong>, and <strong>inspiration</strong> by email.</span>
               </label>
             </div>
             
@@ -216,6 +216,8 @@
                 </svg>
                 Yes, I would like to register to Liquid Rubber's Rewards. <a class="accent-link" href="/pages/rewards-t-and-c"> Rewards T&C</a>.
               </label>
+
+              {% comment %}<div class="register_terms">By clicking “Create Account”, you agree to our <a class="accent-link" href="{{ shop.terms_of_service.url }}">Terms &amp; Conditions</a>.</div>{% endcomment %}
             </div>
 
             <div class="input-container text-center">    
